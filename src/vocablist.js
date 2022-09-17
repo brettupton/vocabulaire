@@ -2061,8 +2061,8 @@ export const vocabList = [
     {
         "French": "D'habitude",
         "English": "Usually",
-        "MascOrFemme": "Feminine",
-        "GrammarType": "Noun"
+        "MascOrFemme": "",
+        "GrammarType": "Adjective"
     },
     {
         "French": "Que",

@@ -1,6 +1,8 @@
 import './App.css';
 import { vocabList } from './vocablist'
 import { useState } from 'react'
+import { Header } from './components/header'
+import { WordTranslation } from './components/wordTranslation'
 
 function App() {
   const [currentWordIndex, setCurrentWordIndex] = useState(0)
@@ -12,28 +14,29 @@ function App() {
     setCurrentWordIndex(randomIndex)
   }
 
+  function startsWithVowelOrH(word){
+    const vowels = ("AÀÂÄÆEÈÉÊËHIÎÏOÔŒUÙÛÜ"); 
+    return vowels.indexOf(word[0]) !== -1;
+ }
+
   const checkGender = (currentWord) => {
     if (currentWord.GrammarType === 'Noun') {
-      if (currentWord.MascOrFemme === 'Masculine') {
-        setCurrentWordGender('Le')
+      if (startsWithVowelOrH(currentWord.French)) {
+        setCurrentWordGender("L'")
+      } else if (currentWord.MascOrFemme === 'Masculine') {
+        setCurrentWordGender('Le ')
       } else {
-        setCurrentWordGender('La')
+        setCurrentWordGender('La ')
       }
     } else {
       setCurrentWordGender('')
     }
   }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <h5>French:</h5>
-        {vocabList[currentWordIndex].GrammarType === 'Noun' 
-        ? <p>{currentWordGender} {vocabList[currentWordIndex].French.toLowerCase()}</p> 
-        : <p>{currentWordGender} {vocabList[currentWordIndex].French}</p>}
-        <h5>English:</h5>
-        <p>{vocabList[currentWordIndex].English}</p>
-        <button onClick={handleClick}>New Word</button>
-      </header>
+      <Header />
+      <WordTranslation handleClick={handleClick} index={currentWordIndex} gender={currentWordGender}/>
     </div>
   );
 }
