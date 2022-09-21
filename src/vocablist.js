@@ -1,5 +1,5 @@
 
-export const vocabList = [
+const vocabList = [
     {
         "French": "Un",
         "English": "A",
@@ -2419,3 +2419,5 @@ export const vocabList = [
         "GrammarType": "Adverb"
     },
 ]
+
+export default vocabList

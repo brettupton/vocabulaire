@@ -1,10 +1,8 @@
-import './App.css';
-import { vocabList } from './vocablist'
 import { useState } from 'react'
-import { Header } from './components/header'
-import { WordTranslation } from './components/wordTranslation'
+import vocabList from '../vocablist'
+import WordTranslation from '../components/WordTranslation'
 
-function App() {
+function LesMots() {
   const [currentWordIndex, setCurrentWordIndex] = useState(0)
   const [currentWordGender, setCurrentWordGender] = useState('')
 
@@ -34,11 +32,11 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <Header />
-      <WordTranslation handleClick={handleClick} index={currentWordIndex} gender={currentWordGender}/>
-    </div>
+      <WordTranslation 
+        handleClick={handleClick} 
+        index={currentWordIndex} 
+        gender={currentWordGender}/>
   );
 }
 
-export default App;
+export default LesMots;

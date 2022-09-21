@@ -1,25 +1,32 @@
-.App {
+.layout {
   font-family: 'Gulzar', serif;
   text-align: center;
-}
-
-.App-div {
   background-color: #333333;
+  color: white;
   min-height: 94.4vh;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: black;
 }
 
 #translation-container {
-  padding-top: 4%;
-  height: 40vh;
-  width: 40vw;
+  padding-top: 20%;
+  height: 50vh;
+  width: 30vw;
   border-radius: 15px;
-  background-image: url("./images/flag.jpg");
+  background-image: url("../images/flag.jpg");
   background-position: center;
   background-size: cover;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+  color: black;
+}
+
+#home-container {
+  height: 80vh;
+}
+
+#home-container img {
+  height: 40vh;
+  width: 30vh;
 }
