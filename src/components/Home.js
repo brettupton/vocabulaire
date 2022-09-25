@@ -11,13 +11,13 @@ export default function Home() {
                     <div className="container">
                         <div className="row">
                             <div className="col">
-                                <img src={eiffeltower} />
+                                <img src={eiffeltower} alt="eiffel-tower" />
 
                             </div>
                         </div>
                         <div className="row">
                             <div className="col">
-                                <h1>Bienvenue à Vocabulaire !</h1>
+                                <h1>Bienvenue dans le Vocabulaire !</h1>
                             </div>
                         </div>
                         <div className="row mt-5">
@@ -27,7 +27,7 @@ export default function Home() {
                         </div>
                         <div className="row mt-3">
                             <div className="col">
-                                <button className="btn btn-primary">Verb Conjugations</button>
+                                <Link to="/verbe" className="btn btn-primary">Verb Conjugations</Link>
                             </div>
                         </div>
                     </div>
