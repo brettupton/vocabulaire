@@ -1,9 +1,36 @@
 import './layout.css';
+import { useState } from 'react'
 import vocabList from "../vocablist"
 
 
-export default function WordTranslation(props) {
-    const {handleClick, index, gender} = props
+export default function WordTranslation() {
+    const [currentWordIndex, setCurrentWordIndex] = useState(0)
+    const [currentWordGender, setCurrentWordGender] = useState('')
+
+    const handleClick = () => {
+        const randomIndex = Math.floor(Math.random() * vocabList.length)
+        checkGender(vocabList[randomIndex])
+        setCurrentWordIndex(randomIndex)
+    }
+
+    function startsWithVowelOrH(word) {
+        const vowels = ("AÀÂÄÆEÈÉÊËHIÎÏOÔŒUÙÛÜ");
+        return vowels.indexOf(word[0]) !== -1;
+    }
+
+    const checkGender = (currentWord) => {
+        if (currentWord.GrammarType === 'Noun') {
+            if (startsWithVowelOrH(currentWord.French)) {
+                setCurrentWordGender("L'")
+            } else if (currentWord.MascOrFemme === 'Masculine') {
+                setCurrentWordGender('Le ')
+            } else {
+                setCurrentWordGender('La ')
+            }
+        } else {
+            setCurrentWordGender('')
+        }
+    }
 
     return (
         <div className="layout">
@@ -16,9 +43,9 @@ export default function WordTranslation(props) {
                     </div>
                     <div className="row">
                         <div className="col">
-                            {vocabList[index].GrammarType === 'Noun'
-                                ? <p>{gender}{vocabList[index].French.toLowerCase()}</p>
-                                : <p>{gender}{vocabList[index].French}</p>}
+                            {vocabList[currentWordIndex].GrammarType === 'Noun'
+                                ? <p>{currentWordGender}{vocabList[currentWordIndex].French.toLowerCase()}</p>
+                                : <p>{currentWordGender}{vocabList[currentWordIndex].French}</p>}
                         </div>
                     </div>
                     <div className="row">
@@ -28,7 +55,7 @@ export default function WordTranslation(props) {
                     </div>
                     <div className="row">
                         <div className="col">
-                            <p>{vocabList[index].English}</p>
+                            <p>{vocabList[currentWordIndex].English}</p>
                         </div>
                     </div>
                     <div className="row">

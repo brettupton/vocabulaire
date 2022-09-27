@@ -11,12 +11,12 @@ export default function Verb(props) {
                 <div className="container" id="translation-container-verb">
                     <div className="row">
                         <div className="col">
-                            French: {verbList[index].Verb}
+                            <h5>French:</h5>{verbList[index].Verb}
                         </div>
                     </div>
                     <div className="row">
                         <div className="col">
-                            English: {verbList[index].Translation}
+                            <h5>English:</h5>{verbList[index].Translation}
                         </div>
                     </div>
                     <div className="text-white">

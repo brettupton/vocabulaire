@@ -18,6 +18,16 @@ const verbList = [
         "Nous": "mangeons",
         "Vous": "mangez",
         "Ils": "mangent"
+    },
+    {
+        "Verb": "Parler",
+        "Translation": "To Speak",
+        "Je": "parle",
+        "Tu": "parles",
+        "Il": "parle",
+        "Nous": "parlons",
+        "Vous": "parlez",
+        "Ils": "parlent"
     }
 ]
 

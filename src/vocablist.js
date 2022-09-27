@@ -2418,6 +2418,438 @@ const vocabList = [
         "MascOrFemme": "",
         "GrammarType": "Adverb"
     },
+    {
+        "French": "Chapeau",
+        "English": "Hat",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Celui-ci",
+        "English": "This one",
+        "MascOrFemme": "",
+        "GrammarType": "Pronoun"
+    },
+    {
+        "French": "Manteau",
+        "English": "Coat",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Nouveau",
+        "English": "New",
+        "MascOrFemme": "",
+        "GrammarType": "Adjective"
+    },
+    {
+        "French": "Celui-là",
+        "English": "That one",
+        "MascOrFemme": "",
+        "GrammarType": "Pronoun"
+    },
+    {
+        "French": "Ceux-là",
+        "English": "Those ones",
+        "MascOrFemme": "",
+        "GrammarType": "Pronoun"
+    },
+    {
+        "French": "Lunettes",
+        "English": "Glasses",
+        "MascOrFemme": "Feminine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Chemise",
+        "English": "Shirt",
+        "MascOrFemme": "Feminine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Botte",
+        "English": "Boot",
+        "MascOrFemme": "Feminine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Même",
+        "English": "Same",
+        "MascOrFemme": "",
+        "GrammarType": "Adjective"
+    },
+    {
+        "French": "Entre",
+        "English": "Between",
+        "MascOrFemme": "",
+        "GrammarType": "Prepostion"
+    },
+    {
+        "French": "À-côté",
+        "English": "Aside",
+        "MascOrFemme": "",
+        "GrammarType": "Prepostion"
+    },
+    {
+        "French": "Puis",
+        "English": "Then",
+        "MascOrFemme": "",
+        "GrammarType": "Adverb"
+    },
+    {
+        "French": "Tout droit",
+        "English": "Straight",
+        "MascOrFemme": "",
+        "GrammarType": "Adjective"
+    },
+    {
+        "French": "Arrêt",
+        "English": "Stop",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Célèbre",
+        "English": "Famous",
+        "MascOrFemme": "",
+        "GrammarType": "Adjective"
+    },
+    {
+        "French": "Tour",
+        "English": "Tower",
+        "MascOrFemme": "Feminine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Adulte",
+        "English": "Adult",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Jamais",
+        "English": "Never",
+        "MascOrFemme": "",
+        "GrammarType": "Adverb"
+    },
+    {
+        "French": "Rien",
+        "English": "Nothing",
+        "MascOrFemme": "",
+        "GrammarType": "Adverb"
+    },
+    {
+        "French": "Football",
+        "English": "Soccer",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Basket",
+        "English": "Basketball",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Match",
+        "English": "Game",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Bibliothèque",
+        "English": "Library",
+        "MascOrFemme": "Feminine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Copain",
+        "English": "Friend",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Si",
+        "English": "If",
+        "MascOrFemme": "",
+        "GrammarType": "Conjuction"
+    },
+    {
+        "French": "Occupé",
+        "English": "Busy",
+        "MascOrFemme": "",
+        "GrammarType": "Adjective"
+    },
+    {
+        "French": "Librairie",
+        "English": "Bookstore",
+        "MascOrFemme": "Feminine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Tout le monde",
+        "English": "Everybody",
+        "MascOrFemme": "",
+        "GrammarType": "Adjective"
+    },
+    {
+        "French": "Pique-nique",
+        "English": "Picnic",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Fête",
+        "English": "Party",
+        "MascOrFemme": "Feminine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Film",
+        "English": "Movie",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Acteur",
+        "English": "Actor",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Je suis d'accord",
+        "English": "I agree",
+        "MascOrFemme": "",
+        "GrammarType": "Phrase"
+    },
+    {
+        "French": "Mauvaise",
+        "English": "Bad",
+        "MascOrFemme": "",
+        "GrammarType": "Adjective"
+    },
+    {
+        "French": "Super",
+        "English": "Awesome",
+        "MascOrFemme": "",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Série",
+        "English": "Series",
+        "MascOrFemme": "Feminine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Tableau",
+        "English": "Painting",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Raison",
+        "English": "Reason",
+        "MascOrFemme": "Feminine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Tort",
+        "English": "Wrong",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Sûr",
+        "English": "Sure",
+        "MascOrFemme": "",
+        "GrammarType": "Adjective"
+    },
+    {
+        "French": "Genre",
+        "English": "Type",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Groupe",
+        "English": "Band",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Meilleur",
+        "English": "Better",
+        "MascOrFemme": "",
+        "GrammarType": "Adjective"
+    },
+    {
+        "French": "Cochon",
+        "English": "Pig",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Souris",
+        "English": "Mouse",
+        "MascOrFemme": "Feminine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Gros",
+        "English": "Fat",
+        "MascOrFemme": "",
+        "GrammarType": "Adjective"
+    },
+    {
+        "French": "Lapin",
+        "English": "Rabbit",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Éléphant",
+        "English": "Elephant",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Pelouse",
+        "English": "Grass",
+        "MascOrFemme": "Feminine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Rapid",
+        "English": "Fast",
+        "MascOrFemme": "",
+        "GrammarType": "Adjective"
+    },
+    {
+        "French": "Campagne",
+        "English": "Countryside",
+        "MascOrFemme": "Feminine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Bruit",
+        "English": "Noise",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Oiseau",
+        "English": "Bird",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Bateau",
+        "English": "Boat",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Rivière",
+        "English": "River",
+        "MascOrFemme": "Feminine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Cadeau",
+        "English": "Gift",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Mot",
+        "English": "Word",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Langue",
+        "English": "Language",
+        "MascOrFemme": "Feminine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Devoirs",
+        "English": "Homework",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Cahier",
+        "English": "Notebook",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Crayon",
+        "English": "Pencil",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Phrase",
+        "English": "Sentence",
+        "MascOrFemme": "Feminine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Encore",
+        "English": "Still",
+        "MascOrFemme": "",
+        "GrammarType": "Adverb"
+    },
+    {
+        "French": "Boisson",
+        "English": "Drink",
+        "MascOrFemme": "Feminine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Sans",
+        "English": "Without",
+        "MascOrFemme": "",
+        "GrammarType": "Preposition"
+    },
+    {
+        "French": "Couteau",
+        "English": "Knife",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Assiette",
+        "English": "Plate",
+        "MascOrFemme": "Feminine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Aucune",
+        "English": "None",
+        "MascOrFemme": "",
+        "GrammarType": "Adjective"
+    },
+    {
+        "French": "Lycée",
+        "English": "High School",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Mais non",
+        "English": "Of course not",
+        "MascOrFemme": "",
+        "GrammarType": "Phrase"
+    },
+    {
+        "French": "D'abord",
+        "English": "First",
+        "MascOrFemme": "",
+        "GrammarType": "Preposition"
+    },
 ]
 
 export default vocabList
