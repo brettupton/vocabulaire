@@ -1,7 +1,7 @@
-import WordTranslation from '../components/WordTranslation'
+import WordFlashCard from '../components/WordFlashCard'
 
 export default function Words() {
     return (
-        <WordTranslation />
+        <WordFlashCard />
     )
 }

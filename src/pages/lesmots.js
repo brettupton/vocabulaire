@@ -14,14 +14,21 @@ function LesMotsHome() {
                 <div className="row">
                     <div className="col">
                         <Link to="words">
-                            <button className="btn btn-primary">Words</button>
+                            <button className="btn btn-success mt-4">Flashcards</button>
                         </Link> 
                     </div>
                 </div>
                 <div className="row">
                     <div className="col">
+                        <Link to="quiz">
+                            <button className="btn btn-success mt-4">Quiz</button>
+                        </Link>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col">
                         <Link to="wordlist">
-                            <button className="btn btn-primary">Full Word List</button>
+                            <button className="btn btn-success mt-4">Word List</button>
                         </Link>
                     </div>
                 </div>

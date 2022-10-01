@@ -3,7 +3,7 @@ import flag from '../images/3200118.ico'
 
 export default function Header() {
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
             <div className="container-fluid">
                 <Link to="/" className="navbar-brand">
                     <img src={flag} alt="french-flag" width="28" height="24" />

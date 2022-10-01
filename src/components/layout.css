@@ -1,13 +1,13 @@
 .layout {
-  font-family: 'Gulzar', serif;
+  font-family: 'PT Serif', serif;
   text-align: center;
   background-color: #333333;
   color: white;
-  min-height: 94.4vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: 28px;
 }
 
 #translation-container {
@@ -41,4 +41,58 @@
 #home-container img {
   height: 40vh;
   width: 30vh;
+}
+
+#table-word-list {
+  margin-top: 5%;
+  width: 90vw;
+  font-size: 20px;
+}
+
+#word-quiz-container {
+  width: 50vw;
+}
+
+#flashcard-image {
+  height: 36px;
+  width: 36px;
+}
+
+#arrow-button {
+  border: 0px;
+  background-color: white;
+}
+
+#flashcard-input {
+  all: unset;
+}
+
+.table-fixed {
+  overflow-y: auto;
+  height: 90vh;
+}
+.table-fixed thead th {
+  position: sticky;
+  top: 0;
+}
+table {
+  border-collapse: collapse;
+  width: 90vw;
+  background: white;
+  color: black;
+}
+th,
+td {
+  padding: 8px 16px;
+}
+th {
+  background: #6c757d;
+  color: white;
+}
+.table-fixed,
+.table-fixed td {
+  box-shadow: inset 1px -1px #000;
+}
+.table-fixed th {
+  box-shadow: inset 1px 1px #000, 0 1px #000;
 }

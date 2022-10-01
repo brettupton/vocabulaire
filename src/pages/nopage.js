@@ -2,6 +2,8 @@ import React from 'react'
 
 export default function NoPage() {
     return (
-        <h1>Sorry. Not Found</h1>
+        <div className="layout">
+            <h1>404. Page Not Found</h1>
+        </div>
     )
 }

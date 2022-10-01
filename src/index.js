@@ -6,6 +6,8 @@ import Layout from './pages/layout'
 import LesMots from './pages/lesmots'
 import Words from './pages/words'
 import FullWordList from './pages/fullwordlist'
+import WordQuiz from './pages/wordquiz'
+import WordQuizStart from './pages/wordquizstart'
 import Verb from './pages/verbe'
 import HomePage from './pages/home'
 import NoPage from './pages/nopage'
@@ -19,6 +21,10 @@ export default function App() {
           <Route path="lesmots" element={<LesMots />}>
             <Route path="words" element={<Words />} />
             <Route path="wordlist" element={<FullWordList />} />
+            <Route path="quiz" element={<WordQuiz />}>
+              <Route path="start" element={<WordQuizStart />} />
+            </Route>
+            <Route path="*" element={<NoPage />} />
           </Route>
           <Route path="verbe" element={<Verb />} />
           <Route path="*" element={<NoPage />} />

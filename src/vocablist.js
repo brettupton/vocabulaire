@@ -344,7 +344,7 @@ const vocabList = [
     },
     {
         "French": "Aéroport",
-        "English": "Hotel",
+        "English": "Airport",
         "MascOrFemme": "Masculine",
         "GrammarType": "Noun"
     },
@@ -1982,7 +1982,7 @@ const vocabList = [
     },
     {
         "French": "Leur",
-        "English": "Meeting",
+        "English": "Their",
         "MascOrFemme": "",
         "GrammarType": "Pronoun"
     },
