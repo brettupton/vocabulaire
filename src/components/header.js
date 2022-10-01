@@ -11,13 +11,13 @@ export default function Header() {
                 <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <Link to="/" className="nav-link">Home</Link>
+                            <Link to="/" className="nav-link">Accueil</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/lesmots" className="nav-link">Word Translations</Link>
+                            <Link to="/lesmots" className="nav-link">Traductions de mots</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/verbe" className="nav-link">Verb Conjugations</Link>
+                            <Link to="/verbe" className="nav-link">Conjugaisons des verbes</Link>
                         </li>
                     </ul>
                 </div>

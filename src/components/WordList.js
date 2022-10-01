@@ -20,7 +20,7 @@ export default function WordList() {
                     <tbody>
                         {vocabList.map((e, i) => {
                             return (
-                                <WordRow word={e} index={i}/>
+                                <WordRow word={e} index={i+1}/>
                             )
                         })}
                     </tbody>

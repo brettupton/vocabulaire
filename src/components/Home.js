@@ -22,12 +22,12 @@ export default function Home() {
                         </div>
                         <div className="row mt-5">
                             <div className="col">
-                                <Link to="/lesmots" className="btn btn-success">Word Translations</Link>
+                                <Link to="/lesmots" className="btn btn-success">Traductions de mots</Link>
                             </div>
                         </div>
                         <div className="row mt-3">
                             <div className="col">
-                                <Link to="/verbe" className="btn btn-success">Verb Conjugations</Link>
+                                <Link to="/verbe" className="btn btn-success">Conjugaisons des verbes</Link>
                             </div>
                         </div>
                     </div>
