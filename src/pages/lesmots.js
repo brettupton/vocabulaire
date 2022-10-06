@@ -1,6 +1,6 @@
 import React from 'react'
 import { Outlet, useLocation, Link } from 'react-router-dom'
-import notredame from '../images/5212951.png'
+import notredame from '../images/notredame.png'
 import '../components/layout.css'
 
 function LesMotsHome() {
@@ -10,12 +10,12 @@ function LesMotsHome() {
                 <img src={notredame} height="400px" width="400px"/>
                 <div className="row">
                     <div className="col">
-                        Bonjour! Qu'est-ce que tu aimerais faire? 
+                        Bienvenue pour apprendre des mots ! Qu'est-ce que tu aimerais faire ?  
                     </div>
                 </div>
                 <div className="row">
                     <div className="col">
-                        <Link to="words">
+                        <Link to="flashcards">
                             <button className="btn btn-success mt-4">Flashcards</button>
                         </Link> 
                     </div>
