@@ -2850,6 +2850,372 @@ const vocabList = [
         "MascOrFemme": "",
         "GrammarType": "Preposition"
     },
+    {
+        "French": "Ensuite",
+        "English": "Then",
+        "MascOrFemme": "",
+        "GrammarType": "Adverb"
+    },
+    {
+        "French": "Jusqu'à",
+        "English": "Until",
+        "MascOrFemme": "",
+        "GrammarType": "Preposition"
+    },
+    {
+        "French": "Informations",
+        "English": "News",
+        "MascOrFemme": "Feminine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Ceci",
+        "English": "This",
+        "MascOrFemme": "",
+        "GrammarType": "Pronoun"
+    },
+    {
+        "French": "Cela",
+        "English": "That",
+        "MascOrFemme": "",
+        "GrammarType": "Pronoun"
+    },
+    {
+        "French": "Lieu",
+        "English": "Place",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Entier",
+        "English": "Whole",
+        "MascOrFemme": "",
+        "GrammarType": "Adjective"
+    },
+    {
+        "French": "Voilà",
+        "English": "There is",
+        "MascOrFemme": "",
+        "GrammarType": "Preposition"
+    },
+    {
+        "French": "Appareil-photo",
+        "English": "Camera",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Seconde",
+        "English": "Second",
+        "MascOrFemme": "Feminine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Mieux",
+        "English": "Better",
+        "MascOrFemme": "",
+        "GrammarType": "Adjective"
+    },
+    {
+        "French": "Dos",
+        "English": "Back",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Corps",
+        "English": "Body",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Inquiet",
+        "English": "Worried",
+        "MascOrFemme": "",
+        "GrammarType": "Adjective"
+    },
+    {
+        "French": "Étage",
+        "English": "Floor",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Quatrième",
+        "English": "Fourth",
+        "MascOrFemme": "",
+        "GrammarType": "Adjective"
+    },
+    {
+        "French": "Rez-de-chaussée",
+        "English": "Ground Floor",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Cinquième",
+        "English": "Fifth",
+        "MascOrFemme": "",
+        "GrammarType": "Adjective"
+    },
+    {
+        "French": "Argent",
+        "English": "Money",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Septieme",
+        "English": "Seventh",
+        "MascOrFemme": "",
+        "GrammarType": "Adjective"
+    },
+    {
+        "French": "Mur",
+        "English": "Wall",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Seulement",
+        "English": "Only",
+        "MascOrFemme": "",
+        "GrammarType": "Adverb"
+    },
+    {
+        "French": "Centime",
+        "English": "Cent",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Entreprise",
+        "English": "Company",
+        "MascOrFemme": "Feminine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Réponse",
+        "English": "Answer",
+        "MascOrFemme": "Feminine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Pauvre",
+        "English": "Poor",
+        "MascOrFemme": "",
+        "GrammarType": "Adjective"
+    },
+    {
+        "French": "Différent",
+        "English": "Different",
+        "MascOrFemme": "",
+        "GrammarType": "Adjective"
+    },
+    {
+        "French": "Vie",
+        "English": "Life",
+        "MascOrFemme": "Feminine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Barbe",
+        "English": "Beard",
+        "MascOrFemme": "Feminine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Souvenir",
+        "English": "Memory",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Jour Férié",
+        "English": "Public Holiday",
+        "MascOrFemme": "",
+        "GrammarType": "Adjective"
+    },
+    {
+        "French": "Hier",
+        "English": "Yesterday",
+        "MascOrFemme": "",
+        "GrammarType": "Adverb"
+    },
+    {
+        "French": "Immédiatement",
+        "English": "Immediately",
+        "MascOrFemme": "",
+        "GrammarType": "Adverb"
+    },
+    {
+        "French": "Dernier",
+        "English": "Last",
+        "MascOrFemme": "",
+        "GrammarType": "Adjective"
+    },
+    {
+        "French": "Ballon",
+        "English": "Ball",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Poupée",
+        "English": "Doll",
+        "MascOrFemme": "Feminine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Heureux",
+        "English": "Happy",
+        "MascOrFemme": "",
+        "GrammarType": "Adjective"
+    },
+    {
+        "French": "Gens",
+        "English": "People",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Plural Noun"
+    },
+    {
+        "French": "Si",
+        "English": "So",
+        "MascOrFemme": "",
+        "GrammarType": "Conjunction"
+    },
+    {
+        "French": "Boîte",
+        "English": "Box",
+        "MascOrFemme": "Feminine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Canapé",
+        "English": "Sofa",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Sous",
+        "English": "Under",
+        "MascOrFemme": "",
+        "GrammarType": "Preposition"
+    },
+    {
+        "French": "Sol",
+        "English": "Floor",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Piscine",
+        "English": "Swimming Pool",
+        "MascOrFemme": "Feminine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Montre",
+        "English": "Watch",
+        "MascOrFemme": "Feminine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Par Exemple",
+        "English": "For Example",
+        "MascOrFemme": "",
+        "GrammarType": "Phrase"
+    },
+    {
+        "French": "En Bas",
+        "English": "Downstairs",
+        "MascOrFemme": "",
+        "GrammarType": "Adverb"
+    },
+    {
+        "French": "En Haut",
+        "English": "Upstairs",
+        "MascOrFemme": "",
+        "GrammarType": "Adverb"
+    },
+    {
+        "French": "Partie",
+        "English": "Part",
+        "MascOrFemme": "Feminine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Au-dessus",
+        "English": "Above",
+        "MascOrFemme": "",
+        "GrammarType": "Adverb"
+    },
+    {
+        "French": "Degré",
+        "English": "Degree",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Ennuyeux",
+        "English": "Annoying",
+        "MascOrFemme": "",
+        "GrammarType": "Adjective"
+    },
+    {
+        "French": "Longtemps",
+        "English": "Long Time",
+        "MascOrFemme": "",
+        "GrammarType": "Adverb"
+    },
+    {
+        "French": "Rien Du Tout",
+        "English": "Nothing At All",
+        "MascOrFemme": "",
+        "GrammarType": "Phrase"
+    },
+    {
+        "French": "Bizarre",
+        "English": "Weird",
+        "MascOrFemme": "",
+        "GrammarType": "Adjective"
+    },
+    {
+        "French": "Escalier",
+        "English": "Stairs",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Quelqu'un",
+        "English": "Somebody",
+        "MascOrFemme": "",
+        "GrammarType": "Pronoun"
+    },
+    {
+        "French": "Restau",
+        "English": "Restaurant",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Peur",
+        "English": "Fear",
+        "MascOrFemme": "Feminine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Chanson",
+        "English": "Song",
+        "MascOrFemme": "Feminine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Pâtes",
+        "English": "Pasta",
+        "MascOrFemme": "Feminine",
+        "GrammarType": "Plural Noun"
+    },
 ]
 
 export default vocabList

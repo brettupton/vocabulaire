@@ -6,7 +6,7 @@ import WordRow from './WordRow'
 export default function WordList() {
     return (
         <div className="layout">
-            <div className="table-fixed">
+            <div className="table-fixed mt-5">
                 <table>
                     <thead>
                         <tr>
@@ -18,9 +18,9 @@ export default function WordList() {
                         </tr>
                     </thead>
                     <tbody>
-                        {vocabList.map((e, i) => {
+                        {vocabList.map((word, i) => {
                             return (
-                                <WordRow word={e} index={i+1}/>
+                                <WordRow word={word} index={i+1}/>
                             )
                         })}
                     </tbody>

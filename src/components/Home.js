@@ -8,7 +8,7 @@ export default function Home() {
         <>
             <div className="layout">
                 <div id="home-container">
-                    <div className="container">
+                    <div className="container-fluid">
                         <div className="row">
                             <div className="col">
                                 <img src={eiffeltower} alt="eiffel-tower" />
@@ -28,6 +28,11 @@ export default function Home() {
                         <div className="row mt-3">
                             <div className="col">
                                 <Link to="/verbe" className="btn btn-success">Conjugaisons des verbes</Link>
+                            </div>
+                        </div>
+                        <div className="row mt-3">
+                            <div className="col">
+                                <Link to="/traduire" className="btn btn-success">Traduire</Link>
                             </div>
                         </div>
                     </div>

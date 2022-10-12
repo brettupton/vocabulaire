@@ -3,37 +3,14 @@
   text-align: center;
   background-color: #333333;
   color: white;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 28px;
 }
 
-#translation-container {
-  padding-top: 20%;
-  height: 50vh;
-  width: 30vw;
-  border-radius: 15px;
-  background-image: url("../images/flag.jpg");
-  background-position: center;
-  background-size: cover;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
-  color: black;
-}
-
-#translation-container-verb {
-  padding-top: 5%;
-  height: 50vh;
-  width: 42vw;
-  border-radius: 15px;
-  background-image: url("../images/flag.jpg");
-  background-position: center;
-  background-size: cover;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
-  color: black;
-}
-
+/* Home */
 #home-container {
   height: 80vh;
 }
@@ -43,22 +20,47 @@
   width: 30vh;
 }
 
-#table-word-list {
-  margin-top: 5%;
-  width: 90vw;
-  font-size: 20px;
-}
-
-#word-quiz-container {
-  width: 50vw;
-}
-
-#flashcard-image {
+/* Word FlashCard */
+#word-flashcard-icon {
   height: 36px;
   width: 36px;
 }
 
+#word-flashcard {
+  z-index: 0;
+  height: 39vh;
+  width: 32vw;
+  color: black;
+}
+
+/* Media Query < 1300px */
+@media (max-width: 1300px) {
+  #word-flashcard {
+    width: 95vw;
+    font-size: 20px;
+  }
+
+  #word-flashcard-input-container {
+    display: none;
+  }
+
+  #arrow-button {
+    height: 46px !important;
+    width: 46px !important;
+  }
+  
+  #home-container {
+    width: 95vw;
+    font-size: 20px;
+  }
+}
+
 #arrow-button {
+  height: 36px;
+  width: 36px;
+}
+
+#button-styling {
   border: 0px;
   background-color: white;
 }
@@ -67,6 +69,32 @@
   all: unset;
 }
 
+/* Verb Flashcard */
+#verb-flashcard-icon {
+  height: 36px;
+  width: 36px;
+}
+
+#verb-flashcard {
+  z-index: 0;
+  height: 42vh;
+  width: 32vw;
+  color: black;
+}
+
+#verb-container {
+  margin-top: -25px;
+}
+
+/* Media Query < 1300px */
+@media (max-width: 1300px) {
+  #verb-flashcard {
+    width: 95vw;
+    font-size: 20px;
+  }
+}
+
+/* Word List Table */
 .table-fixed {
   overflow-y: auto;
   height: 90vh;
@@ -95,4 +123,18 @@ th {
 }
 .table-fixed th {
   box-shadow: inset 1px 1px #000, 0 1px #000;
+}
+
+/* Sidebar */
+#SidebarCollapse {
+  padding-top: 50%;
+  background: rgba(31, 31, 31, 0.9);
+  position: absolute;
+  min-width: 100vw;
+  height: 100vh;
+  z-index: 296;
+}
+
+#navSidebarContainer {
+  width: 100%;
 }
