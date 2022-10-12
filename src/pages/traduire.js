@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import config from '../config'
 
 const speech = new SpeechSynthesisUtterance()
 const synth = window.speechSynthesis
@@ -42,7 +43,7 @@ export default function Traduire() {
             headers: {
                 'content-type': 'application/x-www-form-urlencoded',
                 'Accept-Encoding': 'application/gzip',
-                'X-RapidAPI-Key': '2dc2903e8dmshe9954ac741eac0cp1c9e78jsn5921f27155f2',
+                'X-RapidAPI-Key': config.REACT_APP_TRANSLATEAPIKEY,
                 'X-RapidAPI-Host': 'google-translate1.p.rapidapi.com'
             },
             body: encodedParams
@@ -50,7 +51,7 @@ export default function Traduire() {
         
         fetch('https://google-translate1.p.rapidapi.com/language/translate/v2', options)
             .then(response => response.json())
-            .then(response => setTranslatedTextResponse(response.data.translations[0].translatedText))
+            .then(response => console.log(response))
             .catch(err => console.error(err));
     }
 
