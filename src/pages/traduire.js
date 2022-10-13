@@ -38,7 +38,7 @@ export default function Traduire() {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
-                'X-RapidAPI-Key': config.REACT_APP_TRANSLATEAPIKEY,
+                'X-RapidAPI-Key': process.env.REACT_APP_TRANSLATEAPIKEY,
                 'X-RapidAPI-Host': 'deep-translate1.p.rapidapi.com'
             },
             body: `{"q":"${input.value}","source":"fr","target":"en"}`
