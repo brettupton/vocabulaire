@@ -1,8 +1,17 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import Collapse from 'react-bootstrap/Collapse';
 import flag from '../images/fheart.ico'
 
 export default function Header() {
+    const [open, setOpen] = useState(true);
+    const location = useLocation()
+
+    useEffect(() => {
+        if (open) {
+            setOpen(false)
+        }
+    }, [location])
 
     return (
         <div>
@@ -30,28 +39,31 @@ export default function Header() {
             </div>
         </nav>
         <nav className="navbar navbar-dark bg-dark d-lg-none fixed-top">
-            <button className="btn" type="button" data-bs-toggle="collapse" data-bs-target="#SidebarCollapse" aria-expanded="false" aria-controls="SidebarCollapse">
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="white" class="bi bi-list" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+            <button className="btn" type="button" onClick={() => setOpen(!open)} aria-controls="navSidebarContainer" aria-expanded={open}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="white" className="bi bi-list" viewBox="0 0 16 16">
+                    <path fillRule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
                 </svg>
             </button>
         </nav>
-            <div className="collapse" id="SidebarCollapse">
+            <Collapse in={open}>
                 <div id="navSidebarContainer" >
                     <h4 className="text-white text-center">Vers où ?</h4>
                     <ul className="list-group list-group-flush text-center bg-transparent">
                         <li className="list-group-item list-group-item-dark bg-transparent">
-                            <Link to="/" className="btn btn-success">Accueil</Link>
+                            <Link to="/" className="btn btn-success w-50">Accueil</Link>
                         </li>
                         <li className="list-group-item list-group-item-dark bg-transparent">
-                            <Link to="/lesmots" className="btn btn-success">Traductions de mots</Link>
+                            <Link to="/lesmots" className="btn btn-success w-50">Traductions de mots</Link>
                         </li>
                         <li className="list-group-item list-group-item-dark bg-transparent">
-                            <Link to="/verbe" className="btn btn-success">Conjugaisons des verbes</Link>
+                            <Link to="/verbe" className="btn btn-success w-50">Conjugaisons des verbes</Link>
+                        </li>
+                        <li className="list-group-item list-group-item-dark bg-transparent">
+                            <Link to="/traduire" className="btn btn-success w-50">Traduire</Link>
                         </li>
                     </ul>
                 </div>
-            </div>
+            </Collapse>
         </div>
     )
 }

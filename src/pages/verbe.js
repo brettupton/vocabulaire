@@ -14,21 +14,21 @@ function VerbeHome() {
                 <div className="row">
                     <div className="col">
                         <Link to="flashcards">
-                            <button className="btn btn-success mt-4">Flashcards</button>
+                            <button className="btn btn-success mt-4" id="mots-buttons">Flashcards</button>
                         </Link> 
                     </div>
                 </div>
                 <div className="row">
                     <div className="col">
                         <Link to="#">
-                            <button className="btn btn-success mt-4">Questionnaire</button>
+                            <button className="btn btn-success mt-4" id="mots-buttons">Questionnaire</button>
                         </Link>
                     </div>
                 </div>
                 <div className="row">
                     <div className="col">
                         <Link to="#">
-                            <button className="btn btn-success mt-4">Liste de verbes</button>
+                            <button className="btn btn-success mt-4" id="mots-buttons">Liste de verbes</button>
                         </Link>
                     </div>
                 </div>

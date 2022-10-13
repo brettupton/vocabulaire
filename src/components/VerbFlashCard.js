@@ -102,10 +102,10 @@ export default function VerbFlashCard() {
                         </div>
                     </div>
                 </div>
-                <div className="container">
-                    <div className="row justify-content-end mt-4" style={{fontSize: "15px"}}>
-                        <div className="col-3">
-                            <p>{verbIndex + 1} / {verbList.length}</p>
+                <div className="container mt-5 mr-3 text-white">
+                    <div className="row">
+                        <div className="col">
+                            {verbIndex + 1} / {verbList.length}
                         </div>
                     </div>
                 </div>

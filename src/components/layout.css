@@ -20,6 +20,10 @@
   width: 30vh;
 }
 
+#home-buttons {
+  width: 40%;
+}
+
 /* Word FlashCard */
 #word-flashcard-icon {
   height: 36px;
@@ -33,11 +37,15 @@
   color: black;
 }
 
+#mots-buttons {
+  width: 12%;
+}
+
 /* Media Query < 1300px */
 @media (max-width: 1300px) {
   #word-flashcard {
     width: 95vw;
-    font-size: 20px;
+    font-size: 26px;
   }
 
   #word-flashcard-input-container {
@@ -45,13 +53,17 @@
   }
 
   #arrow-button {
-    height: 46px !important;
-    width: 46px !important;
+    height: 40px !important;
+    width: 40px !important;
   }
   
   #home-container {
     width: 95vw;
     font-size: 20px;
+  }
+
+  #mots-buttons {
+    width: 50%;
   }
 }
 
@@ -126,7 +138,7 @@ th {
 }
 
 /* Sidebar */
-#SidebarCollapse {
+#navSidebarContainer {
   padding-top: 50%;
   background: rgba(31, 31, 31, 0.9);
   position: absolute;
@@ -137,4 +149,14 @@ th {
 
 #navSidebarContainer {
   width: 100%;
+}
+
+/* Translation and Speech */
+
+#translation-translate-container {
+  height: 112px;
+  background-color: white;
+  border-radius: 5px;
+  color: black;
+  font-size: 18px;
 }
