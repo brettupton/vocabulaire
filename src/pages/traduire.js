@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import config from '../config'
 
 const speech = new SpeechSynthesisUtterance()
 const synth = window.speechSynthesis
@@ -38,11 +37,13 @@ export default function Traduire() {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
-                'X-RapidAPI-Key': config.rapidApiKey,
+                'X-RapidAPI-Key': process.env.REACT_APP_TRANSLATEAPIKEY,
                 'X-RapidAPI-Host': 'deep-translate1.p.rapidapi.com'
             },
             body: `{"q":"${input.value}","source":"fr","target":"en"}`
         };
+
+        console.log(process.env.REACT_APP_TRANSLATEAPIKEY)
         
         fetch('https://deep-translate1.p.rapidapi.com/language/translate/v2', options)
             .then(response => response.json())
