@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import Collapse from 'react-bootstrap/Collapse';
+import Collapse from 'react-bootstrap/Collapse'
 import flag from '../images/fheart.ico'
 
 export default function Header() {
