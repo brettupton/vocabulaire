@@ -8,9 +8,7 @@ export default function Header() {
     const location = useLocation()
 
     useEffect(() => {
-        if (open) {
-            setOpen(false)
-        }
+        setOpen(false)
     }, [location])
 
     return (
