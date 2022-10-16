@@ -10,7 +10,7 @@ export default function WordList() {
                 <table>
                     <thead>
                         <tr>
-                            <th>#</th>
+                            <th id="row-hidden">#</th>
                             <th>French</th>
                             <th>English</th>
                             <th>Gender</th>

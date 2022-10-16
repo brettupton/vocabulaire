@@ -9,7 +9,7 @@ export default function FEConjugations(props) {
     }
 
     return (
-        <div className="container mt-4">
+        <div className="container" id="verb-conjugation-mobile-container">
             <div className="row">
                 <div className="col">
                     ({verbList[verbIndex].Tense} Tense)

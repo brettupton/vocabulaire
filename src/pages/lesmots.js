@@ -22,7 +22,7 @@ function LesMotsHome() {
                 </div>
                 <div className="row">
                     <div className="col">
-                        <Link to="quiz">
+                        <Link to="#">
                             <button className="btn btn-success mt-4" id="mots-buttons">Questionnaire</button>
                         </Link>
                     </div>

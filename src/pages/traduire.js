@@ -13,10 +13,10 @@ export default function Traduire() {
       }
 
     const checkEnterPress = (e) => {
-        const playButton = document.getElementById('play-button')
+        const translateButton = document.getElementById('translate-button')
         if (e.key === "Enter") {
             e.preventDefault();
-            playButton.click();
+            translateButton.click();
         }
     }
 
@@ -28,10 +28,14 @@ export default function Traduire() {
         } 
     })
 
-    const playSpeechAndTranslate = () => {
-        const input = document.getElementById('input-area')
-        speech.text = input.value
+    const playSpeech = () => {
+        speech.text = translatedTextResponse
         synth.speak(speech)
+        
+    }
+
+    const translateText = () => {
+        const input = document.getElementById('input-area')
 
         const options = {
             method: 'POST',
@@ -42,8 +46,6 @@ export default function Traduire() {
             },
             body: `{"q":"${input.value}","source":"fr","target":"en"}`
         };
-
-        console.log(process.env.REACT_APP_TRANSLATEAPIKEY)
         
         fetch('https://deep-translate1.p.rapidapi.com/language/translate/v2', options)
             .then(response => response.json())
@@ -51,7 +53,6 @@ export default function Traduire() {
                 setTranslatedTextResponse(unescape(response.data.translations.translatedText))
             })
             .catch(err => console.error(err));
-        
     }
 
     return (
@@ -60,16 +61,26 @@ export default function Traduire() {
                 <div className="row justify-content-center">
                     <div className="col-lg-5">
                         <div className="form-group">
-                                <label htmlFor="input-area" style={{fontSize: "24px"}}>Input:</label>
+                                <label htmlFor="input-area" style={{fontSize: "24px"}}>French:</label>
                                 <textarea className="form-control" rows="4" id="input-area" placeholder="Type here"></textarea>
                             </div>
                         </div>
                     <div className="col-lg-5">
-                        <span style={{fontSize: "24px"}}>Translation:</span> 
+                        <span style={{fontSize: "24px"}}>English:</span> 
                         <div className="container" id="translation-translate-container">
                             <div className="row align-items-start pt-1">
                                 <div className="col-auto">
-                                    {translatedTextResponse}
+                                    {translatedTextResponse && 
+                                        <div className="container">
+                                            <div className="row align-items-center">
+                                                <div className="col">
+                                                    {translatedTextResponse} 
+                                                    <button className="btn p-1 mb-1" onClick={playSpeech}>
+                                                        <img id="play-icon"/>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>}
                                 </div>
                             </div>
                         </div>
@@ -77,7 +88,7 @@ export default function Traduire() {
                 </div>
                 <div className="row mt-5">
                     <div className="col">
-                        <button onClick={playSpeechAndTranslate} className="btn btn-success" id="play-button">Translate to English</button>
+                        <button onClick={translateText} className="btn btn-success" id="translate-button">Translate to English</button>
                     </div>
                 </div>
             </div>
