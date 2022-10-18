@@ -5,6 +5,7 @@ import './index.css'
 import Layout from './pages/layout'
 import LesMots from './pages/lesmots'
 import WordFlashCard from './pages/wordflashcards'
+import Significatifs from './pages/significatifs'
 import FullWordList from './pages/fullwordlist'
 import Verbe from './pages/verbe'
 import VerbFlashCards from './pages/verbflashcards';
@@ -21,6 +22,7 @@ export default function App() {
           <Route path="lesmots" element={<LesMots />}>
             <Route path="flashcards" element={<WordFlashCard />} />
             <Route path="wordlist" element={<FullWordList />} />
+            <Route path="significatifs" element={<Significatifs />} />
             <Route path="*" element={<NoPage />} />
           </Route>
           <Route path="verbe" element={<Verbe />}> 

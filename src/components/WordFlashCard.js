@@ -5,7 +5,7 @@ import rightarrow from '../images/icons/arrow-right-circle.svg'
 import leftarrow from '../images/icons/arrow-left-circle.svg'
 import flipbutton from '../images/icons/arrow-counterclockwise.svg'
 import { useState } from 'react'
-import vocabList from "../vocablist"
+import vocabList from "../lists/vocablist"
 
 export default function WordFlashCard() {
     const [wordIndex, setWordIndex] = useState(0)

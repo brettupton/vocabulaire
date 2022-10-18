@@ -1,4 +1,4 @@
-import verbList from '../verblist'
+import verbList from '../lists/verblist'
 
 export default function FEConjugations(props) {
     const {verbIndex} = props

@@ -1,7 +1,7 @@
 import { React, useState } from 'react'
 import FEVerb from './FEVerb'
 import FEConjugations from './FEConjugations'
-import verbList from '../verblist'
+import verbList from '../lists/verblist'
 import rightarrow from '../images/icons/arrow-right-circle.svg'
 import leftarrow from '../images/icons/arrow-left-circle.svg'
 import flipbutton from '../images/icons/arrow-counterclockwise.svg'

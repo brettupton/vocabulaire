@@ -1,7 +1,7 @@
 import React from 'react'
 import './layout.css'
-import vocabList from '../vocablist'
-import WordRow from './WordRow'
+import vocabList from '../lists/vocablist'
+import WordRow from './rows/WordRow'
 
 export default function WordList() {
     return (
