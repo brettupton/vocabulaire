@@ -3214,7 +3214,277 @@ const vocabList = [
         "French": "Pâtes",
         "English": "Pasta",
         "MascOrFemme": "Feminine",
-        "GrammarType": "Plural Noun"
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Jusqu'à",
+        "English": "Until",
+        "MascOrFemme": "",
+        "GrammarType": "Preposition"
+    },
+    {
+        "French": "Dessin Anime",
+        "English": "Cartoon",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Excellente",
+        "English": "Excellent",
+        "MascOrFemme": "",
+        "GrammarType": "Adjective"
+    },
+    {
+        "French": "Mer",
+        "English": "Sea",
+        "MascOrFemme": "Feminine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Pendant",
+        "English": "During",
+        "MascOrFemme": "",
+        "GrammarType": "Preposition"
+    },
+    {
+        "French": "Carte postale",
+        "English": "Post Card",
+        "MascOrFemme": "Feminine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Le long de",
+        "English": "Along",
+        "MascOrFemme": "",
+        "GrammarType": "Preposition"
+    },
+    {
+        "French": "Fleuve",
+        "English": "River",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Lac",
+        "English": "Lake",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Autour",
+        "English": "Around",
+        "MascOrFemme": "",
+        "GrammarType": "Preposition"
+    },
+    {
+        "French": "Tranquille",
+        "English": "Quiet",
+        "MascOrFemme": "",
+        "GrammarType": "Adjective"
+    },
+    {
+        "French": "Enfance",
+        "English": "Childhood",
+        "MascOrFemme": "Feminine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Chanteur",
+        "English": "Singer",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Danseur",
+        "English": "Dancer",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Opéra",
+        "English": "Opera",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Fantastique",
+        "English": "Fantastic",
+        "MascOrFemme": "",
+        "GrammarType": "Adjective"
+    },
+    {
+        "French": "Timide",
+        "English": "Shy",
+        "MascOrFemme": "",
+        "GrammarType": "Adjective"
+    },
+    {
+        "French": "Agréable",
+        "English": "Pleasant",
+        "MascOrFemme": "",
+        "GrammarType": "Adjective"
+    },
+    {
+        "French": "Sérieux",
+        "English": "Serious",
+        "MascOrFemme": "",
+        "GrammarType": "Adjective"
+    },
+    {
+        "French": "Photographie",
+        "English": "Photographer",
+        "MascOrFemme": "Feminine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Paresseux",
+        "English": "Lazy",
+        "MascOrFemme": "",
+        "GrammarType": "Adjective"
+    },
+    {
+        "French": "Ingénieur",
+        "English": "Engineer",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Responsable",
+        "English": "Responsible",
+        "MascOrFemme": "",
+        "GrammarType": "Adjective"
+    },
+    {
+        "French": "Grammaire",
+        "English": "Grammar",
+        "MascOrFemme": "Feminine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Mathématiques",
+        "English": "Mathematics",
+        "MascOrFemme": "Feminine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Grâce à",
+        "English": "Thanks to",
+        "MascOrFemme": "",
+        "GrammarType": "Preposition"
+    },
+    {
+        "French": "Prof",
+        "English": "Teacher",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Géographie",
+        "English": "Geography",
+        "MascOrFemme": "Feminine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Cahier d'exercices",
+        "English": "Workbook",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Histoire",
+        "English": "History",
+        "MascOrFemme": "Feminine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Début",
+        "English": "Beginning",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Semestre",
+        "English": "Semester",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Manuel",
+        "English": "Textbook",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Chimie",
+        "English": "Chemistry",
+        "MascOrFemme": "Feminine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Physique",
+        "English": "Physics",
+        "MascOrFemme": "Feminine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Étagère",
+        "English": "Shelf",
+        "MascOrFemme": "Feminine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Assez",
+        "English": "Enough",
+        "MascOrFemme": "",
+        "GrammarType": "Adverb"
+    },
+    {
+        "French": "Biologie",
+        "English": "Biology",
+        "MascOrFemme": "Feminine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Motivé",
+        "English": "Motivated",
+        "MascOrFemme": "",
+        "GrammarType": "Adjective"
+    },
+    {
+        "French": "Adolescent",
+        "English": "Teenager",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Tout de suite",
+        "English": "Right away",
+        "MascOrFemme": "",
+        "GrammarType": "Phrase"
+    },
+    {
+        "French": "Oncle",
+        "English": "Uncle",
+        "MascOrFemme": "Masculine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Tante",
+        "English": "Aunt",
+        "MascOrFemme": "Feminine",
+        "GrammarType": "Noun"
+    },
+    {
+        "French": "Malheureusement",
+        "English": "Unfortunately",
+        "MascOrFemme": "",
+        "GrammarType": "Adverb"
+    },
+    {
+        "French": "Fou",
+        "English": "Crazy",
+        "MascOrFemme": "",
+        "GrammarType": "Adjective"
     },
 ]
 

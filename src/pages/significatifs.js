@@ -1,8 +1,5 @@
-import significantList from "../lists/significantlist"
 import NumberRow from '../components/rows/NumberRow'
-import QuestionRow from '../components/rows/QuestionRow'
-import ColorsRow from '../components/rows/ColorsRow'
-import MonthRow from '../components/rows/MonthRow'
+import SimpleTable from '../components/SimpleTable'
 import uparrow from '../images/icons/arrow-up-circle.svg'
 
 export default function Significatifs() {
@@ -20,12 +17,14 @@ export default function Significatifs() {
                         <a href="#questions" className="list-group-item list-group-item-action">Questions</a>
                         <a href="#colours" className="list-group-item list-group-item-action">Colours</a>
                         <a href="#mois" className="list-group-item list-group-item-action">Mois</a>
+                        <a href="#jours" className="list-group-item list-group-item-action">Jours</a>
+                        <a href="#corps" className="list-group-item list-group-item-action">Corps</a>
                     </div>
                 </div>
             </div>
             <div id="numeros">
                 <h5>Numéros (0 - 99)</h5>
-                <table className="table table-striped table-hover" id="numbers-table">
+                <table className="table table-striped table-hover text-center" id="numbers-table">
                     <thead>
                         <tr>
                             <th scope="col" id="row-hidden"></th>
@@ -55,85 +54,11 @@ export default function Significatifs() {
                     </tbody>
                 </table>
             </div>
-            <div id="questions">
-                <h5>Questions</h5>
-                <table className="table table-striped table-hover w-50" id="numbers-table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Who</th>
-                            <th scope="col">What</th>
-                            <th scope="col">Where</th>
-                            <th scope="col">When</th>
-                            <th scope="col">Why</th>
-                            <th scope="col">How</th>
-                            <th scope="col">Which</th>
-                            <th scope="col">How Many</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            {Object.keys(significantList.questions).map((question) => {
-                                return (<QuestionRow question={question} />)
-                            })}
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div id="colours">
-                <h5>Colours</h5>
-                <table className="table table-striped table-hover w-50" id="numbers-table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Black</th>
-                            <th scope="col">White</th>
-                            <th scope="col">Blue</th>
-                            <th scope="col">Brown</th>
-                            <th scope="col">Green</th>
-                            <th scope="col">Gray</th>
-                            <th scope="col">Orange</th>
-                            <th scope="col">Pink</th>
-                            <th scope="col">Purple</th>
-                            <th scope="col">Red</th>
-                            <th scope="col">Yellow</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            {Object.keys(significantList.colors).map((color) => {
-                                return (<ColorsRow color={color} />)
-                            })}
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div id="mois">
-                <h5>Mois</h5>
-                <table className="table table-striped table-hover w-50" id="numbers-table">
-                    <thead>
-                        <tr>
-                            <th scope="col">January</th>
-                            <th scope="col">Febuary</th>
-                            <th scope="col">March</th>
-                            <th scope="col">April</th>
-                            <th scope="col">May</th>
-                            <th scope="col">June</th>
-                            <th scope="col">July</th>
-                            <th scope="col">August</th>
-                            <th scope="col">September</th>
-                            <th scope="col">October</th>
-                            <th scope="col">November</th>
-                            <th scope="col">December</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            {significantList.months.map((month, i) => {
-                                return (<MonthRow index={i} />)
-                            })}
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <SimpleTable array={'questions'} />
+            <SimpleTable array={'colours'} />
+            <SimpleTable array={'mois'} />
+            <SimpleTable array={'jours'} />
+            <SimpleTable array={'corps'} />
         </div>
             <div className="sticky-bottom" id="significant-footer">
                 <div className="container">

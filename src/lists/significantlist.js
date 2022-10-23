@@ -106,12 +106,12 @@ const significantList = {
         "What": "Que/Quoi",
         "Where": "Où",
         "When": "Quand",
-        "Why": "Pourqoui",
+        "Why": "Pourquoi",
         "How": "Comment",
         "Which": "Quel",
-        "HowMany": "Combien",
+        "How Many": "Combien",
     },
-    'colors': {
+    'colours': {
         "Black": "Noir",
         "White": "Blanc",
         "Blue": "Bleu",
@@ -124,30 +124,41 @@ const significantList = {
         "Red": "Rouge",
         "Yellow": "Jaune"
     }, 
-    'months': [
-        "Janvier",
-        "Février",
-        "Mars",
-        "Avril",
-        "Mai",
-        "Juin",
-        "Juillet",
-        "Août",
-        "Septembre",
-        "Octobre", 
-        "Novembre",
-        "Décembre"
-    ],
-    'days': [
-        "Lundi",
-        "Mardi",
-        "Mercredi",
-        "Jeudi",
-        "Vendredi",
-        "Samedi",
-        "Dimanche"
-    ]
-    
+    'mois': {
+        "January": "Janvier",
+        "Febuary": "Février",
+        "March": "Mars",
+        "April": "Avril",
+        "May": "Mai",
+        "June": "Juin",
+        "July": "Juillet",
+        "August": "Août",
+        "September": "Septembre",
+        "October": "Octobre", 
+        "November": "Novembre",
+        "December": "Décembre"
+    },
+    'jours': {
+        "Monday": "Lundi",
+        "Tuesday": "Mardi",
+        "Wednesday": "Mercredi",
+        "Thursday": "Jeudi",
+        "Friday": "Vendredi",
+        "Saturday": "Samedi",
+        "Sunday": "Dimanche"
+    },
+    'corps': {
+        "Hair": "Cheveux",
+        "Head": "Tête",
+        "Eyes": "Yeux",
+        "Ear": "Oreille",
+        "Mouth": "Bouche",
+        "Shoulder": "Épaule",
+        "Arm": "Bras",
+        "Hand": "Main",
+        "Leg": "Jambe",
+        "Foot": "Pied"
+    }
 }
 
 export default significantList

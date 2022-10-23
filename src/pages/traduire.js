@@ -75,9 +75,9 @@ export default function Traduire() {
                                             <div className="row align-items-center">
                                                 <div className="col">
                                                     {translatedTextResponse} 
-                                                    <button className="btn p-1 mb-1" onClick={playSpeech}>
+                                                    {/* <button className="btn p-1 mb-1" onClick={playSpeech}>
                                                         <img id="play-icon"/>
-                                                    </button>
+                                                    </button> */}
                                                 </div>
                                             </div>
                                         </div>}
