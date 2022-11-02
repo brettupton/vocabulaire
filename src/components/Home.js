@@ -1,43 +1,34 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import './layout.css'
+import Card from './Card'
 import eiffeltower from '../images/eiffeltower.png'
 
 export default function Home() {
     return (
-        <>
-            <div className="layout">
-                <div id="home-container">
-                    <div className="container-fluid">
-                        <div className="row">
-                            <div className="col">
-                                <img src={eiffeltower} alt="eiffel-tower" />
-
-                            </div>
-                        </div>
-                        <div className="row">
-                            <div className="col">
-                                <h1>Bienvenue dans le Vocabulaire !</h1>
-                            </div>
-                        </div>
-                        <div className="row mt-5">
-                            <div className="col">
-                                <Link to="/lesmots" className="btn btn-success" id="home-buttons">Traductions de mots</Link>
-                            </div>
-                        </div>
-                        <div className="row mt-3">
-                            <div className="col">
-                                <Link to="/verbe" className="btn btn-success" id="home-buttons">Conjugaisons des verbes</Link>
-                            </div>
-                        </div>
-                        <div className="row mt-3">
-                            <div className="col">
-                                <Link to="/traduire" className="btn btn-success" id="home-buttons">Traduire</Link>
-                            </div>
-                        </div>
+        <div className="layout">
+            <div className="container">
+                <div className="row">
+                    <div className="col">
+                        Bienvenue dans le Vocabulaire !  
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col">
+                        Sur quoi travaillez-vous aujourd'hui ?
+                    </div>
+                </div>
+                <div className="row mt-5">
+                    <div className="col">
+                        <Card image={eiffeltower} header={"Les Mots"} link={"lesmots"} imageHeight={"180px"} imageWidth={"100px"}/>
+                    </div>
+                    <div className="col">
+                        <Card image={eiffeltower} header={"Verbes"} link={"verbe"} imageHeight={"180px"} imageWidth={"100px"}/>
+                    </div>
+                    <div className="col">
+                        <Card image={eiffeltower} header={"Traduire"} link={"traduire"} imageHeight={"180px"} imageWidth={"100px"}/>
                     </div>
                 </div>
             </div>
-    </>
+        </div>
     )
 }

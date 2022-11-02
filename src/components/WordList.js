@@ -1,11 +1,29 @@
-import React from 'react'
-import './layout.css'
-import vocabList from '../lists/vocablist'
+import React, { useEffect, useState } from 'react'
 import WordRow from './rows/WordRow'
 
 export default function WordList() {
+    const [wordArray, setWordArray] = useState([])
+
+    const fetchData = () => {
+        fetch(`https://vocabulairehost.herokuapp.com/getwords`)
+          .then((response) => response.json())
+          .then((data) => setWordArray(data))
+      }
+
+    useEffect(() => {
+        fetchData()
+      }, [])
+
     return (
-        <div className="layout">
+
+        wordArray.length === 0 
+        ? 
+            <div className="layout">
+                <div className="spinner-border text-light" role="status">
+                    <span class="sr-only">&nbsp;</span>
+                </div>
+            </div>
+        : <div className="layout">
             <div className="table-fixed mt-5">
                 <table>
                     <thead>
@@ -18,9 +36,9 @@ export default function WordList() {
                         </tr>
                     </thead>
                     <tbody>
-                        {vocabList.map((word, i) => {
+                        {wordArray.map((word, i) => {
                             return (
-                                <WordRow word={word} index={i+1}/>
+                                <WordRow word={word} index={i} key={i}/>
                             )
                         })}
                     </tbody>

@@ -2180,7 +2180,7 @@ const vocabList = [
     },
     {
         "French": "Printemps",
-        "English": "Snow",
+        "English": "Spring",
         "MascOrFemme": "Masculine",
         "GrammarType": "Noun"
     },

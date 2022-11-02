@@ -1,11 +1,14 @@
 export default function WordRow(props) {
+
+    const {word, index} = props
+
     return (
         <tr>
-            <th scope="row" id="row-hidden">{props.index}</th>
-            <td>{props.word.French}</td>
-            <td>{props.word.English}</td>
-            <td>{props.word.MascOrFemme}</td>
-            <td>{props.word.GrammarType}</td>
+            <th scope="row" id="row-hidden">{index + 1}</th>
+            <td>{word.French}</td>
+            <td>{word.English}</td>
+            <td>{word.MascOrFemme}</td>
+            <td>{word.GrammarType}</td>
         </tr>
     )
 }
