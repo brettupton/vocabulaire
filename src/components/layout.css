@@ -305,3 +305,10 @@ th {
 #play-icon:hover {
   content: url('../images/icons/play-circle-fill.svg');
 }
+
+/* Add New Word */
+#add-word-container {
+  margin-top: -25%;
+  color: black;
+  font-size: 14px;
+}

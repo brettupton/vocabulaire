@@ -8,7 +8,7 @@ export default function Card(props) {
         <Link to={link}>
             <button className="mt-5" id="card-container">
                 <div className="container">
-                    <div className="row">
+                    <div className="row mb-3">
                         <div className="col">
                             <img src={image} height={imageHeight} width={imageWidth} />
                         </div>

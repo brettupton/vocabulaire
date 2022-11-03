@@ -1,6 +1,8 @@
 import React from 'react'
 import { Outlet, useLocation, Link } from 'react-router-dom'
 import notredame from '../images/notredame.png'
+import triomphe from '../images/triomphe.png'
+import moulin from '../images/moulin.png'
 import Card from '../components/Card'
 import '../components/layout.css'
 
@@ -23,10 +25,10 @@ function LesMotsHome() {
                         <Card image={notredame} header={"Flashcards"} link={"flashcards"} imageHeight={"100px"} imageWidth={"100px"}/>
                     </div>
                     <div className="col">
-                        <Card image={notredame} header={"Significatifs"} link={"significatifs"} imageHeight={"100px"} imageWidth={"100px"}/>
+                        <Card image={triomphe} header={"Significatifs"} link={"significatifs"} imageHeight={"100px"} imageWidth={"100px"}/>
                     </div>
                     <div className="col">
-                        <Card image={notredame} header={"Liste de mots"} link={"wordlist"} imageHeight={"100px"} imageWidth={"100px"}/>
+                        <Card image={moulin} header={"Liste de mots"} link={"wordlist"} imageHeight={"100px"} imageWidth={"100px"}/>
                     </div>
                 </div>
             </div>

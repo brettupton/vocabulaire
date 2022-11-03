@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import plusbutton from '../images/icons/plus-circle.svg'
 
 export default function Add() {
 
@@ -15,9 +16,29 @@ export default function Add() {
         }
     )
 
+    const [newWordArray, setNewWordArray] = useState([])
+
+    const [multiAdd, setMultiAdd] = useState(false)
+
+    const url = multiAdd ? 'https://vocabulairehost.herokuapp.com/multiaddword' : 'https://vocabulairehost.herokuapp.com/addword'
+
+    const requestOptions = multiAdd 
+        ? {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(newWordArray)
+          } 
+        : {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(newWord)
+          } 
+
     useEffect(() => {
         if (postResponse.received) {
-            alert(`${postResponse.message}! New word added`)
+            multiAdd 
+            ? alert(`${postResponse.message}! New words added`)
+            : alert(`${postResponse.message}! New word added`)
             window.location.reload()
         }
     }, [postResponse])
@@ -31,12 +52,10 @@ export default function Add() {
     const handleSubmit = (event) => {
         event.preventDefault()
 
-        const url = 'http://localhost:5000/addword'
-        const requestOptions = {
-            method: 'POST',
-            headers: { 'content-type': 'application/json' },
-            body: JSON.stringify(newWord)
+        if (multiAdd) {
+            setNewWordArray(values => ([...values, newWord]))
         }
+
         fetch(url, requestOptions)
             .then(response => response.json())
             .then(data => setPostResponse({
@@ -46,29 +65,67 @@ export default function Add() {
             .catch(error => console.log('Form submit error', error))
     }
 
+    const handlePlusClick = () => {
+        setNewWordArray(values => ([...values, newWord]))
+        setMultiAdd(true)
+    }
+
     return (
         <div className="layout">
-            <form onSubmit={handleSubmit}>
-                <div className="row">
-                    <div className="col">
-                        <label htmlFor="French">French</label>
-                        <input type="text" name="French" onChange={handleChange} value={newWord.French} className="form-control" id="French" placeholder="French" />
+            <div className="container" id="add-word-container">
+                <div className="row justify-content-center mb-5">
+                    <div className="col-4">
+                        <div className="card">
+                            <div className="card-body">
+                                <form onSubmit={handleSubmit}>
+                                    <div className="row">
+                                        <div className="col">
+                                            <label htmlFor="French">French</label>
+                                            <input required type="text" name="French" onChange={handleChange} value={newWord.French} className="form-control form-control-sm" id="French" placeholder="French" />
+                                        </div>
+                                        <div className="col">
+                                            <label htmlFor="English">English</label>
+                                            <input required type="text" name="English" onChange={handleChange} value={newWord.English} className="form-control form-control-sm" id="English" placeholder="English" />
+                                        </div>
+                                    </div>
+                                    <div className="form-group">
+                                        <label htmlFor="MascOrFemme">Masc or Femme</label>
+                                        <input className="form-control form-control-sm" name="MascOrFemme" onChange={handleChange} id="MascOrFemme" value={newWord.MascOrFemme} placeholder="Masculine or Feminine" />
+                                    </div>
+                                    <div className="form-group">
+                                        <label htmlFor="GrammarType">Grammar Type</label>
+                                        <input required type="text" name="GrammarType" onChange={handleChange} value={newWord.GrammarType} className="form-control form-control-sm" id="GrammarType" placeholder="Grammar Type" />
+                                    </div>
+                                    <div className="row justify-content-center">
+                                        <div className="col-5">
+                                            <button type="submit" className="btn btn-primary m-2">{multiAdd ? 'Submit All' : 'Submit'}</button>
+                                        </div>
+                                        <div className="col-4 mt-1">
+                                            <button className="btn" onClick={handlePlusClick} type="button">
+                                                <img src={plusbutton} height="34px" width="34px" />
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div className="row">
+                                    <div className="col">
+                                        <small>Press + to add another word</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                </div>
+                <div className="row text-white">
                     <div className="col">
-                        <label htmlFor="English">English</label>
-                        <input type="text" name="English" onChange={handleChange} value={newWord.English} className="form-control" id="English" placeholder="English" />
+                        {multiAdd 
+                        ? "[" + newWordArray.map((word) => {
+                            return (" " + word.French + " - " + word.English) 
+                        }) + " ]" 
+                        : ""}
                     </div>
                 </div>
-                <div className="form-group">
-                    <label htmlFor="MascOrFemme">Masc or Femme</label>
-                    <input className="form-control" name="MascOrFemme" onChange={handleChange} id="MascOrFemme" value={newWord.MascOrFemme} />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="GrammarType">Grammar Type</label>
-                    <input type="text" name="GrammarType" onChange={handleChange} value={newWord.GrammarType} className="form-control" id="GrammarType" placeholder="Grammar Type" />
-                </div>
-                <button type="submit" className="btn btn-primary">Submit</button>
-            </form>
+            </div>
         </div>
     )
 }

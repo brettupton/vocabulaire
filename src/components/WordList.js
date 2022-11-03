@@ -20,7 +20,7 @@ export default function WordList() {
         ? 
             <div className="layout">
                 <div className="spinner-border text-light" role="status">
-                    <span class="sr-only">&nbsp;</span>
+                    <span class="sr-only"></span>
                 </div>
             </div>
         : <div className="layout">
