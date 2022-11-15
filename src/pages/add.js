@@ -119,8 +119,8 @@ export default function Add() {
                 <div className="row text-white">
                     <div className="col">
                         {multiAdd 
-                        ? "[" + newWordArray.map((word) => {
-                            return (" " + word.French + " - " + word.English) 
+                        ? "New words: [" + newWordArray.map((word) => {
+                            return (` ${word.French} - ${word.English}`) 
                         }) + " ]" 
                         : ""}
                     </div>

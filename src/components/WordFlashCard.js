@@ -1,6 +1,6 @@
 import './layout.css';
 import { useState, useEffect } from 'react'
-import FlashCard from './FlashCard'
+import WordFlashCardDisplay from './WordFlashCardDisplay'
 
 
 export default function WordFlashCard() {
@@ -90,10 +90,10 @@ export default function WordFlashCard() {
         wordArray.length === 0 ? 
             <div className="layout">
                 <div className="spinner-border text-light" role="status">
-                    <span class="sr-only">&nbsp;</span>
+                    <span className="sr-only">&nbsp;</span>
                 </div>
             </div>
-        : <FlashCard 
+        : <WordFlashCardDisplay 
             wordArray={wordArray}
             wordIndex={wordIndex}
             gender={wordGender} 

@@ -1,18 +1,16 @@
-import verbList from '../lists/verblist'
-
 export default function FEVerb(props) {
-    const {verbIndex} = props
+    const { verbArray, verbIndex } = props
 
     return (
         <div className="container" style={{marginTop: "84px"}}>
             <div className="row">
                 <div className="col">
-                    {verbList[verbIndex].Verb}
+                    {verbArray[verbIndex].Verb}
                 </div>
             </div>
             <div className="row">
                 <div className="col">
-                    {verbList[verbIndex].Translation}
+                    {verbArray[verbIndex].Translation}
                 </div>
             </div>
         </div>

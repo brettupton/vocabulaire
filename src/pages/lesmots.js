@@ -1,8 +1,9 @@
 import React from 'react'
-import { Outlet, useLocation, Link } from 'react-router-dom'
+import { Outlet, useLocation } from 'react-router-dom'
 import notredame from '../images/notredame.png'
 import triomphe from '../images/triomphe.png'
 import moulin from '../images/moulin.png'
+import mots from '../images/mots.png'
 import Card from '../components/Card'
 import '../components/layout.css'
 
@@ -12,12 +13,7 @@ function LesMotsHome() {
             <div className="container">
                 <div className="row">
                     <div className="col">
-                        Bienvenue pour apprendre des mots !  
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col">
-                        Qu'est-ce que tu aimerais faire ? 
+                        <img src={mots} height="200px" />
                     </div>
                 </div>
                 <div className="row mt-5">

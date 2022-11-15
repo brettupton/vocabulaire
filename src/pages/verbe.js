@@ -1,35 +1,24 @@
-import { Outlet, useLocation, Link } from 'react-router-dom'
+import { Outlet, useLocation } from 'react-router-dom'
+import Card from '../components/Card'
+import verbes from '../images/verbes.png'
 import sacrecoeur from '../images/sacrecoeur.png'
+import question from '../images/icons/question-lg.svg'
 
 function VerbeHome() {
     return (
         <div className="layout">
             <div className="container">
-                <img src={sacrecoeur} height="400px" width="400px"/>
                 <div className="row">
                     <div className="col">
-                    Bienvenue pour apprendre les verbes ! Qu'est-ce que tu aimerais faire ? 
+                        <img src={verbes} height="200px" />
                     </div>
                 </div>
                 <div className="row">
                     <div className="col">
-                        <Link to="flashcards">
-                            <button className="btn btn-success mt-4" id="mots-buttons">Flashcards</button>
-                        </Link> 
+                        <Card image={sacrecoeur} header={"Flashcards"} link={"flashcards"} imageHeight={"100px"} imageWidth={"100px"}/>
                     </div>
-                </div>
-                <div className="row">
                     <div className="col">
-                        <Link to="#">
-                            <button className="btn btn-success mt-4" id="mots-buttons">Questionnaire</button>
-                        </Link>
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col">
-                        <Link to="#">
-                            <button className="btn btn-success mt-4" id="mots-buttons">Liste de verbes</button>
-                        </Link>
+                        <Card image={question} header={"Liste de verbes"} link={"#"} imageHeight={"100px"} imageWidth={"100px"}/>
                     </div>
                 </div>
             </div>

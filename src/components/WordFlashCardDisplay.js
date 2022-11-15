@@ -5,7 +5,7 @@ import leftarrow from '../images/icons/arrow-left-circle.svg'
 import flipbutton from '../images/icons/arrow-counterclockwise.svg'
 import SpeechButton from './SpeechButton'
 
-export default function FlashCard(props) {
+export default function WordFlashCardDisplay(props) {
 
     const { wordArray, wordIndex, gender, flip, shuffle, handleNextClick, handlePrevClick, handleFlipClick, handleShuffleClick, handleInputChange } = props
 

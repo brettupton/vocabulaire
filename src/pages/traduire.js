@@ -44,7 +44,7 @@ export default function Traduire() {
                 'X-RapidAPI-Key': process.env.REACT_APP_TRANSLATEAPIKEY,
                 'X-RapidAPI-Host': 'deep-translate1.p.rapidapi.com'
             },
-            body: `{"q":"${input.value}","source":"fr","target":"en"}`
+            body: `{"q":"${input.value}","source":"en","target":"fr"}`
         };
         
         fetch('https://deep-translate1.p.rapidapi.com/language/translate/v2', options)
@@ -61,12 +61,12 @@ export default function Traduire() {
                 <div className="row justify-content-center">
                     <div className="col-lg-5">
                         <div className="form-group">
-                                <label htmlFor="input-area" style={{fontSize: "24px"}}>French:</label>
+                                <label htmlFor="input-area" style={{fontSize: "24px"}}>English:</label>
                                 <textarea className="form-control" rows="4" id="input-area" placeholder="Type here"></textarea>
                             </div>
                         </div>
                     <div className="col-lg-5">
-                        <span style={{fontSize: "24px"}}>English:</span> 
+                        <span style={{fontSize: "24px"}}>French:</span> 
                         <div className="container" id="translation-translate-container">
                             <div className="row align-items-start pt-1">
                                 <div className="col-auto">
@@ -75,9 +75,9 @@ export default function Traduire() {
                                             <div className="row align-items-center">
                                                 <div className="col">
                                                     {translatedTextResponse} 
-                                                    {/* <button className="btn p-1 mb-1" onClick={playSpeech}>
+                                                    <button className="btn p-1 mb-1" onClick={playSpeech}>
                                                         <img id="play-icon"/>
-                                                    </button> */}
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>}
@@ -88,7 +88,7 @@ export default function Traduire() {
                 </div>
                 <div className="row mt-5">
                     <div className="col">
-                        <button onClick={translateText} className="btn btn-success" id="translate-button">Translate to English</button>
+                        <button onClick={translateText} className="btn btn-success" id="translate-button">Translate to French</button>
                     </div>
                 </div>
             </div>
