@@ -6,37 +6,39 @@ export default function FEConjugations(props) {
         return vowels.indexOf(word[0]) !== -1;
     }
 
+    const currentTense = Object.keys(verbArray[verbIndex])[3]
+
     return (
         <div className="container" id="verb-conjugation-mobile-container">
             <div className="row">
                 <div className="col">
-                    ({Object.keys(verbArray[verbIndex])[3]} Tense)
+                    ({currentTense} Tense)
                 </div>
             </div>
             <div className="row">
                 <div className="col">
-                    {startsWithVowelOrH(verbArray[verbIndex].Present.Je) 
-                    ? <div>J'{verbArray[verbIndex].Present.Je}</div>
-                    : <div>Je {verbArray[verbIndex].Present.Je}</div>}
+                    {startsWithVowelOrH(verbArray[verbIndex][currentTense].Je) 
+                    ? <div>J'{verbArray[verbIndex][currentTense].Je}</div>
+                    : <div>Je {verbArray[verbIndex][currentTense].Je}</div>}
                 </div>
                 <div className="col">
-                    Nous {verbArray[verbIndex].Present.Nous}
-                </div>
-            </div>
-            <div className="row">
-                <div className="col">
-                    Tu {verbArray[verbIndex].Present.Tu}
-                </div>
-                <div className="col">
-                    Vous {verbArray[verbIndex].Present.Vous}
+                    Nous {verbArray[verbIndex][currentTense].Nous}
                 </div>
             </div>
             <div className="row">
                 <div className="col">
-                    Il {verbArray[verbIndex].Present.Il}
+                    Tu {verbArray[verbIndex][currentTense].Tu}
                 </div>
                 <div className="col">
-                    Ils {verbArray[verbIndex].Present.Ils}
+                    Vous {verbArray[verbIndex][currentTense].Vous}
+                </div>
+            </div>
+            <div className="row">
+                <div className="col">
+                    Il {verbArray[verbIndex][currentTense].Il}
+                </div>
+                <div className="col">
+                    Ils {verbArray[verbIndex][currentTense].Ils}
                 </div>
             </div>
         </div>
