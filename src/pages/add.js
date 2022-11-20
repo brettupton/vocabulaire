@@ -3,6 +3,20 @@ import plusbutton from '../images/icons/plus-circle.svg'
 
 export default function Add() {
 
+    const [width, setWidth] = useState(window.innerWidth);
+
+    function handleWindowSizeChange() {
+        setWidth(window.innerWidth);
+    }
+    useEffect(() => {
+        window.addEventListener('resize', handleWindowSizeChange);
+        return () => {
+            window.removeEventListener('resize', handleWindowSizeChange);
+        }
+    }, []);
+
+    const isMobile = width <= 768;
+
     const [postResponse, setPostResponse] = useState({
         message: '',
         received: false
@@ -52,10 +66,6 @@ export default function Add() {
     const handleSubmit = (event) => {
         event.preventDefault()
 
-        if (multiAdd) {
-            setNewWordArray(values => ([...values, newWord]))
-        }
-
         fetch(url, requestOptions)
             .then(response => response.json())
             .then(data => setPostResponse({
@@ -67,25 +77,30 @@ export default function Add() {
 
     const handlePlusClick = () => {
         setNewWordArray(values => ([...values, newWord]))
+        setNewWord({
+            French: '',
+            English: '',
+            MascOrFemme: '',
+            GrammarType: ''
+        })
         setMultiAdd(true)
     }
 
     return (
-        <div className="layout">
-            <div className="container" id="add-word-container">
-                <div className="row justify-content-center mb-5">
-                    <div className="col-4">
+            <div className={`container min-vh-100 text-center pt-5 fs-6 ${isMobile ? 'w-100' : 'w-25'}`}>
+                <div className="row justify-content-center mb-5 pt-5">
+                    <div className="col">
                         <div className="card">
                             <div className="card-body">
-                                <form onSubmit={handleSubmit}>
+                                <form onSubmit={handleSubmit} autoComplete="off">
                                     <div className="row">
                                         <div className="col">
                                             <label htmlFor="French">French</label>
-                                            <input required type="text" name="French" onChange={handleChange} value={newWord.French} className="form-control form-control-sm" id="French" placeholder="French" />
+                                            <input type="text" name="French" onChange={handleChange} value={newWord.French} className="form-control form-control-sm" id="French" placeholder="French" />
                                         </div>
                                         <div className="col">
                                             <label htmlFor="English">English</label>
-                                            <input required type="text" name="English" onChange={handleChange} value={newWord.English} className="form-control form-control-sm" id="English" placeholder="English" />
+                                            <input type="text" name="English" onChange={handleChange} value={newWord.English} className="form-control form-control-sm" id="English" placeholder="English" />
                                         </div>
                                     </div>
                                     <div className="form-group">
@@ -94,7 +109,7 @@ export default function Add() {
                                     </div>
                                     <div className="form-group">
                                         <label htmlFor="GrammarType">Grammar Type</label>
-                                        <input required type="text" name="GrammarType" onChange={handleChange} value={newWord.GrammarType} className="form-control form-control-sm" id="GrammarType" placeholder="Grammar Type" />
+                                        <input type="text" name="GrammarType" onChange={handleChange} value={newWord.GrammarType} className="form-control form-control-sm" id="GrammarType" placeholder="Grammar Type" />
                                     </div>
                                     <div className="row justify-content-center">
                                         <div className="col-5">
@@ -102,7 +117,7 @@ export default function Add() {
                                         </div>
                                         <div className="col-4 mt-1">
                                             <button className="btn" onClick={handlePlusClick} type="button">
-                                                <img src={plusbutton} height="34px" width="34px" />
+                                                <img src={plusbutton} height="34px" width="34px" alt="Plus Button"/>
                                             </button>
                                         </div>
                                     </div>
@@ -126,6 +141,5 @@ export default function Add() {
                     </div>
                 </div>
             </div>
-        </div>
     )
 }

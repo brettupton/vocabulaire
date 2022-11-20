@@ -76,7 +76,7 @@ export default function Traduire() {
                                                 <div className="col">
                                                     {translatedTextResponse} 
                                                     <button className="btn p-1 mb-1" onClick={playSpeech}>
-                                                        <img id="play-icon"/>
+                                                        <img id="play-icon" alt="Play Button Icon"/>
                                                     </button>
                                                 </div>
                                             </div>
@@ -88,7 +88,7 @@ export default function Traduire() {
                 </div>
                 <div className="row mt-5">
                     <div className="col">
-                        <button onClick={translateText} className="btn btn-success" id="translate-button">Translate to French</button>
+                        <button onClick={translateText} className="btn btn-primary" id="translate-button">Translate to French</button>
                     </div>
                 </div>
             </div>

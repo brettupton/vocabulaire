@@ -10,98 +10,38 @@
   font-size: 28px;
 }
 
+#root {
+  font-family: 'PT Serif', serif;
+  font-size: 28px;
+  background-color: #333333;
+}
+
+/* Cards */
 #card-container {
-  height: 45vh;
-  width: 80%;
+  height: 40vh;
   background-color: white;
   color: black;
   border-radius: 10px;
   box-shadow: 0 2px 20px rgba(0, 0, 0);
 }
 
-/* Home */
-#home-container {
-  height: 80vh;
+@media (max-width: 1000px) {
+  #card-container {
+    height: 30vh;
+    margin-bottom: 2%;
+  }
 }
 
-#home-container img {
-  height: 40vh;
-  width: 30vh;
-}
-
-#home-buttons {
-  width: 40%;
-}
-
-/* Word FlashCard */
+/* Word Flashcard */
 #word-flashcard-icon {
   height: 36px;
   width: 36px;
 }
 
-#word-flashcard {
-  z-index: 0;
-  height: 39vh;
-  width: 32vw;
-  color: black;
-}
-
-#mots-buttons {
-  width: 45%;
-}
-
-#shuffle-button {
-  border: 0px;
-  background-color: white;
-}
-
-/* Media Query < 1000px */
-@media (max-width: 1000px) {
-  #word-flashcard {
-    width: 95vw;
-    font-size: 26px;
-  }
-
-  #word-flashcard-input-container {
-    display: none;
-  }
-
-  #word-flashcard-index {
-    padding-top: 5%;
-  }
-
-  #arrow-button {
-    height: 40px !important;
-    width: 40px !important;
-  }
-  
-  #home-container {
-    width: 95vw;
-    font-size: 20px;
-  }
-
-  #mots-buttons {
-    width: 50%;
-  }
-
-  #shuffle-button {
-    padding-left: 100%;
-  }
-}
-
-#arrow-button {
-  height: 36px;
-  width: 36px;
-}
-
-
 #button-styling {
   border: 0px;
   background-color: white;
-}
-
-#flashcard-input {
-  all: unset;
+  padding: 0;
 }
 
 /* Significant Words */
@@ -143,7 +83,7 @@
 }
 
 /* Media Query < 1000px */
-@media (max-width: 1000px) {
+@media (max-width: 768px) {
   #tables-container {
     max-width: 100vw;
   }
@@ -190,12 +130,6 @@
   }
   #jours th {
     padding: 0 10px;
-  }
-
-  #speech-button {
-    display: none;
-    margin: 0;
-    padding: 0;
   }
 }
 
@@ -304,11 +238,4 @@ th {
 
 #play-icon:hover {
   content: url('../images/icons/play-circle-fill.svg');
-}
-
-/* Add New Word */
-#add-word-container {
-  margin-top: -25%;
-  color: black;
-  font-size: 14px;
 }

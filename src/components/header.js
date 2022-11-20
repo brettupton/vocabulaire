@@ -13,7 +13,7 @@ export default function Header() {
 
     return (
         <div>
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top d-none d-lg-block">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top d-none d-lg-block fs-6">
             <div className="container-fluid">
                 <Link to="/" className="navbar-brand">
                     <img src={flag} alt="french-heart" width="28" height="28" />
@@ -48,16 +48,19 @@ export default function Header() {
                     <h4 className="text-white text-center">Vers où ?</h4>
                     <ul className="list-group list-group-flush text-center bg-transparent">
                         <li className="list-group-item list-group-item-dark bg-transparent">
-                            <Link to="/" className="btn btn-success w-50">Accueil</Link>
+                            <Link to="/" className="btn btn-primary w-50">Accueil</Link>
                         </li>
                         <li className="list-group-item list-group-item-dark bg-transparent">
-                            <Link to="/lesmots" className="btn btn-success w-50">Traductions de mots</Link>
+                            <Link to="/lesmots" className="btn btn-primary w-50">Traductions de mots</Link>
                         </li>
                         <li className="list-group-item list-group-item-dark bg-transparent">
-                            <Link to="/verbe" className="btn btn-success w-50">Conjugaisons des verbes</Link>
+                            <Link to="/verbe" className="btn btn-primary w-50">Conjugaisons des verbes</Link>
                         </li>
                         <li className="list-group-item list-group-item-dark bg-transparent">
-                            <Link to="/traduire" className="btn btn-success w-50">Traduire</Link>
+                            <Link to="/traduire" className="btn btn-primary w-50">Traduire</Link>
+                        </li>
+                        <li className="list-group-item list-group-item-dark bg-transparent">
+                            <Link to="/lesmots/add" className="btn btn-primary w-50">Ajouter</Link>
                         </li>
                     </ul>
                 </div>

@@ -12,13 +12,27 @@ export default function WordFlashCard() {
 
     const fetchData = () => {
         fetch(`https://vocabulairehost.herokuapp.com/getwords`)
-          .then((response) => response.json())
-          .then((data) => setWordArray(data))
-      }
+            .then((response) => response.json())
+            .then((data) => setWordArray(data))
+    }
 
     useEffect(() => {
         fetchData()
-      }, [])
+    }, [])
+
+    const [width, setWidth] = useState(window.innerWidth);
+
+    function handleWindowSizeChange() {
+        setWidth(window.innerWidth);
+    }
+    useEffect(() => {
+        window.addEventListener('resize', handleWindowSizeChange);
+        return () => {
+            window.removeEventListener('resize', handleWindowSizeChange);
+        }
+    }, []);
+
+    const isMobile = width <= 768;
 
     const getRandomIndex = () => {
         const randomIndex = Math.floor(Math.random() * wordArray.length)
@@ -41,16 +55,6 @@ export default function WordFlashCard() {
             }
         } else {
             setWordGender('')
-        }
-    }
-
-    const handleInputChange = (e) => {
-        const inputValue = parseInt(e.target.value) - 1
-        if (0 <= inputValue && inputValue <= wordArray.length) {
-            checkGender(wordArray[inputValue])
-            setWordIndex(inputValue)
-        } else {
-            setWordIndex(0)
         }
     }
 
@@ -87,23 +91,23 @@ export default function WordFlashCard() {
     }
 
     return (
-        wordArray.length === 0 ? 
-            <div className="layout">
-                <div className="spinner-border text-light" role="status">
+        wordArray.length === 0 ?
+            <div className="min-vh-100 text-center pt-5">
+                <div className="spinner-border text-light mt-5" role="status">
                     <span className="sr-only">&nbsp;</span>
                 </div>
             </div>
-        : <WordFlashCardDisplay 
-            wordArray={wordArray}
-            wordIndex={wordIndex}
-            gender={wordGender} 
-            flip={flip} 
-            shuffle={shuffle}
-            handleNextClick={handleNextClick}
-            handlePrevClick={handlePrevClick}
-            handleFlipClick={handleFlipClick}
-            handleShuffleClick={handleShuffleClick}
-            handleInputChange={handleInputChange}  />
+            : <WordFlashCardDisplay
+                wordArray={wordArray}
+                wordIndex={wordIndex}
+                gender={wordGender}
+                flip={flip}
+                shuffle={shuffle}
+                handleNextClick={handleNextClick}
+                handlePrevClick={handlePrevClick}
+                handleFlipClick={handleFlipClick}
+                handleShuffleClick={handleShuffleClick}
+                isMobile={isMobile} />
     )
-    
+
 }
