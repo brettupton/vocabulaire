@@ -34,7 +34,7 @@ export default function Add() {
 
     const [multiAdd, setMultiAdd] = useState(false)
 
-    const url = multiAdd ? 'https://vocabulairehost.herokuapp.com/multiaddword' : 'https://vocabulairehost.herokuapp.com/addword'
+    const url = multiAdd ? 'http://localhost:5000/multiaddword' : 'http://localhost:5000/addword'
 
     const requestOptions = multiAdd 
         ? {

@@ -52,7 +52,7 @@ export default function Traduire() {
             .then(response => {
                 setTranslatedTextResponse(unescape(response.data.translations.translatedText))
             })
-            .catch(err => console.error(err));
+            .catch(err => console.error(err))
     }
 
     return (

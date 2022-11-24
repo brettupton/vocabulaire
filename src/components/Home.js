@@ -41,9 +41,9 @@ export default function Home() {
                     <div className="col">
                         <Card imageSrc={louvre} header={"Traduire"} link={"traduire"} imageWidth={"180px"}/>
                     </div>
-                    <div className="col">
+                    {/* <div className="col">
                         <Card imageSrc={nimes} header={"Ajouter"} link={"lesmots/add"} imageWidth={"180px"}/>
-                    </div>
+                    </div> */}
                 </div>
             </div>
     )
