@@ -41,9 +41,9 @@ export default function Home() {
                 <div className="col">
                     <Card imageSrc={louvre} header={"Traduire"} link={"traduire"} isMobile={isMobile} />
                 </div>
-                <div className="col">
+                {/* <div className="col">
                     <Card imageSrc={nimes} header={"Ajouter"} link={"lesmots/add"} isMobile={isMobile} />
-                </div>
+                </div> */}
             </div>
         </div>
     )
