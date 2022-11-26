@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 export default function Card(props) {
 
-    const { imageSrc, header, link, imageWidth } = props
+    const { imageSrc, header, link, isMobile } = props
 
     return (
         <Link to={link}>
@@ -10,7 +10,7 @@ export default function Card(props) {
                 <div className="container">
                     <div className="row mb-3">
                         <div className="col">
-                            <img src={imageSrc} width={imageWidth} alt="Card Icon"/>
+                            <img src={imageSrc} height="100%" width={`${isMobile ? '95%' : '50%'}`} alt="Card Icon" />
                         </div>
                     </div>
                     <div className="row">

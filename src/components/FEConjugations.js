@@ -1,27 +1,25 @@
 export default function FEConjugations(props) {
-    const { verbArray, verbIndex } = props
+    const { verbArray, verbIndex, currentTense, isMobile } = props
 
     function startsWithVowelOrH(word) {
         const vowels = ("aàâäæeèéêëhiîïoôœuùûü");
         return vowels.indexOf(word[0]) !== -1;
     }
 
-    const currentTense = Object.keys(verbArray[verbIndex])[3]
-
     return (
-        <div className="container" id="verb-conjugation-mobile-container">
+        <div className="container">
             <div className="row">
                 <div className="col">
                     ({currentTense} Tense)
                 </div>
             </div>
-            <div className="row">
+            <div className="row mt-1">
                 <div className="col">
                     {startsWithVowelOrH(verbArray[verbIndex][currentTense].Je) 
                     ? <div>J'{verbArray[verbIndex][currentTense].Je}</div>
                     : <div>Je {verbArray[verbIndex][currentTense].Je}</div>}
                 </div>
-                <div className="col">
+                <div className={`col-${isMobile ? '7' : '6'}`}>
                     Nous {verbArray[verbIndex][currentTense].Nous}
                 </div>
             </div>
@@ -29,7 +27,7 @@ export default function FEConjugations(props) {
                 <div className="col">
                     Tu {verbArray[verbIndex][currentTense].Tu}
                 </div>
-                <div className="col">
+                <div className={`col-${isMobile ? '7' : '6'}`}>
                     Vous {verbArray[verbIndex][currentTense].Vous}
                 </div>
             </div>
@@ -37,7 +35,7 @@ export default function FEConjugations(props) {
                 <div className="col">
                     Il {verbArray[verbIndex][currentTense].Il}
                 </div>
-                <div className="col">
+                <div className={`col-${isMobile ? '7' : '6'}`}>
                     Ils {verbArray[verbIndex][currentTense].Ils}
                 </div>
             </div>

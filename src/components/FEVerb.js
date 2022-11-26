@@ -2,7 +2,7 @@ export default function FEVerb(props) {
     const { verbArray, verbIndex } = props
 
     return (
-        <div className="container" style={{marginTop: "84px"}}>
+        <div className="container">
             <div className="row">
                 <div className="col">
                     {verbArray[verbIndex].Verb}

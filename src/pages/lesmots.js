@@ -1,6 +1,6 @@
 import { useState, useEffect} from "react"
 import { Outlet, useLocation } from 'react-router-dom'
-import notredame from '../images/notredame.png'
+import notredame from '../images/notre-dame.png'
 import triomphe from '../images/triomphe.png'
 import moulin from '../images/moulin.png'
 import mots from '../images/mots.png'
@@ -32,13 +32,13 @@ function LesMotsHome() {
                 </div>
                 <div className="row">
                     <div className="col">
-                        <Card imageSrc={notredame} header={"Flashcards"} link={"flashcards"} imageWidth={"100px"}/>
+                        <Card imageSrc={notredame} header={"Flashcards"} link={"flashcards"} />
                     </div>
                     <div className="col">
-                        <Card imageSrc={triomphe} header={"Significatifs"} link={"significatifs"} imageWidth={"100px"}/>
+                        <Card imageSrc={triomphe} header={"Significatifs"} link={"significatifs"} />
                     </div>
                     <div className="col">
-                        <Card imageSrc={moulin} header={"Liste de mots"} link={"wordlist"} imageWidth={"100px"}/>
+                        <Card imageSrc={moulin} header={"Liste de mots"} link={"wordlist"} />
                     </div>
                 </div>
             </div>

@@ -1,30 +1,37 @@
-import significantList from "../lists/significantlist"
-import SimpleRow from './rows/SimpleRow'
+import SpeechButton from "./SpeechButton"
 
 export default function SimpleTable(props) {
 
-    const {array} = props
-    const objectIteration = significantList[array]
+    const { significantArray, object } = props
+    const objectIteration = significantArray[object]
 
     return (
-        <div id={array}>
-                <h5>{array}</h5>
-                <table className="table table-striped table-hover w-50 text-center" id="numbers-table">
-                    <thead>
-                        <tr>
-                            {Object.keys(objectIteration).map((key) => {
-                                return (<th scope="col">{key}</th>)
-                            })}
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            {Object.keys(objectIteration).map((key) => {
-                                return (<SimpleRow index={key} array={array}/>)
-                            })}
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <div>
+            <table className="table table-dark table-sm table-hover table-striped table-bordered">
+                <thead>
+                    <tr>
+                        {Object.keys(objectIteration).map((key) => {
+                            return (<th scope="col">{key}</th>)
+                        })}
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        {Object.keys(objectIteration).map((key) => {
+                            return (
+                                <td>{objectIteration[key]}</td>
+                            )
+                        })}
+                    </tr>
+                    <tr className="table-secondary">
+                        {Object.keys(objectIteration).map((key) => {
+                            return (
+                                <td><SpeechButton word={objectIteration[key]} /></td>
+                            )
+                        })}
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     )
 }

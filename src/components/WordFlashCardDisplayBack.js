@@ -17,7 +17,7 @@ export default function WordFlashCardDisplayBack(props) {
                             <div className="container p-0">
                                 <div className="row justify-content-start m-1">
                                     <div className="col-2">
-                                        <img src={usflag} id="word-flashcard-icon" alt="Flashcard Icon"/>
+                                        <img src={usflag} id="flashcard-icon" alt="Flashcard Icon"/>
                                     </div>
                                 </div>
                             </div>

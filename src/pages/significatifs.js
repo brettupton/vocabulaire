@@ -1,76 +1,180 @@
 import NumberRow from '../components/rows/NumberRow'
 import SimpleTable from '../components/SimpleTable'
 import uparrow from '../images/icons/arrow-up-circle.svg'
+import { useState, useEffect } from 'react'
+import significantList from '../lists/significantlist'
 
 export default function Significatifs() {
 
+    const [width, setWidth] = useState(window.innerWidth)
+
+    const isMobile = (width <= 768)
+
+    useEffect(() => {
+        window.addEventListener('resize', handleWindowSizeChange)
+        return () => {
+            window.removeEventListener('resize', handleWindowSizeChange)
+        }
+    }, [])
+
+    function handleWindowSizeChange() {
+        setWidth(window.innerWidth)
+    }
+
     return (
-        <div id="top">
-        <div id="tables-container">
-            <div className="card text-black p-1" id="content-card">
-                <div className="card-header">
-                    <h5>Table des matières</h5>
-                </div>
-                <div className="card-body">
-                    <div className="list-group">
-                        <a href="#numeros" className="list-group-item list-group-item-action">Numéros (0 - 99)</a>
-                        <a href="#questions" className="list-group-item list-group-item-action">Questions</a>
-                        <a href="#colours" className="list-group-item list-group-item-action">Colours</a>
-                        <a href="#mois" className="list-group-item list-group-item-action">Mois</a>
-                        <a href="#jours" className="list-group-item list-group-item-action">Jours</a>
-                        <a href="#corps" className="list-group-item list-group-item-action">Corps</a>
+        <div className="container min-vh-100 fs-5 mx-0 min-vw-100" id="top" style={{ paddingTop: `${isMobile ? '20%' : '7%'}` }}>
+            <div className="row text-center align-content-start">
+                <div className={`col-${isMobile ? '12' : '4'}`}>
+                    <div className="container bg-white rounded">
+                        <div className="row border border-dark">
+                            <div className="col">
+                                Table des matières
+                            </div>
+                        </div>
+                        <div className="row border border-dark">
+                            <div className="col">
+                                <a className="btn" href="#numeros">Numéros (0 - 99)</a>
+                            </div>
+                        </div>
+                        <div className="row border border-dark">
+                            <div className="col">
+                                <a className="btn" href="#questions">Questions</a>
+                            </div>
+                        </div>
+                        <div className="row border border-dark">
+                            <div className="col">
+                                <a className="btn" href="#mois">Mois</a>
+                            </div>
+                        </div>
+                        <div className="row border border-dark">
+                            <div className="col">
+                                <a className="btn" href="#jours">Jours</a>
+                            </div>
+                        </div>
+                        <div className="row border border-dark">
+                            <div className="col">
+                                <a className="btn" href="#colours">Colours</a>
+                            </div>
+                        </div>
+                        <div className="row border border-dark">
+                            <div className="col">
+                                <a className="btn" href="#corps">Corps</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div id="numeros">
-                <h5>Numéros (0 - 99)</h5>
-                <table className="table table-striped table-hover text-center" id="numbers-table">
-                    <thead>
-                        <tr>
-                            <th scope="col" id="row-hidden"></th>
-                            <th scope="col">0</th>
-                            <th scope="col">10</th>
-                            <th scope="col">20</th>
-                            <th scope="col">30</th>
-                            <th scope="col">40</th>
-                            <th scope="col">50</th>
-                            <th scope="col">60</th>
-                            <th scope="col">70</th>
-                            <th scope="col">80</th>
-                            <th scope="col">90</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <NumberRow index={0} />
-                    <NumberRow index={1} />
-                    <NumberRow index={2} />
-                    <NumberRow index={3} />
-                    <NumberRow index={4} />
-                    <NumberRow index={5} />
-                    <NumberRow index={6} />
-                    <NumberRow index={7} />
-                    <NumberRow index={8} />
-                    <NumberRow index={9} />
-                    </tbody>
-                </table>
+            <div className="row text-center py-5" id="numeros">
+                <div className="col">
+                    <div class="table-responsive">
+                        <table class="table table-dark table-sm table-hover table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col">0</th>
+                                    <th scope="col">10</th>
+                                    <th scope="col">20</th>
+                                    <th scope="col">30</th>
+                                    <th scope="col">40</th>
+                                    <th scope="col">50</th>
+                                    <th scope="col">60</th>
+                                    <th scope="col">70</th>
+                                    <th scope="col">80</th>
+                                    <th scope="col">90</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <NumberRow
+                                    index={0}
+                                    significantArray={significantList} />
+                                <NumberRow
+                                    index={1}
+                                    significantArray={significantList} />
+                                <NumberRow
+                                    index={2}
+                                    significantArray={significantList} />
+                                <NumberRow
+                                    index={3}
+                                    significantArray={significantList} />
+                                <NumberRow
+                                    index={4}
+                                    significantArray={significantList} />
+                                <NumberRow
+                                    index={5}
+                                    significantArray={significantList} />
+                                <NumberRow
+                                    index={6}
+                                    significantArray={significantList} />
+                                <NumberRow
+                                    index={7}
+                                    significantArray={significantList} />
+                                <NumberRow
+                                    index={8}
+                                    significantArray={significantList} />
+                                <NumberRow
+                                    index={9}
+                                    significantArray={significantList} />
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
-            <SimpleTable array={'questions'} />
-            <SimpleTable array={'colours'} />
-            <SimpleTable array={'mois'} />
-            <SimpleTable array={'jours'} />
-            <SimpleTable array={'corps'} />
-        </div>
-            <div className="sticky-bottom" id="significant-footer">
+            <div className="row text-center pb-5" id="questions">
+                <div className="col">
+                    <div class="table-responsive">
+                        <SimpleTable
+                            significantArray={significantList}
+                            object={'questions'} />
+                    </div>
+                </div>
+            </div>
+            <div className="row text-center pb-5" id="mois">
+                <div className="col">
+                    <div class="table-responsive">
+                        <SimpleTable
+                            significantArray={significantList}
+                            object={'mois'} />
+                    </div>
+                </div>
+            </div>
+            <div className="row text-center pb-5" id="jours">
+                <div className="col">
+                    <div class="table-responsive">
+                        <SimpleTable
+                            significantArray={significantList}
+                            object={'jours'} />
+                    </div>
+                </div>
+            </div>
+            <div className="row text-center pb-5" id="colours">
+                <div className="col">
+                    <div class="table-responsive">
+                        <SimpleTable
+                            significantArray={significantList}
+                            object={'colours'} />
+                    </div>
+                </div>
+            </div>
+            <div className="row text-center pb-5" id="corps">
+                <div className="col">
+                    <div class="table-responsive">
+                        <SimpleTable
+                            significantArray={significantList}
+                            object={'corps'} />
+                    </div>
+                </div>
+            </div>
+            <div className="row pb-3">
                 <div className="container">
                     <div className="row justify-content-end">
-                        <div className="col-1">
+                        <div className={`col-${isMobile ? '3' : '1'}`}>
                             <a className="btn" href="#top">
-                                <img src={uparrow} height="40px" width="40px" id="footer-image" />
+                                <img src={uparrow} alt="uparrow" />
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
-    </div>
+        </div>
     )
 }

@@ -23,20 +23,21 @@ function VerbeHome() {
     const isMobile = width <= 768;
 
     return (
-        <div className="layout">
-            <div className="container">
-                <div className="row">
-                    <div className="col">
-                        <img src={isMobile ? frlogo : verbes} height="60%" alt="Page Title"/>
-                    </div>
+        <div className="container min-vh-100 text-center pt-5">
+            <div className="row pt-5">
+                <div className="col">
+                    <img src={isMobile ? frlogo : verbes} height="60%" alt="Page Title" />
                 </div>
-                <div className="row">
-                    <div className="col">
-                        <Card imageSrc={sacrecoeur} header={"Flashcards"} link={"flashcards"} imageHeight={"100px"} imageWidth={"100px"}/>
-                    </div>
-                    <div className="col">
-                        <Card imageSrc={question} header={"Liste de verbes"} link={"#"} imageHeight={"100px"} imageWidth={"100px"}/>
-                    </div>
+            </div>
+            <div className="row">
+                <div className="col">
+                    <Card imageSrc={sacrecoeur} header={"Flashcards"} link={"flashcards"} />
+                </div>
+                <div className="col">
+                    <Card imageSrc={question} header={"Temps"} link={"#"} />
+                </div>
+                <div className="col">
+                    <Card imageSrc={question} header={"Liste de verbes"} link={"#"} />
                 </div>
             </div>
         </div>
@@ -45,12 +46,12 @@ function VerbeHome() {
 
 function Verbe() {
     const location = useLocation()
-    
+
     return (
         <div>
-            {location.pathname === "/verbe" 
-            ? <VerbeHome />
-            : <Outlet />}
+            {location.pathname === "/verbe"
+                ? <VerbeHome />
+                : <Outlet />}
         </div>
     )
 }

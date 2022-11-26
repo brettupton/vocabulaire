@@ -32,8 +32,8 @@
   }
 }
 
-/* Word Flashcard */
-#word-flashcard-icon {
+/* Flashcard */
+#flashcard-icon {
   height: 36px;
   width: 36px;
 }
@@ -44,150 +44,39 @@
   padding: 0;
 }
 
-/* Significant Words */
-#tables-container {
-  font-family: 'PT Serif', serif;
-  background-color: #333333;
-  color: white;
-  min-height: 270vh;
-  max-width: 100vw;
-  padding: 6% 0;
-}
-
-#content-card {
-  margin-left: 2%;
-  width: 20%;
-}
-
-#numbers-table {
-  border-radius: 5px;
-  width: 75vw;
-}
-
-#numbers-table th {
-  color: black;
-}
-
-#numeros {
-  padding: 5% 2% 0 2%;
-}
-
-#questions, #colours, #mois, #jours, #corps{
-  text-transform: capitalize;
-  padding: 5% 2% 0 2%;
-}
-
-#significant-footer {
-  background-color: #333333;
-  max-width: 100vw;
-}
-
-/* Media Query < 1000px */
-@media (max-width: 768px) {
-  #tables-container {
-    max-width: 100vw;
-  }
-
-  #content-card {
-    font-size: 14px;
-    margin-top: 10%;
-    width: 95vw;
-  }
-
-  #numeros, #questions, #colours, #mois, #jours, #corps{
-    padding: 15% 2% 0 2%;
-  }
-
-  #numbers-table {
-    font-size: 8.5px;
-    max-width: 100vw;
-  }
-
-  #significant-footer {
-    padding-right: 15%;
-  }
-
-  #footer-image {
-    height: 34px;
-    width: 34px;
-  }
-
-  #numbers-table td {
-    padding: 2px;
-  }
-
-  #colours th {
-    padding: 0 6px;
-  }
-  #numeros th {
-    padding: 0 11px;
-  }
-  #mois th {
-    padding: 0px;
-  }
-  #questions th {
-    padding: 0 12px;
-  }
-  #jours th {
-    padding: 0 10px;
-  }
-}
-
-/* Verb Flashcard */
-#verb-flashcard-icon {
-  height: 36px;
-  width: 36px;
-}
-
-#verb-flashcard {
-  z-index: 0;
-  height: 42vh;
-  width: 32vw;
-  color: black;
-}
-
-#verb-container {
-  margin-top: -25px;
-}
-
-/* Media Query < 1300px */
-@media (max-width: 1300px) {
-  #verb-flashcard {
-    width: 95vw;
-    font-size: 20px;
-  }
-  #verb-conjugation-mobile-container {
-    margin-top: 24px;
-  }
-}
-
 /* Word List Table */
 .table-fixed {
   overflow-y: auto;
   height: 90vh;
 }
+
 .table-fixed thead th {
   position: sticky;
   top: 0;
 }
+
 table {
   border-collapse: collapse;
   width: 90vw;
   background: white;
   color: black;
 }
+
 th,
 td {
   padding: 8px 16px;
 }
+
 th {
   background: #6c757d;
   color: white;
 }
+
 .table-fixed,
 .table-fixed td {
   box-shadow: inset 1px -1px #000;
 }
+
 .table-fixed th {
   box-shadow: inset 1px 1px #000, 0 1px #000;
 }
@@ -199,9 +88,7 @@ th {
     height: 90vh;
     font-size: 12px;
   }
-  #row-hidden {
-    display: none;
-  }
+
   th,
   td {
     padding: 0;

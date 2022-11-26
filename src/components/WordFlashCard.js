@@ -124,7 +124,7 @@ export default function WordFlashCard() {
                     <span className="sr-only">&nbsp;</span>
                 </div>
             </div>
-            : <div className="min-vh-100 text-center" style={{paddingTop: "12%"}}>
+            : <div className="min-vh-100 text-center" style={{paddingTop: "9%"}}>
                 <ReactCardFlip isFlipped={flip} flipDirection="horizontal">
                     <WordFlashCardDisplayFront
                         wordArray={wordArray}

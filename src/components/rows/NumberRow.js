@@ -1,12 +1,13 @@
-import significantList from "../../lists/significantlist"
 
-export default function NumberRow({index}) {
+export default function NumberRow(props) {
 
-    const numbersArray = significantList.numbers
+    const { index, significantArray } = props
+
+    const numbersArray = significantArray.numbers
 
     return (
         <tr>
-            <th scope="row" style={{paddingRight: "20px"}} id="row-hidden">{index}</th>
+            <th scope="row" className="px-3">{index}</th>
             <td>{numbersArray[index]}</td>
             <td>{numbersArray[index + 10]}</td>
             <td>{numbersArray[index + 20]}</td>
