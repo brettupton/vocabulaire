@@ -44,57 +44,6 @@
   padding: 0;
 }
 
-/* Word List Table */
-.table-fixed {
-  overflow-y: auto;
-  height: 90vh;
-}
-
-.table-fixed thead th {
-  position: sticky;
-  top: 0;
-}
-
-table {
-  border-collapse: collapse;
-  width: 90vw;
-  background: white;
-  color: black;
-}
-
-th,
-td {
-  padding: 8px 16px;
-}
-
-th {
-  background: #6c757d;
-  color: white;
-}
-
-.table-fixed,
-.table-fixed td {
-  box-shadow: inset 1px -1px #000;
-}
-
-.table-fixed th {
-  box-shadow: inset 1px 1px #000, 0 1px #000;
-}
-
-/* Media Query < 1300px */
-@media (max-width: 1300px) {
-  .table-fixed {
-    width: 92vw;
-    height: 90vh;
-    font-size: 12px;
-  }
-
-  th,
-  td {
-    padding: 0;
-  }
-}
-
 /* Sidebar */
 #navSidebarContainer {
   padding-top: 50%;

@@ -7,11 +7,11 @@ import verbempty from '../images/icons/verb-empty.png'
 
 export default function VerbFlashCardDisplayFront(props) {
 
-    const { verbArray, verbIndex, shuffle, handleClick, isMobile } = props
+    const { currentVerb, shuffle, handleClick, isMobile } = props
 
     return (
         <div className="container text-center pt-5 d-flex flex-column align-items-center justify-content-center">
-            <div className={`row w-${isMobile ? '100' : '50'}`}>
+            <div className={`row w-${isMobile ? '100' : '50'}`} id="verb-flashcard">
                 <div className="col">
                     <div className="card text-center text-black">
                         <div className="card-body p-0">
@@ -26,13 +26,11 @@ export default function VerbFlashCardDisplayFront(props) {
                                 <div className="row pt-5">
                                     <div className="col">
                                         <p className="card-text">
-                                            <FEVerb
-                                                verbArray={verbArray}
-                                                verbIndex={verbIndex} />
+                                            <FEVerb currentVerb={currentVerb} />
                                         </p>
                                     </div>
                                 </div>
-                                <div className="row mt-5">
+                                <div className={`row ${isMobile ? '0' : 'mt-5 pt-2'}`}>
                                     <div className="col">
                                         <button className="my-3" value="flip" onClick={handleClick} id="button-styling">
                                             <img src={flipbutton} alt="Flip Button" />
@@ -59,7 +57,7 @@ export default function VerbFlashCardDisplayFront(props) {
                                         </button>
                                     </div>
                                     <div className="col-3">
-                                        <SpeechButton word={verbArray[verbIndex].Verb} />
+                                        <SpeechButton word={currentVerb.Verb} />
                                     </div>
                                     <div className="col-3">
                                         <button value="next" onClick={handleClick} id="button-styling">

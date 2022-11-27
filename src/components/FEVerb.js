@@ -1,16 +1,16 @@
 export default function FEVerb(props) {
-    const { verbArray, verbIndex } = props
+    const { currentVerb } = props
 
     return (
         <div className="container">
             <div className="row">
                 <div className="col">
-                    {verbArray[verbIndex].Verb}
+                    {currentVerb.Verb}
                 </div>
             </div>
             <div className="row">
                 <div className="col">
-                    {verbArray[verbIndex].Translation}
+                    {currentVerb.Translation}
                 </div>
             </div>
         </div>

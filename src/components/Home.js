@@ -25,26 +25,35 @@ export default function Home() {
     const isMobile = width <= 768;
 
     return (
-        <div className="container text-center min-vh-100 pt-5">
-            <div className="row pt-5">
-                <div className="col">
-                    <img src={isMobile ? logotower : vocabulaire} height="60%" alt="Page Title" />
+        <>
+            <div className="container text-center min-vh-100 pt-5">
+                <div className="row pt-5">
+                    <div className="col">
+                        <img src={isMobile ? logotower : vocabulaire} height="60%" alt="Page Title" />
+                    </div>
+                </div>
+                <div className="row pb-5">
+                    <div className="col">
+                        <Card imageSrc={eiffeltower} header={"Mots"} link={"lesmots"} isMobile={isMobile} />
+                    </div>
+                    <div className="col">
+                        <Card imageSrc={pontdugard} header={"Verbes"} link={"verbe"} isMobile={isMobile} />
+                    </div>
+                    <div className="col">
+                        <Card imageSrc={louvre} header={"Traduire"} link={"traduire"} isMobile={isMobile} />
+                    </div>
+                    <div className="col">
+                        <Card imageSrc={nimes} header={"Ajouter"} link={"lesmots/add"} isMobile={isMobile} />
+                    </div>
                 </div>
             </div>
-            <div className="row pb-5">
-                <div className="col">
-                    <Card imageSrc={eiffeltower} header={"Mots"} link={"lesmots"} isMobile={isMobile} />
+            <div className="container min-vw-100 p-1 m-0 text-white text-end">
+                <div className="row fs-6">
+                    <div className="col">
+                        Data provided by<a className="badge badge-info" href="https://francais.lingolia.com/en" target="_blank" rel="next">francais.lingolia.com</a>
+                    </div>
                 </div>
-                <div className="col">
-                    <Card imageSrc={pontdugard} header={"Verbes"} link={"verbe"} isMobile={isMobile} />
-                </div>
-                <div className="col">
-                    <Card imageSrc={louvre} header={"Traduire"} link={"traduire"} isMobile={isMobile} />
-                </div>
-                {/* <div className="col">
-                    <Card imageSrc={nimes} header={"Ajouter"} link={"lesmots/add"} isMobile={isMobile} />
-                </div> */}
             </div>
-        </div>
+        </>
     )
 }

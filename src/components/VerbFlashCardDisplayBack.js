@@ -7,7 +7,7 @@ import verbfill from '../images/icons/verb-fill.png'
 
 export default function VerbFlashCardDisplayBack(props) {
 
-    const { verbArray, verbIndex, shuffle, handleClick, isMobile, currentTense } = props
+    const { currentVerb, shuffle, handleClick, isMobile, currentTense } = props
 
     return (
         <div className={`container text-center pt-5 d-flex flex-column align-items-center justify-content-center`}>
@@ -27,14 +27,13 @@ export default function VerbFlashCardDisplayBack(props) {
                                     <div className="col">
                                         <p className="card-text">
                                             <FEConjugations
-                                                verbArray={verbArray}
-                                                verbIndex={verbIndex}
+                                                currentVerb={currentVerb}
                                                 currentTense={currentTense}
                                                 isMobile={isMobile} />
                                         </p>
                                     </div>
                                 </div>
-                                <div className="row">
+                                <div className={`row ${isMobile ? 'mt-1' : ''}`}>
                                     <div className="col">
                                         <button className="py-4" value="flip" onClick={handleClick} id="button-styling">
                                             <img src={flipbutton} alt="Flip Button" />
@@ -61,7 +60,7 @@ export default function VerbFlashCardDisplayBack(props) {
                                         </button>
                                     </div>
                                     <div className="col-3">
-                                        <SpeechButton word={verbArray[verbIndex].Verb} />
+                                        <SpeechButton word={currentVerb.Verb} />
                                     </div>
                                     <div className="col-3">
                                         <button value="next" onClick={handleClick} id="button-styling">

@@ -1,10 +1,10 @@
 export default function WordRow(props) {
 
-    const {word, index} = props
+    const { word, index } = props
 
     return (
-        <tr>
-            <th scope="row" id="row-hidden">{index + 1}</th>
+        <tr className="table-secondary">
+            <th scope="row" className="d-none d-lg-table-cell">{index + 1}</th>
             <td>{word.French}</td>
             <td>{word.English}</td>
             <td>{word.MascOrFemme}</td>

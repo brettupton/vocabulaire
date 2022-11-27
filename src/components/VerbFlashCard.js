@@ -2,18 +2,12 @@ import { useState, useEffect } from 'react'
 import ReactCardFlip from 'react-card-flip'
 import VerbFlashCardDisplayFront from './VerbFlashCardDisplayFront'
 import VerbFlashCardDisplayBack from './VerbFlashCardDisplayBack'
+import verbList from '../lists/verblist'
 
 export default function VerbFlashCard() {
     const [verbIndex, setVerbIndex] = useState(0)
-    const [verbArray, setVerbArray] = useState([{
-        "Verb": "Être", "Translation": "To Be",
-        "Présent":
-            { "Je": "suis", "Tu": "es", "Il": "est", "Nous": "sommes", "Vous": "êtes", "Ils": "sont" },
-        "Imparfait": {
-            "Je": "etais", "Tu": "etais", "Il": "etait", "Nous": "etions", "Vous": "etiez", "Ils": "etaient"
-        }
-    }])
-    const [flip, setFlip] = useState(true)
+    const [verbArray, setVerbArray] = useState(verbList)
+    const [flip, setFlip] = useState(false)
     const [shuffle, setShuffle] = useState(false)
     const [width, setWidth] = useState(window.innerWidth)
     const [currentTense, setCurrentTense] = useState('Présent')
@@ -86,14 +80,12 @@ export default function VerbFlashCard() {
             <div className="min-vh-100 text-center" style={{ paddingTop: "8%" }}>
                 <ReactCardFlip isFlipped={flip} flipDirection="horizontal">
                     <VerbFlashCardDisplayFront
-                        verbArray={verbArray}
-                        verbIndex={verbIndex}
+                        currentVerb={verbArray[verbIndex]}
                         shuffle={shuffle}
                         handleClick={handleClick}
                         isMobile={isMobile} />
                     <VerbFlashCardDisplayBack
-                        verbArray={verbArray}
-                        verbIndex={verbIndex}
+                        currentVerb={verbArray[verbIndex]}
                         shuffle={shuffle}
                         handleClick={handleClick}
                         isMobile={isMobile}
@@ -115,18 +107,18 @@ export default function VerbFlashCard() {
                     </div>
                     <div className={`row text-white w-${isMobile ? '100' : '75'} py-1`}>
                         <div className="col">
-                            <button className="btn btn-primary w-100" onClick={() => setCurrentTense('Imparfait')}>Passé composé</button>
+                            <button className="btn btn-primary w-100" onClick={() => setCurrentTense('PasséComposé')}>Passé composé</button>
                         </div>
                         <div className="col">
-                            <button className="btn btn-primary w-100" onClick={() => setCurrentTense('Imparfait')}>Futur simple</button>
+                            <button className="btn btn-primary w-100" onClick={() => setCurrentTense('FuturSimple')}>Futur simple</button>
                         </div>
                     </div>
                     <div className={`row text-white w-${isMobile ? '100' : '75'} py-1`}>
                         <div className="col">
-                            <button className="btn btn-primary w-100" onClick={() => setCurrentTense('Imparfait')}>Conditionnel présent</button>
+                            <button className="btn btn-primary w-100" onClick={() => setCurrentTense('ConditionnelPrésent')}>Conditionnel présent</button>
                         </div>
                         <div className="col">
-                            <button className="btn btn-primary w-100" onClick={() => setCurrentTense('Imparfait')}>Présent du subjonctif</button>
+                            <button className="btn btn-primary w-100" onClick={() => setCurrentTense('PrésentDuSubjonctif')}>Présent du subjonctif</button>
                         </div>
                     </div>
                 </div>

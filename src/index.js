@@ -9,7 +9,8 @@ import WordFlashCard from './pages/wordflashcards'
 import Significatifs from './pages/significatifs'
 import FullWordList from './pages/fullwordlist'
 import Verbe from './pages/verbe'
-import VerbFlashCards from './pages/verbflashcards';
+import VerbFlashCards from './pages/verbflashcards'
+import Temps from './pages/temps'
 import HomePage from './pages/home'
 import Traduire from './pages/traduire'
 import NoPage from './pages/nopage'
@@ -27,8 +28,10 @@ export default function App() {
             <Route path="add" element={<Add />} />
             <Route path="*" element={<NoPage />} />
           </Route>
-          <Route path="verbe" element={<Verbe />}> 
+          <Route path="verbe" element={<Verbe />}>
             <Route path="flashcards" element={<VerbFlashCards />} />
+            <Route path="temps" element={<Temps />} />
+            <Route path="*" element={<NoPage />} />
           </Route>
           <Route path="traduire" element={<Traduire />} />
           <Route path="*" element={<NoPage />} />
