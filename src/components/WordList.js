@@ -31,32 +31,30 @@ export default function WordList() {
 
         wordArray.length === 0
             ?
-            <div className="container min-vh-100 text-center pt-5">
+            <div className="container min-vh-100 text-center pt-5 mt-3">
                 <div className="spinner-border text-light" role="status">
                     <span className="sr-only"></span>
                 </div>
             </div>
-            : <div className="container min-vh-100 pt-5 min-vw-100">
-                <div className="row">
+            : <div className="container min-vh-100 pt-5">
+                <div className="row py-4 px-0">
                     <div className="col">
-                        <div className="table-responsive">
-                            <table className={`table table-sm table-hover table-bordered mt-5 text-center fs-${isMobile ? '6' : '4'}`}>
-                                <thead>
-                                    <tr className="table-dark">
-                                        <th scope="col" className="d-none d-lg-table-cell">#</th>
-                                        <th scope="col">French</th>
-                                        <th scope="col">English</th>
-                                        <th scope="col">Gender</th>
-                                        <th scope="col">Grammar Type</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {wordArray.map((word, key) => {
-                                        return <WordRow word={word} index={key} />
-                                    })}
-                                </tbody>
-                            </table>
-                        </div>
+                        <table className={`table table-sm table-hover table-bordered text-center fs-${isMobile ? '6' : '4'}`}>
+                            <thead>
+                                <tr className="table-dark">
+                                    <th scope="col" className="d-none d-lg-table-cell">#</th>
+                                    <th scope="col">French</th>
+                                    <th scope="col">English</th>
+                                    <th scope="col">Gender</th>
+                                    <th scope="col">Grammar Type</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {wordArray.map((word, key) => {
+                                    return <WordRow word={word} index={key} />
+                                })}
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

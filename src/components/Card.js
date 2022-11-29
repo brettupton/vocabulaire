@@ -6,7 +6,7 @@ export default function Card(props) {
 
     return (
         <Link to={link}>
-            <button className="w-100" id="card-container">
+            <button className="w-100 text-black bg-white rounded" id="card-container">
                 <div className="container">
                     <div className="row mb-3">
                         <div className="col">

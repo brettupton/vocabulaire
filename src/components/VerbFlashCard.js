@@ -37,7 +37,13 @@ export default function VerbFlashCard() {
         return randomIndex
     }
 
+    function handleTenseChangeClick(tense) {
+        setCurrentTense(tense.currentTarget.value)
+        setFlip(true)
+    }
+
     const handleClick = (type) => {
+        setFlip(false)
         switch (type.currentTarget.value) {
             case 'next':
                 if (!shuffle) {
@@ -99,26 +105,26 @@ export default function VerbFlashCard() {
                     </div>
                     <div className={`row text-white w-${isMobile ? '100' : '75'} py-1`}>
                         <div className="col">
-                            <button className={`btn btn-primary w-100`} onClick={() => setCurrentTense('Présent')}>Présent</button>
+                            <button className={`btn btn-primary w-100`} value='Présent' onClick={handleTenseChangeClick}>Présent</button>
                         </div>
                         <div className="col">
-                            <button className={`btn btn-primary w-100`} onClick={() => setCurrentTense('Imparfait')}>Imparfait</button>
-                        </div>
-                    </div>
-                    <div className={`row text-white w-${isMobile ? '100' : '75'} py-1`}>
-                        <div className="col">
-                            <button className="btn btn-primary w-100" onClick={() => setCurrentTense('PasséComposé')}>Passé composé</button>
-                        </div>
-                        <div className="col">
-                            <button className="btn btn-primary w-100" onClick={() => setCurrentTense('FuturSimple')}>Futur simple</button>
+                            <button className={`btn btn-primary w-100`} value='Imparfait' onClick={handleTenseChangeClick}>Imparfait</button>
                         </div>
                     </div>
                     <div className={`row text-white w-${isMobile ? '100' : '75'} py-1`}>
                         <div className="col">
-                            <button className="btn btn-primary w-100" onClick={() => setCurrentTense('ConditionnelPrésent')}>Conditionnel présent</button>
+                            <button className="btn btn-primary w-100" value='PasséComposé' onClick={handleTenseChangeClick}>Passé composé</button>
                         </div>
                         <div className="col">
-                            <button className="btn btn-primary w-100" onClick={() => setCurrentTense('PrésentDuSubjonctif')}>Présent du subjonctif</button>
+                            <button className="btn btn-primary w-100" value='FuturSimple' onClick={handleTenseChangeClick}>Futur simple</button>
+                        </div>
+                    </div>
+                    <div className={`row text-white w-${isMobile ? '100' : '75'} py-1`}>
+                        <div className="col">
+                            <button className="btn btn-primary w-100" value='ConditionnelPrésent' onClick={handleTenseChangeClick}>Conditionnel présent</button>
+                        </div>
+                        <div className="col">
+                            <button className="btn btn-primary w-100" value='PrésentDuSubjonctif' onClick={handleTenseChangeClick}>Présent du subjonctif</button>
                         </div>
                     </div>
                 </div>

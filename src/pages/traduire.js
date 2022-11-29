@@ -1,16 +1,20 @@
 import { useEffect, useState } from "react"
-
-const speech = new SpeechSynthesisUtterance()
-const synth = window.speechSynthesis
-speech.lang = "fr"
+import SpeechButton from '../components/SpeechButton'
 
 export default function Traduire() {
 
+    const [width, setWidth] = useState(window.innerWidth)
     const [translatedTextResponse, setTranslatedTextResponse] = useState('')
 
+    const isMobile = width <= 768
+
+    function handleWindowSizeChange() {
+        setWidth(window.innerWidth)
+    }
+
     function unescape(string) {
-        return new DOMParser().parseFromString(string,'text/html').querySelector('html').textContent;
-      }
+        return new DOMParser().parseFromString(string, 'text/html').querySelector('html').textContent
+    }
 
     const checkEnterPress = (e) => {
         const translateButton = document.getElementById('translate-button')
@@ -21,18 +25,19 @@ export default function Traduire() {
     }
 
     useEffect(() => {
+        window.addEventListener('resize', handleWindowSizeChange)
+        return () => {
+            window.removeEventListener('resize', handleWindowSizeChange)
+        }
+    }, [])
+
+    useEffect(() => {
         const input = document.getElementById('input-area')
         input.addEventListener("keypress", checkEnterPress)
         return () => {
             input.removeEventListener("keypress", checkEnterPress)
-        } 
+        }
     })
-
-    const playSpeech = () => {
-        speech.text = translatedTextResponse
-        synth.speak(speech)
-        
-    }
 
     const translateText = () => {
         const input = document.getElementById('input-area')
@@ -45,8 +50,8 @@ export default function Traduire() {
                 'X-RapidAPI-Host': 'deep-translate1.p.rapidapi.com'
             },
             body: `{"q":"${input.value}","source":"en","target":"fr"}`
-        };
-        
+        }
+
         fetch('https://deep-translate1.p.rapidapi.com/language/translate/v2', options)
             .then(response => response.json())
             .then(response => {
@@ -56,40 +61,33 @@ export default function Traduire() {
     }
 
     return (
-        <div className="layout">
-            <div className="container flex" id="translation-main-container">
-                <div className="row justify-content-center">
-                    <div className="col-lg-5">
-                        <div className="form-group">
-                                <label htmlFor="input-area" style={{fontSize: "24px"}}>English:</label>
-                                <textarea className="form-control" rows="4" id="input-area" placeholder="Type here"></textarea>
-                            </div>
-                        </div>
-                    <div className="col-lg-5">
-                        <span style={{fontSize: "24px"}}>French:</span> 
-                        <div className="container" id="translation-translate-container">
-                            <div className="row align-items-start pt-1">
-                                <div className="col-auto">
-                                    {translatedTextResponse && 
-                                        <div className="container">
-                                            <div className="row align-items-center">
-                                                <div className="col">
-                                                    {translatedTextResponse} 
-                                                    <button className="btn p-1 mb-1" onClick={playSpeech}>
-                                                        <img id="play-icon" alt="Play Button Icon"/>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>}
-                                </div>
+        <div className="container min-vh-100 text-center pt-5 text-white fs-5">
+            <div className="row pt-5 justify-content-center">
+                <div className="col-lg-5">
+                    <div className="form-group">
+                        <label htmlFor="input-area" className="py-3">English:</label>
+                        <textarea className="form-control" rows="4" id="input-area" placeholder="Type here"></textarea>
+                    </div>
+                </div>
+                <div className="col-lg-5 py-3">
+                    <p >French:</p>
+                    <div className={`container p-4 bg-white h-${isMobile ? '100' : '75'} rounded text-black fs-6 text-start`}>
+                        <div className="row pt-1">
+                            <div className="col">
+                                {translatedTextResponse}
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="row mt-5">
-                    <div className="col">
-                        <button onClick={translateText} className="btn btn-primary" id="translate-button">Translate to French</button>
-                    </div>
+            </div>
+            <div className="row text-end" style={{ padding: `${isMobile ? '8% 0 0 0' : '0 8% 0 0'}` }}>
+                <div className="col">
+                    <SpeechButton word={translatedTextResponse} />
+                </div>
+            </div>
+            <div className="row justify-content-center">
+                <div className="col">
+                    <button onClick={translateText} className="btn btn-primary" id="translate-button">Translate</button>
                 </div>
             </div>
         </div>

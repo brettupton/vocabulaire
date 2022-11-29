@@ -1,6 +1,8 @@
 export default function FEConjugations(props) {
     const { currentVerb, currentTense, isMobile } = props
 
+    const isSubjunctive = (currentTense === 'PrésentDuSubjonctif')
+
     function startsWithVowelOrH(word) {
         const vowels = ("aàâäæeèéêëhiîïoôœuùûü");
         return vowels.indexOf(word[0]) !== -1;
@@ -12,7 +14,21 @@ export default function FEConjugations(props) {
         return currentTenseSplitLowerCase
     }
 
-    const isSubjunctive = (currentTense === 'PrésentDuSubjonctif')
+    function returnJeConjugation(verb) {
+        if (isSubjunctive) {
+            if (startsWithVowelOrH(verb.Je)) {
+                return 'Que j\''
+            } else {
+                return 'Que je '
+            }
+        } else {
+            if (startsWithVowelOrH(verb.Je)) {
+                return 'J\''
+            } else {
+                return 'Je '
+            }
+        }
+    }
 
     const rowMarginTop = `row mt-${isMobile ? '2' : '1'}`
 
@@ -25,9 +41,7 @@ export default function FEConjugations(props) {
             </div>
             <div className={rowMarginTop}>
                 <div className="col">
-                    {isSubjunctive ? `Que je ${currentVerb[currentTense].Je}` : startsWithVowelOrH(currentVerb[currentTense].Je)
-                        ? <div>J'{currentVerb[currentTense].Je}</div>
-                        : <div>Je {currentVerb[currentTense].Je}</div>}
+                    {returnJeConjugation(currentVerb[currentTense]) + currentVerb[currentTense].Je}
                 </div>
                 <div className={`col-${isMobile ? '7' : '6'}`}>
                     {isSubjunctive ? 'Que nous' : 'Nous'} {currentVerb[currentTense].Nous}

@@ -2,7 +2,7 @@ import FEConjugations from "./FEConjugations"
 import SpeechButton from "./SpeechButton"
 import rightarrow from '../images/icons/arrow-right-circle.svg'
 import leftarrow from '../images/icons/arrow-left-circle.svg'
-import flipbutton from '../images/icons/arrow-counterclockwise.svg'
+import flipbutton from '../images/icons/card-flip.png'
 import verbfill from '../images/icons/verb-fill.png'
 
 export default function VerbFlashCardDisplayBack(props) {
@@ -18,7 +18,7 @@ export default function VerbFlashCardDisplayBack(props) {
                             <div className="container p-0">
                                 <div className="row justify-content-start">
                                     <div className="col-2">
-                                        <img src={verbfill} id="flashcard-icon" />
+                                        <img src={verbfill} id="flashcard-icon" alt="Verb Side Display Icon" />
                                     </div>
                                 </div>
                             </div>

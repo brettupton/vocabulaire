@@ -47,10 +47,10 @@ export default function Home() {
                     </div>
                 </div>
             </div>
-            <div className="container min-vw-100 p-1 m-0 text-white text-end">
+            <div className="container min-vw-100 px-3 text-white text-end">
                 <div className="row fs-6">
                     <div className="col">
-                        Data provided by<a className="badge badge-info" href="https://francais.lingolia.com/en" target="_blank" rel="next">francais.lingolia.com</a>
+                        Data provided by<a className="badge badge-info" href="https://francais.lingolia.com/en" target="_blank" rel="noreferrer">francais.lingolia.com</a>
                     </div>
                 </div>
             </div>

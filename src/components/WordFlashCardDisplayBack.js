@@ -1,7 +1,7 @@
 import usflag from '../images/united-states.png'
 import rightarrow from '../images/icons/arrow-right-circle.svg'
 import leftarrow from '../images/icons/arrow-left-circle.svg'
-import flipbutton from '../images/icons/arrow-counterclockwise.svg'
+import flipbutton from '../images/icons/card-flip.png'
 import SpeechButton from './SpeechButton'
 
 export default function WordFlashCardDisplayBack(props) {
@@ -10,14 +10,14 @@ export default function WordFlashCardDisplayBack(props) {
 
     return (
         <div className="container text-center pt-5 d-flex flex-column align-items-center justify-content-center">
-        <div className={`row w-${isMobile ? '100' : '50'}`}>
+            <div className={`row w-${isMobile ? '100' : '50'}`}>
                 <div className="col">
                     <div className="card text-center text-black">
                         <div className="card-body p-0">
                             <div className="container p-0">
                                 <div className="row justify-content-start m-1">
                                     <div className="col-2">
-                                        <img src={usflag} id="flashcard-icon" alt="Flashcard Icon"/>
+                                        <img src={usflag} id="flashcard-icon" alt="Flashcard Icon" />
                                     </div>
                                 </div>
                             </div>
@@ -30,14 +30,14 @@ export default function WordFlashCardDisplayBack(props) {
                                 <div className="row">
                                     <div className="col">
                                         <button className="mt-5" value="flip" onClick={handleClick} id="button-styling">
-                                            <img src={flipbutton} id="arrow-button" alt="Flip Button"/>
+                                            <img src={flipbutton} id="arrow-button" alt="Flip Button" />
                                         </button>
                                     </div>
                                 </div>
                                 <div className="row my-5">
                                     <div className="col-3">
                                         <button onClick={handleClick} value="prev" id="button-styling">
-                                            <img src={leftarrow} id="arrow-button" alt="Left Arrow"/>
+                                            <img src={leftarrow} id="arrow-button" alt="Left Arrow" />
                                         </button>
                                     </div>
                                     <div className="col-3">
@@ -58,7 +58,7 @@ export default function WordFlashCardDisplayBack(props) {
                                     </div>
                                     <div className="col-3">
                                         <button onClick={handleClick} value="next" id="button-styling">
-                                            <img src={rightarrow} id="arrow-button" alt="Right Arrow"/>
+                                            <img src={rightarrow} id="arrow-button" alt="Right Arrow" />
                                         </button>
                                     </div>
                                 </div>
@@ -67,6 +67,6 @@ export default function WordFlashCardDisplayBack(props) {
                     </div>
                 </div>
             </div>
-            </div>
+        </div>
     )
 }

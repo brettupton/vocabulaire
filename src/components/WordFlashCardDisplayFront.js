@@ -1,7 +1,7 @@
 import franceflag from '../images/france.png'
 import rightarrow from '../images/icons/arrow-right-circle.svg'
 import leftarrow from '../images/icons/arrow-left-circle.svg'
-import flipbutton from '../images/icons/arrow-counterclockwise.svg'
+import flipbutton from '../images/icons/card-flip.png'
 import SpeechButton from './SpeechButton'
 
 export default function WordFlashCardDisplayFront(props) {
