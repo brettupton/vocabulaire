@@ -91,7 +91,7 @@ export default function Add() {
         setMultiAdd(true)
     }
 
-    if (!token || token === 'undefined') {
+    if (!token) {
         return <Login setToken={setToken} />
     }
 
