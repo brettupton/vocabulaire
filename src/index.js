@@ -15,7 +15,9 @@ import HomePage from './pages/home'
 import Traduire from './pages/traduire'
 import NoPage from './pages/nopage'
 
+
 export default function App() {
+
   return (
     <BrowserRouter>
       <Routes>

@@ -15,7 +15,7 @@ export default function VerbFlashCard() {
     const isMobile = (width <= 768)
 
     // const fetchData = () => {
-    //     fetch(`https://vocabulairehost.herokuapp.com/getverbs`)
+    //     fetch(`https://vocabulairehost.onrender.com//getverbs`)
     //         .then((response) => response.json())
     //         .then((data) => setVerbArray(data))
     // }

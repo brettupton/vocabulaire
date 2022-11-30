@@ -46,11 +46,11 @@ export default function Home() {
                         <Card imageSrc={nimes} header={"Ajouter"} link={"lesmots/add"} isMobile={isMobile} />
                     </div>
                 </div>
-            </div>
-            <div className="container min-vw-100 px-3 text-white text-end">
-                <div className="row fs-6">
-                    <div className="col">
-                        Data provided by<a className="badge badge-info" href="https://francais.lingolia.com/en" target="_blank" rel="noreferrer">francais.lingolia.com</a>
+                <div className="container text-white pt-5" style={{ minWidth: '83vw' }}>
+                    <div className="row fs-6 text-end pt-3">
+                        <div className="col">
+                            Data provided by<a className="badge badge-info" href="https://francais.lingolia.com/en" target="_blank" rel="noreferrer">francais.lingolia.com</a>
+                        </div>
                     </div>
                 </div>
             </div>

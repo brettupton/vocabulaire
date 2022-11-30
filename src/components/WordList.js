@@ -18,7 +18,7 @@ export default function WordList() {
     }, [])
 
     const fetchData = () => {
-        fetch(`https://vocabulairehost.herokuapp.com/getwords`)
+        fetch(`https://vocabulairehost.onrender.com/words/getwords`)
             .then((response) => response.json())
             .then((data) => setWordArray(data))
     }

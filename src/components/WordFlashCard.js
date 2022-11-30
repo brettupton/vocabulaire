@@ -14,7 +14,7 @@ export default function WordFlashCard() {
     const [width, setWidth] = useState(window.innerWidth)
 
     const isMobile = (width <= 768)
-    const url = 'https://vocabulairehost.herokuapp.com/'
+    const url = 'https://vocabulairehost.onrender.com/words/'
 
     useEffect(() => {
         fetchAllData()
@@ -27,7 +27,7 @@ export default function WordFlashCard() {
     const fetchAllData = () => {
         fetch(url + `getwords`)
             .then((response) => response.json())
-            .then((data) => {setWordArray(data)})
+            .then((data) => { setWordArray(data) })
             .then(checkGender(wordArray[wordIndex]))
     }
 
@@ -101,7 +101,7 @@ export default function WordFlashCard() {
             case 'shuffle':
                 setShuffle(!shuffle)
                 break
-            default: 
+            default:
                 break
         }
     }
@@ -124,7 +124,7 @@ export default function WordFlashCard() {
                     <span className="sr-only">&nbsp;</span>
                 </div>
             </div>
-            : <div className="min-vh-100 text-center" style={{paddingTop: "9%"}}>
+            : <div className="min-vh-100 text-center" style={{ paddingTop: "9%" }}>
                 <ReactCardFlip isFlipped={flip} flipDirection="horizontal">
                     <WordFlashCardDisplayFront
                         wordArray={wordArray}
