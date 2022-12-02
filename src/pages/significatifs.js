@@ -22,7 +22,7 @@ export default function Significatifs() {
     }
 
     return (
-        <div className="container min-vh-100 fs-5 mx-0 min-vw-100" id="top" style={{ paddingTop: `${isMobile ? '20%' : '7%'}` }}>
+        <div className="container min-vh-100 fs-5 mx-0" id="top" style={{ paddingTop: `${isMobile ? '20%' : '7%'}`, minWidth: '99%' }}>
             <div className="row text-center align-content-start">
                 <div className={`col-${isMobile ? '12' : '4'}`}>
                     <div className="container bg-white rounded">
@@ -66,8 +66,8 @@ export default function Significatifs() {
             </div>
             <div className="row text-center py-5" id="numeros">
                 <div className="col">
-                    <div class="table-responsive">
-                        <table class="table table-dark table-sm table-hover table-striped table-bordered">
+                    <div className="table-responsive">
+                        <table className={`table table-dark table-sm table-hover table-striped table-bordered ${isMobile ? '' : 'fs-4'}`}>
                             <thead>
                                 <tr>
                                     <th scope="col"></th>
@@ -119,48 +119,53 @@ export default function Significatifs() {
                     </div>
                 </div>
             </div>
-            <div className="row text-center pb-5" id="questions">
+            <div className="row text-center pb-2" id="questions">
                 <div className="col">
-                    <div class="table-responsive">
+                    <div className="table-responsive">
                         <SimpleTable
                             significantArray={significantList}
-                            object={'questions'} />
+                            object={'questions'}
+                            isMobile={isMobile} />
                     </div>
                 </div>
             </div>
-            <div className="row text-center pb-5" id="mois">
+            <div className="row text-center pb-2" id="mois">
                 <div className="col">
-                    <div class="table-responsive">
+                    <div className="table-responsive">
                         <SimpleTable
                             significantArray={significantList}
-                            object={'mois'} />
+                            object={'mois'}
+                            isMobile={isMobile} />
                     </div>
                 </div>
             </div>
-            <div className="row text-center pb-5" id="jours">
+            <div className="row text-center pb-2" id="jours">
                 <div className="col">
-                    <div class="table-responsive">
+                    <div className="table-responsive">
                         <SimpleTable
                             significantArray={significantList}
-                            object={'jours'} />
+                            object={'jours'}
+                            isMobile={isMobile} />
                     </div>
                 </div>
             </div>
-            <div className="row text-center pb-5" id="colours">
+            <div className="row text-center pb-2" id="colours">
                 <div className="col">
-                    <div class="table-responsive">
+                    <div className="table-responsive">
                         <SimpleTable
                             significantArray={significantList}
-                            object={'colours'} />
+                            object={'colours'}
+                            isMobile={isMobile} />
                     </div>
                 </div>
             </div>
-            <div className="row text-center pb-5" id="corps">
+            <div className="row text-center pb-2" id="corps">
                 <div className="col">
-                    <div class="table-responsive">
+                    <div className="table-responsive">
                         <SimpleTable
                             significantArray={significantList}
-                            object={'corps'} />
+                            object={'corps'}
+                            isMobile={isMobile} />
                     </div>
                 </div>
             </div>

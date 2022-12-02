@@ -164,6 +164,51 @@ const verbList = [
         "PrésentDuSubjonctif":
             { "Je": "aime", "Tu": "aimes", "Il": "aime", "Nous": "aimions", "Vous": "aimiez", "Ils": "aiment" }
     },
+    {
+        "Verb": "Lire", "Translation": "To Read",
+        "Présent":
+            { "Je": "lis", "Tu": "lis", "Il": "lit", "Nous": "lisons", "Vous": "lisez", "Ils": "lisent" },
+        "Imparfait":
+            { "Je": "lisais", "Tu": "lisais", "Il": "lisait", "Nous": "lisions", "Vous": "lisiez", "Ils": "lisaient" },
+        "PasséComposé":
+            { "Je": "ai lu", "Tu": "as lu", "Il": "a lu", "Nous": "avons lu", "Vous": "avez lu", "Ils": "ont lu" },
+        "FuturSimple":
+            { "Je": "lirai", "Tu": "liras", "Il": "lira", "Nous": "lirons", "Vous": "lirez", "Ils": "liront" },
+        "ConditionnelPrésent":
+            { "Je": "lirais", "Tu": "lirais", "Il": "lirait", "Nous": "lirions", "Vous": "liriez", "Ils": "liraient" },
+        "PrésentDuSubjonctif":
+            { "Je": "lise", "Tu": "lises", "Il": "lise", "Nous": "lisions", "Vous": "lisiez", "Ils": "lisent" }
+    },
+    {
+        "Verb": "Aller", "Translation": "To Go",
+        "Présent":
+            { "Je": "vais", "Tu": "vas", "Il": "va", "Nous": "allons", "Vous": "allez", "Ils": "vont" },
+        "Imparfait":
+            { "Je": "allais", "Tu": "allais", "Il": "allait", "Nous": "allions", "Vous": "alliez", "Ils": "allaient" },
+        "PasséComposé":
+            { "Je": "ai allé", "Tu": "as allé", "Il": "a allé", "Nous": "avons allé", "Vous": "avez allé", "Ils": "ont allé" },
+        "FuturSimple":
+            { "Je": "irai", "Tu": "iras", "Il": "ira", "Nous": "irons", "Vous": "irez", "Ils": "iront" },
+        "ConditionnelPrésent":
+            { "Je": "irais", "Tu": "irais", "Il": "irait", "Nous": "irions", "Vous": "iriez", "Ils": "iraient" },
+        "PrésentDuSubjonctif":
+            { "Je": "aille", "Tu": "ailles", "Il": "aille", "Nous": "allions", "Vous": "alliez", "Ils": "aillent" }
+    },
+    {
+        "Verb": "Visiter", "Translation": "To Visit",
+        "Présent":
+            { "Je": "visite", "Tu": "visites", "Il": "visite", "Nous": "visitons", "Vous": "visitez", "Ils": "visitent" },
+        "Imparfait":
+            { "Je": "visitais", "Tu": "visitais", "Il": "visitait", "Nous": "visitions", "Vous": "visitiez", "Ils": "visitaient" },
+        "PasséComposé":
+            { "Je": "ai visité", "Tu": "as visité", "Il": "a visité", "Nous": "avons visité", "Vous": "avez visité", "Ils": "ont visité" },
+        "FuturSimple":
+            { "Je": "visiterai", "Tu": "visiteras", "Il": "visitera", "Nous": "visiterons", "Vous": "visiterez", "Ils": "visiteront" },
+        "ConditionnelPrésent":
+            { "Je": "visiterais", "Tu": "visiterais", "Il": "visiterait", "Nous": "visiterions", "Vous": "visiteriez", "Ils": "visiteraient" },
+        "PrésentDuSubjonctif":
+            { "Je": "visite", "Tu": "visites", "Il": "visite", "Nous": "visitions", "Vous": "visitiez", "Ils": "visitent" }
+    },
 ]
 
 export default verbList

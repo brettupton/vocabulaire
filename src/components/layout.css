@@ -1,7 +1,12 @@
+/* Globals */
 #root {
   font-family: 'PT Serif', serif;
   font-size: 28px;
   background-color: #333333;
+}
+
+.table {
+  font-size: 10px;
 }
 
 /* Cards */

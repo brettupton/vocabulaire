@@ -7,7 +7,6 @@ export default function Login(props) {
     const [password, setPassword] = useState()
 
     const [postResponse, setPostResponse] = useState({
-        token: '',
         message: '',
         received: false
     })
@@ -16,6 +15,10 @@ export default function Login(props) {
 
     useEffect(() => {
         if (postResponse.received) {
+            if (!postResponse.token) {
+                alert(`${postResponse.message}`)
+                window.location.reload()
+            }
             setToken(postResponse.token)
             alert(`${postResponse.message}`)
             window.location.reload()

@@ -6,6 +6,7 @@ export default function WordList() {
     const [width, setWidth] = useState(window.innerWidth)
 
     const isMobile = width <= 768
+    const url = 'https://vocabulairehost.onrender.com/'
 
     function handleWindowSizeChange() {
         setWidth(window.innerWidth)
@@ -18,7 +19,7 @@ export default function WordList() {
     }, [])
 
     const fetchData = () => {
-        fetch(`https://vocabulairehost.onrender.com/words/getwords`)
+        fetch(url + `words/getwords`)
             .then((response) => response.json())
             .then((data) => setWordArray(data))
     }
@@ -39,22 +40,24 @@ export default function WordList() {
             : <div className="container min-vh-100 pt-5">
                 <div className="row py-4 px-0">
                     <div className="col">
-                        <table className={`table table-sm table-hover table-bordered text-center fs-${isMobile ? '6' : '4'}`}>
-                            <thead>
-                                <tr className="table-dark">
-                                    <th scope="col" className="d-none d-lg-table-cell">#</th>
-                                    <th scope="col">French</th>
-                                    <th scope="col">English</th>
-                                    <th scope="col">Gender</th>
-                                    <th scope="col">Grammar Type</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {wordArray.map((word, key) => {
-                                    return <WordRow word={word} index={key} />
-                                })}
-                            </tbody>
-                        </table>
+                        <div className="table-responsive">
+                            <table className={`table table-sm table-hover table-bordered text-center ${isMobile ? '' : 'fs-3'}`}>
+                                <thead>
+                                    <tr className="table-dark">
+                                        <th scope="col" className="d-none d-lg-table-cell">#</th>
+                                        <th scope="col">French</th>
+                                        <th scope="col">English</th>
+                                        <th scope="col">Gender</th>
+                                        <th scope="col">Grammar Type</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {wordArray.map((word, key) => {
+                                        return <WordRow word={word} index={key} key={word._id} />
+                                    })}
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
