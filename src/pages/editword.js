@@ -6,7 +6,7 @@ import Alert from '../components/Alert'
 
 export default function EditWord() {
 
-    const url = 'http://localhost:5000/'
+    const url = 'https://vocabulairehost.onrender.com/'
 
     const [width, setWidth] = useState(window.innerWidth)
     const [word, setWord] = useState({})
