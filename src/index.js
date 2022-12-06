@@ -5,7 +5,8 @@ import ScrollToTop from '../src/components/ScrollToTop'
 import './index.css'
 import Layout from './pages/layout'
 import LesMots from './pages/lesmots'
-import Add from './pages/add'
+import AddWord from './pages/addword'
+import EditWord from './pages/editword'
 import WordFlashCard from './pages/wordflashcards'
 import Significatifs from './pages/significatifs'
 import FullWordList from './pages/fullwordlist'
@@ -26,7 +27,8 @@ export default function App() {
           <Route path="flashcards" element={<WordFlashCard />} />
           <Route path="wordlist" element={<FullWordList />} />
           <Route path="significatifs" element={<Significatifs />} />
-          <Route path="add" element={<Add />} />
+          <Route path="addword" element={<AddWord />} />
+          <Route path="editword/:wordId" element={<EditWord />} />
           <Route path="*" element={<NoPage />} />
         </Route>
         <Route path="verbe" element={<Verbe />}>

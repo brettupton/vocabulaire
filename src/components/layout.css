@@ -9,6 +9,12 @@
   font-size: 10px;
 }
 
+#card-container img {
+  height: 100%;
+  width: 50%;
+  object-fit: contain;
+}
+
 /* Cards */
 #card-container {
   height: 40vh;
@@ -48,7 +54,7 @@
   width: 100%;
 }
 
-/* Speech */
+/* Icon Hover */
 
 #play-icon {
   content: url('../images/icons/play-circle.svg')
@@ -56,4 +62,12 @@
 
 #play-icon:hover {
   content: url('../images/icons/play-circle-fill.svg');
+}
+
+#delete-icon {
+  content: url('../images/icons/x-circle.svg')
+}
+
+#delete-icon:hover {
+  content: url('../images/icons/x-circle-fill.svg')
 }

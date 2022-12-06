@@ -1,27 +1,14 @@
 import { useState, useEffect } from 'react'
 import Login from '../components/Login'
 import useToken from '../components/useToken'
+import Alert from '../components/Alert'
 import plusbutton from '../images/icons/plus-circle.svg'
 
 
 export default function Add() {
 
     const [width, setWidth] = useState(window.innerWidth)
-    const { token, setToken } = useToken()
-
-    function handleWindowSizeChange() {
-        setWidth(window.innerWidth)
-    }
-    useEffect(() => {
-        window.addEventListener('resize', handleWindowSizeChange)
-        return () => {
-            window.removeEventListener('resize', handleWindowSizeChange)
-        }
-    }, [])
-
-    const isMobile = width <= 768
-    const baseUrl = 'https://vocabulairehost.onrender.com/getwords'
-
+    const [loading, setLoading] = useState(false)
     const [postResponse, setPostResponse] = useState({
         message: '',
         received: false
@@ -34,12 +21,14 @@ export default function Add() {
             GrammarType: ''
         }
     )
-
     const [newWordArray, setNewWordArray] = useState([])
-
     const [multiAdd, setMultiAdd] = useState(false)
 
-    const url = multiAdd ? baseUrl + '/multiaddword' : baseUrl + '/addword'
+    const isMobile = width <= 768
+    const baseUrl = 'https://vocabulairehost.onrender.com/'
+    const { token, setToken } = useToken()
+
+    const url = multiAdd ? baseUrl + 'words/multiaddword' : baseUrl + 'words/addword'
 
     const requestOptions = multiAdd
         ? {
@@ -53,14 +42,16 @@ export default function Add() {
             body: JSON.stringify(newWord)
         }
 
+    function handleWindowSizeChange() {
+        setWidth(window.innerWidth)
+    }
+
     useEffect(() => {
-        if (postResponse.received) {
-            multiAdd
-                ? alert(`${postResponse.message}! New words added`)
-                : alert(`${postResponse.message}! New word added`)
-            window.location.reload()
+        window.addEventListener('resize', handleWindowSizeChange)
+        return () => {
+            window.removeEventListener('resize', handleWindowSizeChange)
         }
-    }, [postResponse])
+    }, [])
 
     const handleChange = (event) => {
         const name = event.target.name
@@ -70,13 +61,24 @@ export default function Add() {
 
     const handleSubmit = (event) => {
         event.preventDefault()
+        setLoading(true)
 
         fetch(url, requestOptions)
             .then(response => response.json())
-            .then(data => setPostResponse({
-                message: data.message,
-                received: true
-            }))
+            .then(data => {
+                setPostResponse({
+                    message: data.message,
+                    received: true
+                })
+                setNewWord({
+                    French: '',
+                    English: '',
+                    MascOrFemme: '',
+                    GrammarType: ''
+                })
+                setNewWordArray([])
+                setLoading(false)
+            })
             .catch(error => console.log('Form submit error', error))
     }
 
@@ -97,6 +99,10 @@ export default function Add() {
 
     return (
         <div className={`container min-vh-100 text-center pt-5 fs-6 ${isMobile ? 'w-100' : 'w-25'}`}>
+            {postResponse.received ? multiAdd
+                ? <Alert message={`${postResponse.message}! New words added`} />
+                : <Alert message={`${postResponse.message}! New word added`} />
+                : ''}
             <div className="row justify-content-center mb-5 pt-5">
                 <div className="col">
                     <div className="card">
@@ -122,7 +128,13 @@ export default function Add() {
                                 </div>
                                 <div className="row justify-content-center">
                                     <div className="col-5">
-                                        <button type="submit" className="btn btn-primary m-2">{multiAdd ? 'Submit All' : 'Submit'}</button>
+                                        <button type="submit" className="btn btn-primary m-2">
+                                            {loading
+                                                ? <div className="spinner-border text-light spinner-border-sm" role="status">
+                                                    <span className="visually-hidden"></span>
+                                                </div>
+                                                : 'Submit'}
+                                        </button>
                                     </div>
                                     <div className="col-4 mt-1">
                                         <button className="btn" onClick={handlePlusClick} type="button">

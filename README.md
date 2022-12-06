@@ -1,3 +1,3 @@
-A React web application I'm creating to help me with learning French vocabulary and verb conjugations
+A React web application I've created to help me while learning French as a second language.
 
-Hosted here: https://revoirvocabulaire.com/
+https://revoirvocabulaire.com/

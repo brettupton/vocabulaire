@@ -10,7 +10,7 @@ export default function Card(props) {
                 <div className="container">
                     <div className="row mb-3">
                         <div className="col">
-                            <img src={imageSrc} height="100%" width={`${isMobile ? '95%' : '50%'}`} alt="Card Icon" />
+                            <img src={imageSrc} alt="Card Icon" />
                         </div>
                     </div>
                     <div className="row">

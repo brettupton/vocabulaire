@@ -5,7 +5,6 @@ import eiffeltower from '../images/eiffel.png'
 import logotower from '../images/logotower.png'
 import pontdugard from '../images/pont.png'
 import louvre from '../images/louvre.png'
-import nimes from '../images/nimes.png'
 import vocabulaire from '../images/vocabulaire.png'
 
 export default function Home() {
@@ -33,17 +32,14 @@ export default function Home() {
                     </div>
                 </div>
                 <div className="row pb-5">
-                    <div className="col">
+                    <div className={`col${isMobile ? '-12' : ''}`}>
                         <Card imageSrc={eiffeltower} header={"Mots"} link={"lesmots"} isMobile={isMobile} />
                     </div>
-                    <div className="col">
+                    <div className={`col${isMobile ? '-12' : ''}`}>
                         <Card imageSrc={pontdugard} header={"Verbes"} link={"verbe"} isMobile={isMobile} />
                     </div>
-                    <div className="col">
+                    <div className={`col${isMobile ? '-12' : ''}`}>
                         <Card imageSrc={louvre} header={"Traduire"} link={"traduire"} isMobile={isMobile} />
-                    </div>
-                    <div className="col">
-                        <Card imageSrc={nimes} header={"Ajouter"} link={"lesmots/add"} isMobile={isMobile} />
                     </div>
                 </div>
                 <div className="container text-white pt-5" style={{ minWidth: '83vw' }}>

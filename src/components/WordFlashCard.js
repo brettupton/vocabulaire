@@ -14,7 +14,7 @@ export default function WordFlashCard() {
     const [width, setWidth] = useState(window.innerWidth)
 
     const isMobile = (width <= 768)
-    const url = 'https://vocabulairehost.onrender.com/words/'
+    const url = 'https://vocabulairehost.onrender.com/'
 
     useEffect(() => {
         fetchAllData()
@@ -25,14 +25,14 @@ export default function WordFlashCard() {
     }, [])
 
     const fetchAllData = () => {
-        fetch(url + `getwords`)
+        fetch(url + `words/getwords`)
             .then((response) => response.json())
             .then((data) => { setWordArray(data) })
             .then(checkGender(wordArray[wordIndex]))
     }
 
     const fetchTypeData = (type) => {
-        fetch(`${url}getwords/${type}`)
+        fetch(`${url}words/getwords/${type}`)
             .then((response) => response.json())
             .then((data) => setWordArray(data))
     }

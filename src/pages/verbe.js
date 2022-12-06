@@ -31,13 +31,13 @@ function VerbeHome() {
                 </div>
             </div>
             <div className="row">
-                <div className="col">
+                <div className={`col${isMobile ? '-12' : ''}`}>
                     <Card imageSrc={sacrecoeur} header={"Flashcards"} link={"flashcards"} />
                 </div>
-                <div className="col">
+                <div className={`col${isMobile ? '-12' : ''}`}>
                     <Card imageSrc={house} header={"Temps"} link={"temps"} />
                 </div>
-                <div className="col">
+                <div className={`col${isMobile ? '-12' : ''}`}>
                     <Card imageSrc={question} header={"Liste de verbes"} link={"#"} />
                 </div>
             </div>
