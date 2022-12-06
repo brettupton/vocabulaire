@@ -25,14 +25,14 @@ export default function WordFlashCard() {
     }, [])
 
     const fetchAllData = () => {
-        fetch(url + `words/getwords`)
+        fetch(url + `words/getwords/all`)
             .then((response) => response.json())
             .then((data) => { setWordArray(data) })
             .then(checkGender(wordArray[wordIndex]))
     }
 
     const fetchTypeData = (type) => {
-        fetch(`${url}words/getwords/${type}`)
+        fetch(`${url}words/types/${type}`)
             .then((response) => response.json())
             .then((data) => setWordArray(data))
     }

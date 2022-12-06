@@ -28,7 +28,7 @@ export default function Add() {
     const baseUrl = 'https://vocabulairehost.onrender.com/'
     const { token, setToken } = useToken()
 
-    const url = multiAdd ? baseUrl + 'words/multiaddword' : baseUrl + 'words/addword'
+    const url = multiAdd ? baseUrl + 'words/add/multiaddword' : baseUrl + 'words/add/addword'
 
     const requestOptions = multiAdd
         ? {

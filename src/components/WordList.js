@@ -19,7 +19,7 @@ export default function WordList() {
     }, [])
 
     const fetchData = () => {
-        fetch(url + `words/getwords`)
+        fetch(url + `words/getwords/all`)
             .then((response) => response.json())
             .then((data) => setWordArray(data))
     }
