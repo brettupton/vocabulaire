@@ -1,5 +1,5 @@
 export default function Alert(props) {
-    const { message, buttons } = props
+    const { message } = props
 
     return (
         <div className="row">
@@ -7,17 +7,6 @@ export default function Alert(props) {
                 <div className="alert alert-success alert-dismissible fade show" role="alert">
                     {message}
                     <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    {buttons
-                        ? <div className="row">
-                            <div className="col">
-                                <button className="btn btn-primary">Yes</button>
-                            </div>
-                            <div className="col">
-                                <button className="btn btn-primary">No</button>
-                            </div>
-                        </div>
-                        : <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    }
                 </div>
             </div>
         </div>

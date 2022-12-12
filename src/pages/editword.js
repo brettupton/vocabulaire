@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
+import { Modal } from 'bootstrap'
 import Login from '../components/Login'
 import useToken from '../components/useToken'
 import Alert from '../components/Alert'
+import Spinner from '../components/Spinner'
 
 export default function EditWord() {
 
@@ -16,11 +18,12 @@ export default function EditWord() {
         received: false
     })
     const [loading, setLoading] = useState(false)
-    const [deleting, setDeleting] = useState(false)
+    const [deleteModal, setDeleteModal] = useState()
+
     const { token, setToken } = useToken()
     const isMobile = (width <= 768)
-
     const { wordId } = useParams()
+    const navigate = useNavigate()
 
     const requestOptions = {
         method: 'POST',
@@ -29,6 +32,8 @@ export default function EditWord() {
     }
 
     useEffect(() => {
+        getWordData()
+        setDeleteModal(new Modal(document.getElementById('deletemodal')))
         window.addEventListener('resize', handleWindowSizeChange)
         return () => {
             window.removeEventListener('resize', handleWindowSizeChange)
@@ -40,7 +45,7 @@ export default function EditWord() {
     }
 
     function getWordData() {
-        fetch(url + `words/${wordId}`)
+        fetch(url + `words/getword/${wordId}`)
             .then((response) => response.json())
             .then((word) => {
                 setWord(word)
@@ -63,9 +68,9 @@ export default function EditWord() {
         inputs.GrammarType.value = ''
     }
 
-    useEffect(() => {
-        getWordData()
-    }, [])
+    function toggleModal() {
+        deleteModal.toggle()
+    }
 
     const handleChange = (event) => {
         const name = event.target.name
@@ -93,20 +98,25 @@ export default function EditWord() {
     }
 
     const checkDelete = (e) => {
+        toggleModal()
         const response = e.target.name
         if (response === 'Yes') {
             handleDelete()
-        } else {
-            setDeleting(false)
         }
     }
 
     const handleDelete = () => {
+        toggleModal()
         fetch(url + `words/delete/${wordId}`)
             .then((response) => response.json())
-            .then((message) => {
-                alert(`${message.message}: Word deleted`)
-                window.location = ('/lesmots/flashcards')
+            .then((data) => {
+                setPostResponse({
+                    message: data.message,
+                    received: true
+                })
+                setTimeout(() => {
+                    navigate('/lesmots/flashcards')
+                }, 3000)
             })
     }
 
@@ -117,17 +127,35 @@ export default function EditWord() {
     return (
         word === '' ?
             <div className="min-vh-100 text-center pt-5">
-                <div className="spinner-border text-light pt-5" role="status">
-                    <span className="sr-only">&nbsp;</span>
-                </div>
+                <Spinner color="light" />
             </div>
             : <div className={`container min-vh-100 text-center pt-5 fs-6 ${isMobile ? 'w-100' : 'w-25'}`}>
-                {postResponse.received ? <Alert message={`${postResponse.message}! Word updated`} /> : ''}
+                <div className="modal fade" id="deletemodal">
+                    <div className="modal-dialog">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <button type="button" className="btn-close" onClick={toggleModal}></button>
+                            </div>
+                            <div className="modal-body">
+                                <div className="row pb-3 pt-2">
+                                    <div className="col fs-6">
+                                        Are you sure you'd like to delete this word?
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="modal-footer">
+                                <button type="button" className="btn btn-primary" name="Yes" onClick={checkDelete}>Yes</button>
+                                <button type="button" className="btn btn-secondary" onClick={toggleModal}>No</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {postResponse.received ? <Alert message={postResponse.message} /> : ''}
                 <div className="row justify-content-end pt-5">
                     <div className="col-2">
-                        <btn className="btn" onClick={() => setDeleting(true)}>
+                        <button className="btn" onClick={toggleModal}>
                             <img id="delete-icon" alt="Delete Icon" />
-                        </btn>
+                        </button>
                     </div>
                 </div>
                 <div className="row justify-content-center">
@@ -137,29 +165,46 @@ export default function EditWord() {
                                 <form onSubmit={handleSubmit} autoComplete="off">
                                     <div className="row">
                                         <div className="col">
-                                            <label htmlFor="French">French</label>
-                                            <input type="text" name="French" className="form-control form-control-sm" onChange={handleChange} id="French" placeholder={word.French} />
+                                            <label htmlFor="French">Français</label>
+                                            <input type="text" name="French"
+                                                onChange={handleChange} value={updatedWord.French} className="form-control form-control-sm" id="French" placeholder={word.French} />
                                         </div>
                                         <div className="col">
-                                            <label htmlFor="English">English</label>
-                                            <input type="text" name="English" className="form-control form-control-sm" onChange={handleChange} id="English" placeholder={word.English} />
+                                            <label htmlFor="English">Anglais</label>
+                                            <input type="text" name="English"
+                                                onChange={handleChange} value={updatedWord.English} className="form-control form-control-sm" id="English" placeholder={word.English} />
                                         </div>
                                     </div>
-                                    <div className="form-group">
-                                        <label htmlFor="MascOrFemme">Masc or Femme</label>
-                                        <input className="form-control form-control-sm" name="MascOrFemme" onChange={handleChange} id="MascOrFemme" placeholder={word.MascOrFemme} />
+                                    <div className="row justify-content-center mt-2">
+                                        <div className="col">
+                                            Sexe
+                                            <select className="form-select form-select-sm" defaultValue={word.MascOrFemme} onChange={handleChange} name="MascOrFemme">
+                                                <option value="Masculine">Masculine</option>
+                                                <option value="Feminine">Feminine</option>
+                                                <option value="Plural">Plural</option>
+                                                <option value="Neither">Neither</option>
+                                            </select>
+                                        </div>
                                     </div>
-                                    <div className="form-group">
-                                        <label htmlFor="GrammarType">Grammar Type</label>
-                                        <input type="text" name="GrammarType" className="form-control form-control-sm" onChange={handleChange} id="GrammarType" placeholder={word.GrammarType} />
+                                    <div className="row justify-content-center mt-2">
+                                        <div className="col">
+                                            Partie du discours
+                                            <select className="form-select form-select-sm" defaultValue={word.GrammarType} onChange={handleChange} name="GrammarType">
+                                                <option value="Noun">Noun</option>
+                                                <option value="Adjective">Adjective</option>
+                                                <option value="Pronoun">Pronoun</option>
+                                                <option value="Phrase">Phrase</option>
+                                                <option value="Adverb">Adverb</option>
+                                                <option value="Preposition">Preposition</option>
+                                                <option value="Exclamation">Exclamation</option>
+                                            </select>
+                                        </div>
                                     </div>
                                     <div className="row justify-content-center">
                                         <div className="col-5">
                                             <button type="submit" className="btn btn-primary mt-2">
                                                 {loading
-                                                    ? <div className="spinner-border text-light spinner-border-sm" role="status">
-                                                        <span className="visually-hidden"></span>
-                                                    </div>
+                                                    ? <Spinner color="light" topOfPage={false} />
                                                     : 'Update'}
                                             </button>
                                         </div>
@@ -169,24 +214,6 @@ export default function EditWord() {
                         </div>
                     </div>
                 </div>
-                {deleting
-                    ?
-                    <div className={`container bg-white rounded mt-3 ${isMobile ? 'w-50' : 'w-75'}`}>
-                        <div className="row pb-3 pt-2">
-                            <div className="col fs-6">
-                                Are you sure you'd like to delete this word?
-                            </div>
-                        </div>
-                        <div className="row pb-3">
-                            <div className="col">
-                                <button className="btn btn-primary" name="Yes" onClick={checkDelete}>Yes</button>
-                            </div>
-                            <div className="col">
-                                <button className="btn btn-primary" name="No" onClick={checkDelete}>No</button>
-                            </div>
-                        </div>
-                    </div>
-                    : ''}
             </div>
     )
 }

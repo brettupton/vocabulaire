@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import Login from '../components/Login'
 import useToken from '../components/useToken'
 import Alert from '../components/Alert'
+import Spinner from '../components/Spinner'
 import plusbutton from '../images/icons/plus-circle.svg'
 
 
@@ -17,30 +18,22 @@ export default function Add() {
         {
             French: '',
             English: '',
-            MascOrFemme: '',
-            GrammarType: ''
+            MascOrFemme: 'Masculine',
+            GrammarType: 'Noun'
         }
     )
-    const [newWordArray, setNewWordArray] = useState([])
-    const [multiAdd, setMultiAdd] = useState(false)
 
     const isMobile = width <= 768
     const baseUrl = 'https://vocabulairehost.onrender.com/'
     const { token, setToken } = useToken()
 
-    const url = multiAdd ? baseUrl + 'words/add/multiaddword' : baseUrl + 'words/add/addword'
+    const url = baseUrl + 'words/add/addword'
 
-    const requestOptions = multiAdd
-        ? {
-            method: 'POST',
-            headers: { 'content-type': 'application/json' },
-            body: JSON.stringify(newWordArray)
-        }
-        : {
-            method: 'POST',
-            headers: { 'content-type': 'application/json' },
-            body: JSON.stringify(newWord)
-        }
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify(newWord)
+    }
 
     function handleWindowSizeChange() {
         setWidth(window.innerWidth)
@@ -76,21 +69,9 @@ export default function Add() {
                     MascOrFemme: '',
                     GrammarType: ''
                 })
-                setNewWordArray([])
                 setLoading(false)
             })
             .catch(error => console.log('Form submit error', error))
-    }
-
-    const handlePlusClick = () => {
-        setNewWordArray(values => ([...values, newWord]))
-        setNewWord({
-            French: '',
-            English: '',
-            MascOrFemme: '',
-            GrammarType: ''
-        })
-        setMultiAdd(true)
     }
 
     if (!token || token === 'undefined') {
@@ -99,9 +80,8 @@ export default function Add() {
 
     return (
         <div className={`container min-vh-100 text-center pt-5 fs-6 ${isMobile ? 'w-100' : 'w-25'}`}>
-            {postResponse.received ? multiAdd
-                ? <Alert message={`${postResponse.message}! New words added`} />
-                : <Alert message={`${postResponse.message}! New word added`} />
+            {postResponse.received ?
+                <Alert message={`${postResponse.message}! New word added`} />
                 : ''}
             <div className="row justify-content-center mb-5 pt-5">
                 <div className="col">
@@ -110,55 +90,53 @@ export default function Add() {
                             <form onSubmit={handleSubmit} autoComplete="off">
                                 <div className="row">
                                     <div className="col">
-                                        <label htmlFor="French">French</label>
-                                        <input type="text" name="French" onChange={handleChange} value={newWord.French} className="form-control form-control-sm" id="French" placeholder="French" />
+                                        <label htmlFor="French">Français</label>
+                                        <input type="text" name="French"
+                                            onChange={handleChange} value={newWord.French} className="form-control form-control-sm" id="French" placeholder="Français" />
                                     </div>
                                     <div className="col">
-                                        <label htmlFor="English">English</label>
-                                        <input type="text" name="English" onChange={handleChange} value={newWord.English} className="form-control form-control-sm" id="English" placeholder="English" />
+                                        <label htmlFor="English">Anglais</label>
+                                        <input type="text" name="English"
+                                            onChange={handleChange} value={newWord.English} className="form-control form-control-sm" id="English" placeholder="Anglais" />
                                     </div>
                                 </div>
-                                <div className="form-group">
-                                    <label htmlFor="MascOrFemme">Masc or Femme</label>
-                                    <input className="form-control form-control-sm" name="MascOrFemme" onChange={handleChange} id="MascOrFemme" value={newWord.MascOrFemme} placeholder="Masculine or Feminine" />
+                                <div className="row justify-content-center mt-2">
+                                    <div className="col">
+                                        Sexe
+                                        <select className="form-select form-select-sm" defaultValue="Masculine" onChange={handleChange} name="MascOrFemme">
+                                            <option value="Masculine">Masculine</option>
+                                            <option value="Feminine">Feminine</option>
+                                            <option value="Plural">Plural</option>
+                                            <option value="Neither">Neither</option>
+                                        </select>
+                                    </div>
                                 </div>
-                                <div className="form-group">
-                                    <label htmlFor="GrammarType">Grammar Type</label>
-                                    <input type="text" name="GrammarType" onChange={handleChange} value={newWord.GrammarType} className="form-control form-control-sm" id="GrammarType" placeholder="Grammar Type" />
+                                <div className="row justify-content-center mt-2">
+                                    <div className="col">
+                                        Partie du discours
+                                        <select className="form-select form-select-sm" defaultValue="Noun" onChange={handleChange} name="GrammarType">
+                                            <option value="Noun">Noun</option>
+                                            <option value="Adjective">Adjective</option>
+                                            <option value="Pronoun">Pronoun</option>
+                                            <option value="Phrase">Phrase</option>
+                                            <option value="Adverb">Adverb</option>
+                                            <option value="Preposition">Preposition</option>
+                                            <option value="Exclamation">Exclamation</option>
+                                        </select>
+                                    </div>
                                 </div>
                                 <div className="row justify-content-center">
                                     <div className="col-5">
                                         <button type="submit" className="btn btn-primary m-2">
                                             {loading
-                                                ? <div className="spinner-border text-light spinner-border-sm" role="status">
-                                                    <span className="visually-hidden"></span>
-                                                </div>
+                                                ? <Spinner color="light" topOfPage={false} />
                                                 : 'Submit'}
-                                        </button>
-                                    </div>
-                                    <div className="col-4 mt-1">
-                                        <button className="btn" onClick={handlePlusClick} type="button">
-                                            <img src={plusbutton} height="34px" width="34px" alt="Plus Button" />
                                         </button>
                                     </div>
                                 </div>
                             </form>
-                            <div className="row">
-                                <div className="col">
-                                    <small>Press + to add another word</small>
-                                </div>
-                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div className="row text-white">
-                <div className="col">
-                    {multiAdd
-                        ? "New words: [" + newWordArray.map((word) => {
-                            return (` ${word.French} - ${word.English}`)
-                        }) + " ]"
-                        : ""}
                 </div>
             </div>
         </div>

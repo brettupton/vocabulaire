@@ -2,6 +2,7 @@ import ReactCardFlip from 'react-card-flip'
 import { useState, useEffect } from 'react'
 import WordFlashCardDisplayFront from './WordFlashCardDisplayFront'
 import WordFlashCardDisplayBack from './WordFlashCardDisplayBack'
+import Spinner from './Spinner'
 
 
 export default function WordFlashCard() {
@@ -88,7 +89,7 @@ export default function WordFlashCard() {
                 break
             case 'prev':
                 if (wordIndex - 1 < 0) {
-                    checkGender(wordArray.length - 1)
+                    checkGender(wordArray[wordArray.length - 1])
                     setWordIndex(wordArray.length - 1)
                 } else {
                     checkGender(wordArray[wordIndex - 1])
@@ -119,11 +120,7 @@ export default function WordFlashCard() {
 
     return (
         wordArray.length === 0 ?
-            <div className="min-vh-100 text-center pt-5">
-                <div className="spinner-border text-light mt-5" role="status">
-                    <span className="sr-only">&nbsp;</span>
-                </div>
-            </div>
+            <Spinner color="light" topOfPage={true} />
             : <div className="min-vh-100 text-center" style={{ paddingTop: "9%" }}>
                 <ReactCardFlip isFlipped={flip} flipDirection="horizontal">
                     <WordFlashCardDisplayFront

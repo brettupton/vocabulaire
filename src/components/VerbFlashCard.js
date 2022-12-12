@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import ReactCardFlip from 'react-card-flip'
 import VerbFlashCardDisplayFront from './VerbFlashCardDisplayFront'
 import VerbFlashCardDisplayBack from './VerbFlashCardDisplayBack'
+import Spinner from './Spinner'
 import verbList from '../lists/verblist'
 
 export default function VerbFlashCard() {
@@ -77,11 +78,7 @@ export default function VerbFlashCard() {
 
     return (
         verbArray.length === 0 ?
-            <div className="min-vh-100 text-center pt-5">
-                <div className="spinner-border text-light mt-5" role="status">
-                    <span className="sr-only">&nbsp;</span>
-                </div>
-            </div>
+            <Spinner color="light" topOfPage={true} />
             :
             <div className="min-vh-100 text-center" style={{ paddingTop: "8%" }}>
                 <ReactCardFlip isFlipped={flip} flipDirection="horizontal">
