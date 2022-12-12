@@ -18,6 +18,7 @@ export default function EditWord() {
         received: false
     })
     const [loading, setLoading] = useState(false)
+    const [fetchingData, setFetchingData] = useState(true)
     const [deleteModal, setDeleteModal] = useState()
 
     const { token, setToken } = useToken()
@@ -33,7 +34,6 @@ export default function EditWord() {
 
     useEffect(() => {
         getWordData()
-        setDeleteModal(new Modal(document.getElementById('deletemodal')))
         window.addEventListener('resize', handleWindowSizeChange)
         return () => {
             window.removeEventListener('resize', handleWindowSizeChange)
@@ -45,11 +45,14 @@ export default function EditWord() {
     }
 
     function getWordData() {
+        setFetchingData(true)
         fetch(url + `words/getword/${wordId}`)
             .then((response) => response.json())
             .then((word) => {
                 setWord(word)
                 setUpdatedWord(word)
+                setFetchingData(false)
+                setDeleteModal(new Modal(document.getElementById('deletemodal')))
             })
             .catch((error) => console.log(error))
     }
@@ -125,9 +128,9 @@ export default function EditWord() {
     }
 
     return (
-        word === '' ?
+        fetchingData ?
             <div className="min-vh-100 text-center pt-5">
-                <Spinner color="light" />
+                <Spinner color="light" topOfPage={true} />
             </div>
             : <div className={`container min-vh-100 text-center pt-5 fs-6 ${isMobile ? 'w-100' : 'w-25'}`}>
                 <div className="modal fade" id="deletemodal">
@@ -153,7 +156,7 @@ export default function EditWord() {
                 {postResponse.received ? <Alert message={postResponse.message} /> : ''}
                 <div className="row justify-content-end pt-5">
                     <div className="col-2">
-                        <button className="btn" onClick={toggleModal}>
+                        <button className="btn px-0" onClick={toggleModal}>
                             <img id="delete-icon" alt="Delete Icon" />
                         </button>
                     </div>
@@ -167,12 +170,12 @@ export default function EditWord() {
                                         <div className="col">
                                             <label htmlFor="French">Français</label>
                                             <input type="text" name="French"
-                                                onChange={handleChange} value={updatedWord.French} className="form-control form-control-sm" id="French" placeholder={word.French} />
+                                                onChange={handleChange} className="form-control form-control-sm" id="French" placeholder={word.French} />
                                         </div>
                                         <div className="col">
                                             <label htmlFor="English">Anglais</label>
                                             <input type="text" name="English"
-                                                onChange={handleChange} value={updatedWord.English} className="form-control form-control-sm" id="English" placeholder={word.English} />
+                                                onChange={handleChange} className="form-control form-control-sm" id="English" placeholder={word.English} />
                                         </div>
                                     </div>
                                     <div className="row justify-content-center mt-2">
