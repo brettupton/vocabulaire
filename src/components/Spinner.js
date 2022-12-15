@@ -1,5 +1,5 @@
 export default function Spinner(props) {
-    const { color, topOfPage } = props
+    const { color, topOfPage, size } = props
 
     return (
         topOfPage ?
@@ -10,7 +10,7 @@ export default function Spinner(props) {
             </div>
             :
             <div>
-                <div className={`spinner-border text-${color} spinner-border-sm`} role="status">
+                <div className={`spinner-border text-${color} spinner-border${size}`} role="status">
                     <span className="sr-only"></span>
                 </div>
             </div>

@@ -130,7 +130,7 @@ export default function EditWord() {
     return (
         fetchingData ?
             <div className="min-vh-100 text-center pt-5">
-                <Spinner color="light" topOfPage={true} />
+                <Spinner color="light" topOfPage={true} size={''} />
             </div>
             : <div className={`container min-vh-100 text-center pt-5 fs-6 ${isMobile ? 'w-100' : 'w-25'}`}>
                 <div className="modal fade" id="deletemodal">
@@ -207,7 +207,7 @@ export default function EditWord() {
                                         <div className="col-5">
                                             <button type="submit" className="btn btn-primary mt-2">
                                                 {loading
-                                                    ? <Spinner color="light" topOfPage={false} />
+                                                    ? <Spinner color="light" topOfPage={false} size={'-sm'} />
                                                     : 'Update'}
                                             </button>
                                         </div>

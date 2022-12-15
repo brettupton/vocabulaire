@@ -45,7 +45,6 @@ function LesMotsHome() {
                     <Card imageSrc={nimes} header={"Ajouter"} link={"addword"} isMobile={isMobile} />
                 </div>
             </div>
-
         </div>
     )
 }

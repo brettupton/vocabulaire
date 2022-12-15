@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import Login from '../components/Login'
 import useToken from '../components/useToken'
 import Alert from '../components/Alert'
 import Spinner from '../components/Spinner'
-import plusbutton from '../images/icons/plus-circle.svg'
 
 
 export default function Add() {
@@ -14,14 +14,16 @@ export default function Add() {
         message: '',
         received: false
     })
+    const location = useLocation()
     const [newWord, setNewWord] = useState(
         {
-            French: '',
+            French: location.state ? location.state.charAt(0).toUpperCase() + location.state.slice(1) : '',
             English: '',
             MascOrFemme: 'Masculine',
             GrammarType: 'Noun'
         }
     )
+    const [redirected, setRedirected] = useState(false)
 
     const isMobile = width <= 768
     const baseUrl = 'https://vocabulairehost.onrender.com/'
@@ -41,6 +43,9 @@ export default function Add() {
 
     useEffect(() => {
         window.addEventListener('resize', handleWindowSizeChange)
+        if (location.state) {
+            setRedirected(true)
+        }
         return () => {
             window.removeEventListener('resize', handleWindowSizeChange)
         }
@@ -81,7 +86,7 @@ export default function Add() {
     return (
         <div className={`container min-vh-100 text-center pt-5 fs-6 ${isMobile ? 'w-100' : 'w-25'}`}>
             {postResponse.received ?
-                <Alert message={`${postResponse.message}! New word added`} />
+                <Alert message={`${postResponse.message}!`} />
                 : ''}
             <div className="row justify-content-center mb-5 pt-5">
                 <div className="col">
@@ -92,7 +97,9 @@ export default function Add() {
                                     <div className="col">
                                         <label htmlFor="French">Français</label>
                                         <input type="text" name="French"
-                                            onChange={handleChange} value={newWord.French} className="form-control form-control-sm" id="French" placeholder="Français" />
+                                            onChange={handleChange}
+                                            value={redirected ? location.state.charAt(0).toUpperCase() + location.state.slice(1) : newWord.French}
+                                            className="form-control form-control-sm" id="French" placeholder="Français" />
                                     </div>
                                     <div className="col">
                                         <label htmlFor="English">Anglais</label>
@@ -129,7 +136,7 @@ export default function Add() {
                                     <div className="col-5">
                                         <button type="submit" className="btn btn-primary m-2">
                                             {loading
-                                                ? <Spinner color="light" topOfPage={false} />
+                                                ? <Spinner color="light" topOfPage={false} size={'-sm'} />
                                                 : 'Submit'}
                                         </button>
                                     </div>

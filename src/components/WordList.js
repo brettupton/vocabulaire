@@ -1,13 +1,16 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import WordListDisplay from './WordListDisplay'
 import Spinner from './Spinner'
 import search from '../images/icons/search.svg'
+import plusbutton from '../images/icons/plus-circle.svg'
 
 export default function WordList() {
     const [wordArray, setWordArray] = useState([])
     const [width, setWidth] = useState(window.innerWidth)
     const [fetchingData, setFetchingData] = useState(true)
     const [searched, setSearched] = useState(false)
+    const [wordQueried, setWordQueried] = useState('')
 
     const isMobile = width <= 768
     const url = 'https://vocabulairehost.onrender.com/'
@@ -68,13 +71,14 @@ export default function WordList() {
                     setWordArray(data)
                     setFetchingData(false)
                     setSearched(true)
+                    setWordQueried(searchQuery)
                 })
         }
     }
 
     return (
         (fetchingData)
-            ? <Spinner color="light" topOfPage={true} />
+            ? <Spinner color="light" topOfPage={true} size={''} />
             :
             <div className="container min-vh-100 pt-5">
                 <div className="row py-4 justify-content-end px-2">
@@ -88,12 +92,19 @@ export default function WordList() {
                     </div>
                 </div>
                 {wordArray.length === 0 ?
-                    <div className="row text-center text-white">
-                        <div className="col">
-                            No results found
+                    <div className="container">
+                        <div className="row text-center text-white">
+                            <div className="col">
+                                {`Aucun résultat pour ${wordQueried}`}
+                            </div>
                         </div>
-                    </div> :
-                    <WordListDisplay wordArray={wordArray} isMobile={isMobile} searched={searched} />
+                        <div className="row text-center text-white">
+                            <div className="col">
+                                Nouveau mot? Ajoutez-le maintenant ! <Link to="/lesmots/addword" state={searchQuery}><img src={plusbutton} /></Link>
+                            </div>
+                        </div>
+                    </div>
+                    : <WordListDisplay wordArray={wordArray} isMobile={isMobile} searched={searched} />
                 }
             </div>
     )

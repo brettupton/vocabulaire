@@ -14,7 +14,7 @@ import Verbe from './pages/verbe'
 import VerbFlashCards from './pages/verbflashcards'
 import Temps from './pages/temps'
 import HomePage from './pages/home'
-import Traduire from './pages/traduire'
+import Rapide from './pages/rapide'
 import NoPage from './pages/nopage'
 
 export default function App() {
@@ -36,7 +36,7 @@ export default function App() {
           <Route path="temps" element={<Temps />} />
           <Route path="*" element={<NoPage />} />
         </Route>
-        <Route path="traduire" element={<Traduire />} />
+        <Route path="rapide" element={<Rapide />} />
         <Route path="*" element={<NoPage />} />
       </Route>
     </Routes>

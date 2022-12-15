@@ -80,7 +80,7 @@ export default function Login(props) {
                         </div>
                         <button type="submit" className="btn btn-primary mt-3">
                             {loading ?
-                                <Spinner color="light" topOfPage={false} />
+                                <Spinner color="light" topOfPage={false} size={'-sm'} />
                                 : 'Log in'}
                         </button>
                     </form>

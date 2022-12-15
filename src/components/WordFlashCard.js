@@ -8,6 +8,7 @@ import Spinner from './Spinner'
 export default function WordFlashCard() {
 
     const [wordIndex, setWordIndex] = useState(0)
+    const [prevWordIndex, setPrevWordIndex] = useState(0)
     const [flip, setFlip] = useState(true)
     const [wordGender, setWordGender] = useState('')
     const [shuffle, setShuffle] = useState(false)
@@ -84,16 +85,23 @@ export default function WordFlashCard() {
                 } else {
                     const randomIndex = getRandomIndex()
                     checkGender(wordArray[randomIndex])
+                    setPrevWordIndex(wordIndex)
                     setWordIndex(randomIndex)
                 }
                 break
             case 'prev':
-                if (wordIndex - 1 < 0) {
-                    checkGender(wordArray[wordArray.length - 1])
-                    setWordIndex(wordArray.length - 1)
+                if (!shuffle) {
+                    if (wordIndex - 1 < 0) {
+                        checkGender(wordArray[wordArray.length - 1])
+                        setWordIndex(wordArray.length - 1)
+                    } else {
+                        checkGender(wordArray[wordIndex - 1])
+                        setWordIndex((prevIndex) => prevIndex - 1)
+                    }
                 } else {
-                    checkGender(wordArray[wordIndex - 1])
-                    setWordIndex((prevIndex) => prevIndex - 1)
+                    checkGender(wordArray[prevWordIndex])
+                    setWordIndex(prevWordIndex)
+                    setShuffle(false)
                 }
                 break
             case 'flip':
@@ -120,12 +128,13 @@ export default function WordFlashCard() {
 
     return (
         wordArray.length === 0 ?
-            <Spinner color="light" topOfPage={true} />
+            <Spinner color="light" topOfPage={true} size={''} />
             : <div className="min-vh-100 text-center" style={{ paddingTop: "9%" }}>
                 <ReactCardFlip isFlipped={flip} flipDirection="horizontal">
                     <WordFlashCardDisplayFront
                         wordArray={wordArray}
                         wordIndex={wordIndex}
+                        prevWordIndex={prevWordIndex}
                         gender={wordGender}
                         shuffle={shuffle}
                         handleClick={handleClick}
@@ -133,6 +142,7 @@ export default function WordFlashCard() {
                     <WordFlashCardDisplayBack
                         wordArray={wordArray}
                         wordIndex={wordIndex}
+                        prevWordIndex={prevWordIndex}
                         gender={wordGender}
                         shuffle={shuffle}
                         handleClick={handleClick}

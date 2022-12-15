@@ -5,6 +5,10 @@
   background-color: #333333;
 }
 
+/* * {
+  outline: 1px dashed red;
+} */
+
 .table {
   font-size: 10px;
 }

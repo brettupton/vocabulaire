@@ -78,7 +78,7 @@ export default function VerbFlashCard() {
 
     return (
         verbArray.length === 0 ?
-            <Spinner color="light" topOfPage={true} />
+            <Spinner color="light" topOfPage={true} size={''} />
             :
             <div className="min-vh-100 text-center" style={{ paddingTop: "8%" }}>
                 <ReactCardFlip isFlipped={flip} flipDirection="horizontal">

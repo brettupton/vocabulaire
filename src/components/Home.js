@@ -9,19 +9,19 @@ import vocabulaire from '../images/vocabulaire.png'
 
 export default function Home() {
 
-    const [width, setWidth] = useState(window.innerWidth);
+    const [width, setWidth] = useState(window.innerWidth)
 
     function handleWindowSizeChange() {
-        setWidth(window.innerWidth);
+        setWidth(window.innerWidth)
     }
     useEffect(() => {
         window.addEventListener('resize', handleWindowSizeChange);
         return () => {
-            window.removeEventListener('resize', handleWindowSizeChange);
+            window.removeEventListener('resize', handleWindowSizeChange)
         }
-    }, []);
+    }, [])
 
-    const isMobile = width <= 768;
+    const isMobile = width <= 768
 
     return (
         <>
@@ -33,13 +33,13 @@ export default function Home() {
                 </div>
                 <div className="row pb-5">
                     <div className={`col${isMobile ? '-12' : ''}`}>
-                        <Card imageSrc={eiffeltower} header={"Mots"} link={"lesmots"} isMobile={isMobile} />
+                        <Card imageSrc={eiffeltower} header={"Mots"} link={"lesmots"} />
                     </div>
                     <div className={`col${isMobile ? '-12' : ''}`}>
-                        <Card imageSrc={pontdugard} header={"Verbes"} link={"verbe"} isMobile={isMobile} />
+                        <Card imageSrc={pontdugard} header={"Verbes"} link={"verbe"} />
                     </div>
                     <div className={`col${isMobile ? '-12' : ''}`}>
-                        <Card imageSrc={louvre} header={"Traduire"} link={"traduire"} isMobile={isMobile} />
+                        <Card imageSrc={louvre} header={"Rapide"} link={"rapide"} />
                     </div>
                 </div>
             </div>
