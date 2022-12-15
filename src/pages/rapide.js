@@ -75,7 +75,7 @@ export default function Rapide() {
             </div>
             <div className="row pt-5 justify-content-center">
                 <div className="col">
-                    {fetchingData ? '' :
+                    {!fetchingData ? '' :
                         responseArray.length === 0 ?
                             <div className="container">
                                 <div className="row text-center text-white">
