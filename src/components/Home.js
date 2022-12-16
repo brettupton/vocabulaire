@@ -39,7 +39,7 @@ export default function Home() {
                         <Card imageSrc={pontdugard} header={"Verbes"} link={"verbe"} />
                     </div>
                     <div className={`col${isMobile ? '-12' : ''}`}>
-                        <Card imageSrc={louvre} header={"Rapide"} link={"rapide"} />
+                        <Card imageSrc={louvre} header={"Recherche Rapide"} link={"rapide"} />
                     </div>
                 </div>
             </div>

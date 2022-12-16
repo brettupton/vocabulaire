@@ -12,6 +12,7 @@ export default function Rapide() {
     const [responseArray, setResponseArray] = useState([])
     const [fetchingData, setFetchingData] = useState(false)
     const [width, setWidth] = useState(window.innerWidth)
+    const [emptyQuery, setEmptyQuery] = useState(true)
 
     const url = 'https://vocabulairehost.onrender.com/'
 
@@ -48,8 +49,9 @@ export default function Rapide() {
 
     function handleSearchClick() {
         if (searchQuery === '') {
-            setResponseArray([])
+            setEmptyQuery(true)
         } else {
+            setEmptyQuery(false)
             setFetchingData(true)
             setWordQueried(searchQuery)
             fetch(url + `words/search/${searchQuery}`)
@@ -68,27 +70,30 @@ export default function Rapide() {
                     <div className="input-group">
                         <input type="text" className="form-control rounded" onChange={handleSearchChange} />
                         <button className="btn" type="button" onClick={handleSearchClick} id="search-button">
-                            <img src={search} />
+                            <img src={search} alt="Search Icon" />
                         </button>
                     </div>
                 </div>
             </div>
             <div className="row pt-5 justify-content-center">
                 <div className="col">
-                    {!fetchingData ? '' :
-                        responseArray.length === 0 ?
-                            <div className="container">
-                                <div className="row text-center text-white">
-                                    <div className="col">
-                                        {`Aucun résultat pour ${wordQueried}`}
+                    {/* Check if data is being fetched, if so, return empty, if not, check if there was a response, if so, show array, if not, check if query was empty
+                    If so, return empty, if not, return no results found  */}
+                    {fetchingData ? '' :
+                        !responseArray || !responseArray.length ?
+                            emptyQuery ? '' :
+                                <div className="container">
+                                    <div className="row text-center text-white">
+                                        <div className="col">
+                                            {`Aucun résultat pour ${wordQueried}`}
+                                        </div>
+                                    </div>
+                                    <div className="row text-center text-white">
+                                        <div className="col">
+                                            Nouveau mot? Ajoutez-le maintenant ! <Link to="/lesmots/addword"><img src={plusbutton} alt="Plus Button" /></Link>
+                                        </div>
                                     </div>
                                 </div>
-                                <div className="row text-center text-white">
-                                    <div className="col">
-                                        Nouveau mot? Ajoutez-le maintenant ! <Link to="/lesmots/addword" state={searchQuery}><img src={plusbutton} /></Link>
-                                    </div>
-                                </div>
-                            </div>
                             : <WordListDisplay wordArray={responseArray} isMobile={isMobile} searched={true} />
                     }
                 </div>

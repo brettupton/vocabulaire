@@ -30,7 +30,7 @@ export default function Header() {
                                 <Link to="/verbe" className="nav-link">Conjugaisons des verbes</Link>
                             </li>
                             <li className="nav-item">
-                                <Link to="/rapide" className="nav-link">Rapide</Link>
+                                <Link to="/rapide" className="nav-link">Recherche Rapide</Link>
                             </li>
                         </ul>
                     </div>
@@ -57,11 +57,8 @@ export default function Header() {
                             <Link to="/verbe" className="btn btn-primary w-50">Conjugaisons des verbes</Link>
                         </li>
                         <li className="list-group-item list-group-item-dark bg-transparent">
-                            <Link to="/rapide" className="btn btn-primary w-50">Rapide</Link>
+                            <Link to="/rapide" className="btn btn-primary w-50">Recherche Rapide</Link>
                         </li>
-                        {/* <li className="list-group-item list-group-item-dark bg-transparent">
-                            <Link to="/lesmots/add" className="btn btn-primary w-50">Ajouter</Link>
-                        </li> */}
                     </ul>
                 </div>
             </Collapse>

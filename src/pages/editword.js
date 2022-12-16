@@ -19,7 +19,7 @@ export default function EditWord() {
     })
     const [loading, setLoading] = useState(false)
     const [fetchingData, setFetchingData] = useState(true)
-    const [deleteModal, setDeleteModal] = useState()
+    const [deleteModal, setDeleteModal] = useState('')
 
     const { token, setToken } = useToken()
     const isMobile = (width <= 768)
@@ -40,6 +40,15 @@ export default function EditWord() {
         }
     }, [])
 
+    // Waiting for page to load with data so modal is not undefined
+    useEffect(() => {
+        if (fetchingData) {
+            setDeleteModal('')
+            return
+        }
+        setDeleteModal(new Modal(document.getElementById('deletemodal')))
+    }, [fetchingData])
+
     function handleWindowSizeChange() {
         setWidth(window.innerWidth)
     }
@@ -52,7 +61,6 @@ export default function EditWord() {
                 setWord(word)
                 setUpdatedWord(word)
                 setFetchingData(false)
-                setDeleteModal(new Modal(document.getElementById('deletemodal')))
             })
             .catch((error) => console.log(error))
     }

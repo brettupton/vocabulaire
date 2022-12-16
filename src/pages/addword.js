@@ -17,13 +17,12 @@ export default function Add() {
     const location = useLocation()
     const [newWord, setNewWord] = useState(
         {
-            French: location.state ? location.state.charAt(0).toUpperCase() + location.state.slice(1) : '',
+            French: '',
             English: '',
             MascOrFemme: 'Masculine',
             GrammarType: 'Noun'
         }
     )
-    const [redirected, setRedirected] = useState(false)
 
     const isMobile = width <= 768
     const baseUrl = 'https://vocabulairehost.onrender.com/'
@@ -43,9 +42,6 @@ export default function Add() {
 
     useEffect(() => {
         window.addEventListener('resize', handleWindowSizeChange)
-        if (location.state) {
-            setRedirected(true)
-        }
         return () => {
             window.removeEventListener('resize', handleWindowSizeChange)
         }
@@ -98,13 +94,15 @@ export default function Add() {
                                         <label htmlFor="French">Français</label>
                                         <input type="text" name="French"
                                             onChange={handleChange}
-                                            value={redirected ? location.state.charAt(0).toUpperCase() + location.state.slice(1) : newWord.French}
-                                            className="form-control form-control-sm" id="French" placeholder="Français" />
+                                            placeholder="Français"
+                                            className="form-control form-control-sm" id="French" />
                                     </div>
                                     <div className="col">
                                         <label htmlFor="English">Anglais</label>
                                         <input type="text" name="English"
-                                            onChange={handleChange} value={newWord.English} className="form-control form-control-sm" id="English" placeholder="Anglais" />
+                                            onChange={handleChange}
+                                            placeholder="Anglais"
+                                            className="form-control form-control-sm" id="English" />
                                     </div>
                                 </div>
                                 <div className="row justify-content-center mt-2">

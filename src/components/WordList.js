@@ -100,7 +100,7 @@ export default function WordList() {
                         </div>
                         <div className="row text-center text-white">
                             <div className="col">
-                                Nouveau mot? Ajoutez-le maintenant ! <Link to="/lesmots/addword" state={searchQuery}><img src={plusbutton} /></Link>
+                                Nouveau mot? Ajoutez-le maintenant ! <Link to="/lesmots/addword"><img src={plusbutton} /></Link>
                             </div>
                         </div>
                     </div>
