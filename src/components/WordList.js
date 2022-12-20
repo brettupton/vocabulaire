@@ -87,7 +87,7 @@ export default function WordList() {
                     </div>
                     <div className="col-2">
                         <button className="btn" onClick={handleSearch} id="search-button">
-                            <img src={search} />
+                            <img src={search} alt="Search Button" />
                         </button>
                     </div>
                 </div>
@@ -100,7 +100,7 @@ export default function WordList() {
                         </div>
                         <div className="row text-center text-white">
                             <div className="col">
-                                Nouveau mot? Ajoutez-le maintenant ! <Link to="/lesmots/addword"><img src={plusbutton} /></Link>
+                                Nouveau mot? Ajoutez-le maintenant ! <Link to="/mots/addword"><img src={plusbutton} alt="Add Button" /></Link>
                             </div>
                         </div>
                     </div>

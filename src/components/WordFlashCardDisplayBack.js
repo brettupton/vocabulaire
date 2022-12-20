@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import usflag from '../images/united-states.png'
 import rightarrow from '../images/icons/arrow-right-circle.svg'
 import leftarrow from '../images/icons/arrow-left-circle.svg'
-import flipbutton from '../images/icons/card-flip.png'
+import flipbutton from '../images/icons/arrow-repeat.svg'
 import pencil from '../images/icons/pencil.svg'
 import SpeechButton from './SpeechButton'
 
@@ -22,7 +22,7 @@ export default function WordFlashCardDisplayBack(props) {
                                         <img src={usflag} id="flashcard-icon" alt="Flashcard Icon" />
                                     </div>
                                     <div className="col-2">
-                                        <Link to={`/lesmots/editword/${wordArray[wordIndex]._id}`}><img src={pencil} alt="Edit Icon" /></Link>
+                                        <Link to={`/mots/editword/${wordArray[wordIndex]._id}`}><img src={pencil} alt="Edit Icon" /></Link>
                                     </div>
                                 </div>
                             </div>

@@ -14,7 +14,7 @@ export default function WordRow(props) {
             <td>{word.GrammarType}</td>
             {searched ?
                 <td>
-                    <Link to={`/lesmots/editword/${word._id}`}>
+                    <Link to={`/mots/editword/${word._id}`}>
                         <img src={pencil} height="30px" width="30px" />
                     </Link>
                 </td>

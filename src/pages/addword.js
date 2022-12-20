@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
 import Login from '../components/Login'
 import useToken from '../components/useToken'
 import Alert from '../components/Alert'
 import Spinner from '../components/Spinner'
-
+import FrenchInput from '../components/FrenchInput'
 
 export default function Add() {
 
@@ -14,7 +13,6 @@ export default function Add() {
         message: '',
         received: false
     })
-    const location = useLocation()
     const [newWord, setNewWord] = useState(
         {
             French: '',
@@ -48,12 +46,15 @@ export default function Add() {
     }, [])
 
     const handleChange = (event) => {
+        const frenchInputElement = document.getElementById('French')
         const name = event.target.name
         const value = event.target.value
         setNewWord(values => ({ ...values, [name]: value }))
+        setNewWord(values => ({ ...values, French: frenchInputElement.value }))
     }
 
     const handleSubmit = (event) => {
+
         event.preventDefault()
         setLoading(true)
 
@@ -92,10 +93,7 @@ export default function Add() {
                                 <div className="row">
                                     <div className="col">
                                         <label htmlFor="French">Français</label>
-                                        <input type="text" name="French"
-                                            onChange={handleChange}
-                                            placeholder="Français"
-                                            className="form-control form-control-sm" id="French" />
+                                        <FrenchInput />
                                     </div>
                                     <div className="col">
                                         <label htmlFor="English">Anglais</label>

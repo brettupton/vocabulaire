@@ -2,7 +2,7 @@ import FEConjugations from "./FEConjugations"
 import SpeechButton from "./SpeechButton"
 import rightarrow from '../images/icons/arrow-right-circle.svg'
 import leftarrow from '../images/icons/arrow-left-circle.svg'
-import flipbutton from '../images/icons/card-flip.png'
+import flipbutton from '../images/icons/arrow-repeat.svg'
 import verbfill from '../images/icons/verb-fill.png'
 
 export default function VerbFlashCardDisplayBack(props) {

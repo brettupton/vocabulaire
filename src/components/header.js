@@ -24,10 +24,10 @@ export default function Header() {
                                 <Link to="/" className="nav-link">Accueil</Link>
                             </li>
                             <li className="nav-item">
-                                <Link to="/lesmots" className="nav-link">Traductions de mots</Link>
+                                <Link to="/mots" className="nav-link">Traductions de mots</Link>
                             </li>
                             <li className="nav-item">
-                                <Link to="/verbe" className="nav-link">Conjugaisons des verbes</Link>
+                                <Link to="/verbes" className="nav-link">Conjugaisons des verbes</Link>
                             </li>
                             <li className="nav-item">
                                 <Link to="/rapide" className="nav-link">Recherche Rapide</Link>
@@ -51,10 +51,10 @@ export default function Header() {
                             <Link to="/" className="btn btn-primary w-50">Accueil</Link>
                         </li>
                         <li className="list-group-item list-group-item-dark bg-transparent">
-                            <Link to="/lesmots" className="btn btn-primary w-50">Traductions de mots</Link>
+                            <Link to="/mots" className="btn btn-primary w-50">Traductions de mots</Link>
                         </li>
                         <li className="list-group-item list-group-item-dark bg-transparent">
-                            <Link to="/verbe" className="btn btn-primary w-50">Conjugaisons des verbes</Link>
+                            <Link to="/verbes" className="btn btn-primary w-50">Conjugaisons des verbes</Link>
                         </li>
                         <li className="list-group-item list-group-item-dark bg-transparent">
                             <Link to="/rapide" className="btn btn-primary w-50">Recherche Rapide</Link>

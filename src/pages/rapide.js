@@ -90,7 +90,7 @@ export default function Rapide() {
                                     </div>
                                     <div className="row text-center text-white">
                                         <div className="col">
-                                            Nouveau mot? Ajoutez-le maintenant ! <Link to="/lesmots/addword"><img src={plusbutton} alt="Plus Button" /></Link>
+                                            Nouveau mot? Ajoutez-le maintenant ! <Link to="/mots/addword"><img src={plusbutton} alt="Plus Button" /></Link>
                                         </div>
                                     </div>
                                 </div>

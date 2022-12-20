@@ -8,7 +8,7 @@ import mots from '../images/mots.png'
 import frlogo from '../images/frlogo.png'
 import Card from '../components/Card'
 
-function LesMotsHome() {
+function MotsHome() {
 
     const [width, setWidth] = useState(window.innerWidth);
 
@@ -49,16 +49,16 @@ function LesMotsHome() {
     )
 }
 
-function LesMots() {
+function Mots() {
     const location = useLocation()
 
     return (
         <div>
-            {location.pathname === "/lesmots"
-                ? <LesMotsHome />
+            {location.pathname === "/mots"
+                ? <MotsHome />
                 : <Outlet />}
         </div>
     )
 }
 
-export default LesMots;
+export default Mots;

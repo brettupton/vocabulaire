@@ -4,26 +4,28 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import ScrollToTop from '../src/components/ScrollToTop'
 import './index.css'
 import Layout from './pages/layout'
-import LesMots from './pages/lesmots'
+import Mots from './pages/mots'
 import AddWord from './pages/addword'
 import EditWord from './pages/editword'
 import WordFlashCard from './pages/wordflashcards'
 import Significatifs from './pages/significatifs'
 import FullWordList from './pages/fullwordlist'
-import Verbe from './pages/verbe'
+import Verbes from './pages/verbes'
 import VerbFlashCards from './pages/verbflashcards'
 import Temps from './pages/temps'
 import HomePage from './pages/home'
 import Rapide from './pages/rapide'
 import NoPage from './pages/nopage'
+import TestENV from './pages/testenv'
 
 export default function App() {
 
   return (
     <Routes>
+      {/* <Route path="/testenv" element={<TestENV />} /> */}
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
-        <Route path="lesmots" element={<LesMots />}>
+        <Route path="mots" element={<Mots />}>
           <Route path="flashcards" element={<WordFlashCard />} />
           <Route path="wordlist" element={<FullWordList />} />
           <Route path="significatifs" element={<Significatifs />} />
@@ -31,7 +33,7 @@ export default function App() {
           <Route path="editword/:wordId" element={<EditWord />} />
           <Route path="*" element={<NoPage />} />
         </Route>
-        <Route path="verbe" element={<Verbe />}>
+        <Route path="verbes" element={<Verbes />}>
           <Route path="flashcards" element={<VerbFlashCards />} />
           <Route path="temps" element={<Temps />} />
           <Route path="*" element={<NoPage />} />

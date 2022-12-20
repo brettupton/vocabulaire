@@ -75,3 +75,11 @@
 #delete-icon:hover {
   content: url('../images/icons/x-circle-fill.svg')
 }
+
+#question-icon {
+  content: url('../images/icons/question-circle.svg')
+}
+
+#question-icon:hover {
+  content: url('../images/icons/question-circle-fill.svg')
+}

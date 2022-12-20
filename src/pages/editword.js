@@ -42,11 +42,12 @@ export default function EditWord() {
 
     // Waiting for page to load with data so modal is not undefined
     useEffect(() => {
-        if (fetchingData) {
+        if (!fetchingData && token) {
+            setDeleteModal(new Modal(document.getElementById('deletemodal')))
+        } else {
             setDeleteModal('')
-            return
         }
-        setDeleteModal(new Modal(document.getElementById('deletemodal')))
+
     }, [fetchingData])
 
     function handleWindowSizeChange() {
@@ -126,7 +127,7 @@ export default function EditWord() {
                     received: true
                 })
                 setTimeout(() => {
-                    navigate('/lesmots/flashcards')
+                    navigate('/mots/flashcards')
                 }, 3000)
             })
     }

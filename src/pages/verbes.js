@@ -7,7 +7,7 @@ import sacrecoeur from '../images/sacrecoeur.png'
 import house from '../images/house.png'
 import question from '../images/icons/question-lg.svg'
 
-function VerbeHome() {
+function VerbesHome() {
 
     const [width, setWidth] = useState(window.innerWidth)
 
@@ -45,16 +45,16 @@ function VerbeHome() {
     )
 }
 
-function Verbe() {
+function Verbes() {
     const location = useLocation()
 
     return (
         <div>
-            {location.pathname === "/verbe"
-                ? <VerbeHome />
+            {location.pathname === "/verbes"
+                ? <VerbesHome />
                 : <Outlet />}
         </div>
     )
 }
 
-export default Verbe;
+export default Verbes;

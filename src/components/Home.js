@@ -33,10 +33,10 @@ export default function Home() {
                 </div>
                 <div className="row pb-5">
                     <div className={`col${isMobile ? '-12' : ''}`}>
-                        <Card imageSrc={eiffeltower} header={"Mots"} link={"lesmots"} />
+                        <Card imageSrc={eiffeltower} header={"Mots"} link={"mots"} />
                     </div>
                     <div className={`col${isMobile ? '-12' : ''}`}>
-                        <Card imageSrc={pontdugard} header={"Verbes"} link={"verbe"} />
+                        <Card imageSrc={pontdugard} header={"Verbes"} link={"verbes"} />
                     </div>
                     <div className={`col${isMobile ? '-12' : ''}`}>
                         <Card imageSrc={louvre} header={"Recherche Rapide"} link={"rapide"} />

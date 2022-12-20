@@ -2,8 +2,8 @@ import FEVerb from "./FEVerb"
 import SpeechButton from "./SpeechButton"
 import rightarrow from '../images/icons/arrow-right-circle.svg'
 import leftarrow from '../images/icons/arrow-left-circle.svg'
-import flipbutton from '../images/icons/card-flip.png'
-import verbempty from '../images/icons/verb-empty.png'
+import flipbutton from '../images/icons/arrow-repeat.svg'
+import verbesmpty from '../images/icons/verb-empty.png'
 
 export default function VerbFlashCardDisplayFront(props) {
 
@@ -18,7 +18,7 @@ export default function VerbFlashCardDisplayFront(props) {
                             <div className="container p-0">
                                 <div className="row justify-content-start">
                                     <div className="col-2">
-                                        <img src={verbempty} id="flashcard-icon" alt="Verb Side Display Icon" />
+                                        <img src={verbesmpty} id="flashcard-icon" alt="Verb Side Display Icon" />
                                     </div>
                                 </div>
                             </div>
