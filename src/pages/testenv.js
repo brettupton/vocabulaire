@@ -177,7 +177,13 @@ export default function TestENV() {
             </div>
             <div className="row">
                 <div className="col">
-                    {!boldedArray || boldedArray.length === 0 ? ' ' : parse(boldedArray[0].French)}
+                    {boldedArray.map(word => {
+                        return (
+                            <div>
+                                {parse(word.French)}
+                            </div>
+                        )
+                    })}
                     <button className="btn btn-light" onClick={includesSimiliar}>Find</button>
                 </div>
             </div>
