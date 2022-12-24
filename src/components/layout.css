@@ -58,6 +58,11 @@
   width: 100%;
 }
 
+/* Searchbar */
+#query-result-row:hover {
+  background-color: lightblue;
+}
+
 /* Icon Hover */
 
 #play-icon {

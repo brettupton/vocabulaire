@@ -75,7 +75,7 @@ export default function FrenchInput() {
         // Only allow lower and uppercase letters, spaces, single quotations, and question marks
         if ((e.keyCode >= 65 && e.keyCode <= 90) ||
             (e.keyCode >= 97 && e.keyCode <= 122) ||
-            e.keyCode == 32 || e.keyCode == 222 || e.keyCode == 191) {
+            e.keyCode === 32 || e.keyCode === 222 || e.keyCode === 191) {
             setInputValue(prevValue => prevValue + e.key)
         }
     }
@@ -147,7 +147,7 @@ export default function FrenchInput() {
                             overlay={
                                 <Popover>
                                     <Popover.Body>
-                                        To type an accent, press and hold the corresponding letter, hover over your selection, and release the key
+                                        To type an accent, hold down the key, hover over your selection, and release the key
                                     </Popover.Body>
                                 </Popover>
                             }>

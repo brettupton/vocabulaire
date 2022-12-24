@@ -22,7 +22,7 @@ export default function App() {
 
   return (
     <Routes>
-      {/* <Route path="/testenv" element={<TestENV />} /> */}
+      <Route path="/testenv" element={<TestENV />} />
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
         <Route path="mots" element={<Mots />}>
