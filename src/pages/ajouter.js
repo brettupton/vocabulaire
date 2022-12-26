@@ -26,7 +26,7 @@ export default function Ajouter() {
     const baseUrl = 'https://vocabulairehost.onrender.com/'
     const { token, setToken } = useToken()
 
-    const url = baseUrl + 'words/add/ajouter'
+    const url = baseUrl + 'words/add/addword'
 
     const requestOptions = {
         method: 'POST',
