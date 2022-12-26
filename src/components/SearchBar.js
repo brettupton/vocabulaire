@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import parse from 'html-react-parser'
 import Spinner from '../components/Spinner'
-import plusbutton from '../images/icons/plus-circle.svg'
 
 export default function SearchBar() {
 
@@ -171,7 +170,7 @@ export default function SearchBar() {
                                     </div>
                                 </div>
                                 : <div className={`container bg-white text-black rounded fs-${isMobile ? '6' : '5'}`}
-                                    style={{ position: 'absolute', zIndex: '1', width: '86%' }}>
+                                    style={{ position: 'absolute', zIndex: '1', width: `${isMobile ? '94%' : '86%'}` }}>
                                     {boldedArray.map((resultWord, index) => {
                                         if (index >= 10) {
                                             return
