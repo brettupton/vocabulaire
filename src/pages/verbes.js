@@ -24,7 +24,7 @@ function VerbesHome() {
     const isMobile = width <= 768
 
     return (
-        <div className="container min-vh-100 text-center pt-5">
+        <div className="container min-vh-100 text-center">
             <div className="row pt-5">
                 <div className="col">
                     <img src={isMobile ? frlogo : verbes} height="60%" alt="Page Title" />

@@ -138,10 +138,10 @@ export default function EditWord() {
 
     return (
         fetchingData ?
-            <div className="min-vh-100 text-center pt-5">
+            <div className="min-vh-100 text-center">
                 <Spinner color="light" topOfPage={true} size={''} />
             </div>
-            : <div className={`container min-vh-100 text-center pt-5 fs-6 ${isMobile ? 'w-100' : 'w-25'}`}>
+            : <div className={`container min-vh-100 text-center fs-6 ${isMobile ? 'w-100' : 'w-25'}`}>
                 <div className="modal fade" id="deletemodal">
                     <div className="modal-dialog">
                         <div className="modal-content">

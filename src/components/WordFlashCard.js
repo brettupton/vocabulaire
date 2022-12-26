@@ -129,7 +129,7 @@ export default function WordFlashCard() {
     return (
         wordArray.length === 0 ?
             <Spinner color="light" topOfPage={true} size={''} />
-            : <div className="min-vh-100 text-center" style={{ paddingTop: "9%" }}>
+            : <div className="min-vh-100 text-center" style={{ paddingTop: "2%" }}>
                 <ReactCardFlip isFlipped={flip} flipDirection="horizontal">
                     <WordFlashCardDisplayFront
                         wordArray={wordArray}

@@ -80,7 +80,7 @@ export default function VerbFlashCard() {
         verbArray.length === 0 ?
             <Spinner color="light" topOfPage={true} size={''} />
             :
-            <div className="min-vh-100 text-center" style={{ paddingTop: "8%" }}>
+            <div className="min-vh-100 text-center" style={{ paddingTop: "2%" }}>
                 <ReactCardFlip isFlipped={flip} flipDirection="horizontal">
                     <VerbFlashCardDisplayFront
                         currentVerb={verbArray[verbIndex]}

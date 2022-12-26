@@ -60,7 +60,7 @@ export default function Login(props) {
     }
 
     return (
-        <div className="container min-vh-100 text-center pt-5 text-white fs-5">
+        <div className="container min-vh-100 text-center text-white fs-5">
             {postResponse.received ? <Alert message={`${postResponse.message}`} /> : ''}
             <div className="row pt-5">
                 <div className="col">

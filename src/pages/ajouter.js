@@ -5,7 +5,7 @@ import Alert from '../components/Alert'
 import Spinner from '../components/Spinner'
 import FrenchInput from '../components/FrenchInput'
 
-export default function Add() {
+export default function Ajouter() {
 
     const [width, setWidth] = useState(window.innerWidth)
     const [loading, setLoading] = useState(false)
@@ -26,7 +26,7 @@ export default function Add() {
     const baseUrl = 'https://vocabulairehost.onrender.com/'
     const { token, setToken } = useToken()
 
-    const url = baseUrl + 'words/add/addword'
+    const url = baseUrl + 'words/add/ajouter'
 
     const requestOptions = {
         method: 'POST',
@@ -81,7 +81,7 @@ export default function Add() {
     }
 
     return (
-        <div className={`container min-vh-100 text-center pt-5 fs-6 ${isMobile ? 'w-100' : 'w-25'}`}>
+        <div className={`container min-vh-100 text-center fs-6 ${isMobile ? 'w-100' : 'w-25'}`}>
             {postResponse.received ?
                 <Alert message={`${postResponse.message}!`} />
                 : ''}

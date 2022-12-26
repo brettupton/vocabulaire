@@ -62,7 +62,7 @@ export default function Traduire() {
     }
 
     return (
-        <div className="container min-vh-100 text-center pt-5 text-white fs-5">
+        <div className="container min-vh-100 text-center text-white fs-5">
             <div className="row pt-5 justify-content-center">
                 <div className="col-lg-5">
                     <div className="form-group">

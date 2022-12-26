@@ -39,7 +39,7 @@
 
 export default function Temps() {
     return (
-        <div className="container min-vh-100 text-begin pt-5 m-0">
+        <div className="container min-vh-100 text-begin m-0">
             <div className="row py-5">
                 <div className="col">
                     <div className="container bg-white rounded">

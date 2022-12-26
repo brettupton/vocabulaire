@@ -25,7 +25,7 @@ export default function Home() {
 
     return (
         <>
-            <div className="container text-center min-vh-100 pt-5">
+            <div className="container text-center min-vh-100">
                 <div className="row pt-5">
                     <div className="col">
                         <img src={isMobile ? logotower : vocabulaire} height="60%" alt="Page Title" />

@@ -22,8 +22,8 @@ export default function Significatifs() {
     }
 
     return (
-        <div className="container min-vh-100 fs-5 mx-0" id="top" style={{ paddingTop: `${isMobile ? '20%' : '7%'}`, minWidth: '99%' }}>
-            <div className="row text-center align-content-start">
+        <div className="container min-vh-100 fs-5 mx-0" id="top" >
+            <div className="row pt-5 text-center align-content-start">
                 <div className={`col-${isMobile ? '12' : '4'}`}>
                     <div className="container bg-white rounded">
                         <div className="row border border-dark">

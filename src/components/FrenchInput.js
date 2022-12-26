@@ -81,9 +81,7 @@ export default function FrenchInput() {
     }
 
     useEffect(() => {
-        // Stop the useEffect is timeLeft is equal to 0
         if (timeLeft === 0) return
-        // Check first if the character pressed is an accent character before creating a timer
         if (accentCharacterPressed) {
             const timer = setInterval(() => {
                 setTimeLeft(prevTime => prevTime - 1)
@@ -96,7 +94,6 @@ export default function FrenchInput() {
     }, [timeLeft, accentCharacterPressed])
 
     function handleMouseEnter(e) {
-        // Adds a black border to the selected accent character and changes the cursor
         e.target.style.cursor = 'pointer'
         const className = e.target.className
         e.target.className = className + ' border border-dark rounded'

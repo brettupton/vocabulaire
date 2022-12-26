@@ -25,7 +25,7 @@ function MotsHome() {
     const isMobile = width <= 768;
 
     return (
-        <div className="container min-vh-100 text-center pt-5">
+        <div className="container min-vh-100 text-center">
             <div className="row pt-5">
                 <div className="col">
                     <img src={isMobile ? frlogo : mots} height="60%" alt="Page Title" />
@@ -39,10 +39,10 @@ function MotsHome() {
                     <Card imageSrc={triomphe} header={"Significatifs"} link={"significatifs"} />
                 </div>
                 <div className={`col${isMobile ? '-12' : ''}`}>
-                    <Card imageSrc={moulin} header={"Liste de mots"} link={"wordlist"} />
+                    <Card imageSrc={moulin} header={"Liste de mots"} link={"liste"} />
                 </div>
                 <div className={`col${isMobile ? '-12' : ''}`}>
-                    <Card imageSrc={nimes} header={"Ajouter"} link={"addword"} isMobile={isMobile} />
+                    <Card imageSrc={nimes} header={"Ajouter"} link={"ajouter"} isMobile={isMobile} />
                 </div>
             </div>
         </div>
