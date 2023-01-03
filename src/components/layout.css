@@ -58,33 +58,104 @@
   width: 100%;
 }
 
-/* Searchbar */
+/* Search Bar */
 #query-result-row:hover {
   background-color: lightblue;
 }
 
 /* Icon Hover */
 
-#play-icon {
-  content: url('../images/icons/play-circle.svg')
+#speech-icon {
+  content: url('../images/icons/volume-up.svg')
 }
 
-#play-icon:hover {
-  content: url('../images/icons/play-circle-fill.svg');
+#speech-icon:hover {
+  content: url('../images/icons/volume-up-fill.svg');
 }
 
 #delete-icon {
-  content: url('../images/icons/x-circle.svg')
+  content: url('../images/icons/x-circle.svg');
 }
 
 #delete-icon:hover {
-  content: url('../images/icons/x-circle-fill.svg')
+  content: url('../images/icons/x-circle-fill.svg');
 }
 
 #question-icon {
-  content: url('../images/icons/question-circle.svg')
+  content: url('../images/icons/question-circle.svg');
 }
 
 #question-icon:hover {
-  content: url('../images/icons/question-circle-fill.svg')
+  content: url('../images/icons/question-circle-fill.svg');
+}
+
+#checkmark-icon {
+  content: url('../images/icons/check-circle.svg');
+}
+
+#checkmark-icon:hover {
+  content: url('../images/icons/check-circle-fill.svg');
+}
+
+/* Type Button */
+.type-button {
+  background: #668cff;
+  color: white;
+  font-family: inherit;
+  padding: 0.6em 1.3em;
+  font-weight: 550;
+  font-size: .82rem;
+  border: 2px solid black;
+  border-radius: 0.4em;
+  box-shadow: 0.1em 0.1em black;
+}
+
+.type-button:hover {
+  transform: translate(-0.05em, -0.05em);
+  box-shadow: 0.15em 0.15em black;
+}
+
+.type-button:active {
+  transform: translate(0.05em, 0.05em);
+  box-shadow: 0.05em 0.05em black;
+}
+
+/* Input Box */
+.input-div {
+  --width-of-input: 200px;
+  --border-height: 1px;
+  --border-before-color: rgba(221, 221, 221, 0.39);
+  --border-after-color: #c9515f;
+  position: relative;
+  width: var(--width-of-input);
+}
+
+.edit-input {
+  color: black;
+  font-size: 1.2rem;
+  background-color: transparent;
+  width: 100%;
+  box-sizing: border-box;
+  padding-inline: 0.2em;
+  padding-block: 0.3em;
+  border: none;
+  border-bottom: var(--border-height) solid var(--border-before-color);
+}
+
+.edit-input-border {
+  position: absolute;
+  background: var(--border-after-color);
+  width: 0%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  transition: 0.3s;
+}
+
+input:focus {
+  outline: none;
+}
+
+input:focus~.edit-input-border {
+  width: 100%;
 }

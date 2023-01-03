@@ -77,8 +77,8 @@ export default function SearchBar() {
                         _id: result[i]._id,
                         French: resultWordCapital.replace(foundWord, `<strong>${foundWord}</strong>`),
                         English: result[i].English,
-                        MascOrFemme: result[i].MascOrFemme,
-                        GrammarType: result[i].GrammarType
+                        Gender: result[i].Gender,
+                        Term: result[i].Term
 
                     }
                     resultsArray.push(resultObject)
@@ -88,8 +88,8 @@ export default function SearchBar() {
                         _id: result[i]._id,
                         French: result[i].French.replace(foundWord, `<strong>${foundWord}</strong>`),
                         English: result[i].English,
-                        MascOrFemme: result[i].MascOrFemme,
-                        GrammarType: result[i].GrammarType
+                        Gender: result[i].Gender,
+                        Term: result[i].Term
                     }
                     resultsArray.push(resultObject)
                 }
@@ -104,8 +104,8 @@ export default function SearchBar() {
                         _id: result[i]._id,
                         French: result[i].French,
                         English: resultWordCapital.replace(foundWord, `<strong>${foundWord}</strong>`),
-                        MascOrFemme: result[i].MascOrFemme,
-                        GrammarType: result[i].GrammarType
+                        Gender: result[i].Gender,
+                        Term: result[i].Term
                     }
                     resultsArray.push(resultObject)
                 } else {
@@ -114,8 +114,8 @@ export default function SearchBar() {
                         _id: result[i]._id,
                         French: result[i].French,
                         English: result[i].English.replace(foundWord, `<strong>${foundWord}</strong>`),
-                        MascOrFemme: result[i].MascOrFemme,
-                        GrammarType: result[i].GrammarType
+                        Gender: result[i].Gender,
+                        Term: result[i].Term
                     }
                     resultsArray.push(resultObject)
                 }
@@ -176,7 +176,7 @@ export default function SearchBar() {
                                             return
                                         }
                                         return (
-                                            <Link to={`/mots/editword/${resultWord._id}`} style={{ color: 'black', textDecoration: 'none' }}>
+                                            <Link to={`/mots/vue/${resultWord._id}`} style={{ color: 'black', textDecoration: 'none' }}>
                                                 <div className="row text-start" key={resultWord._id} id="query-result-row">
                                                     <div className="col">
                                                         {parse(resultWord.French)} - {parse(resultWord.English)}

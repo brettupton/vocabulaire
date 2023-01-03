@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 export default function Card(props) {
 
-    const { imageSrc, header, link, isMobile } = props
+    const { imageSrc, header, link } = props
 
     return (
         <Link to={link}>

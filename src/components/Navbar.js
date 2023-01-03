@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import SearchBar from './SearchBar'
+import { Link, useLocation } from 'react-router-dom'
 import heart from '../images/fheart.ico'
 
 export default function Navbar() {
 
     const [width, setWidth] = useState(window.innerWidth)
+    const [isNavCollapsed, setIsNavCollapsed] = useState(true)
 
     const isMobile = (width <= 768)
+    const location = useLocation()
 
     useEffect(() => {
         window.addEventListener('resize', handleWindowSizeChange)
@@ -16,18 +17,20 @@ export default function Navbar() {
         }
     }, [])
 
+    useEffect(() => {
+        setIsNavCollapsed(true)
+    }, [location])
+
     function handleWindowSizeChange() {
         setWidth(window.innerWidth)
     }
-
-    const [isNavCollapsed, setIsNavCollapsed] = useState(true)
 
     function handleNavCollapse() {
         setIsNavCollapsed(!isNavCollapsed)
     }
 
     return (
-        <nav className={`navbar navbar-dark navbar-expand-lg bg-dark sticky-top fs-${isMobile ? '6' : '5'}`}>
+        <nav className="navbar navbar-dark navbar-expand-lg bg-dark sticky-top fs-6">
             <div className="container-fluid">
                 <Link className="navbar-brand" to="/">
                     <img src={heart} height="28" width="28" />

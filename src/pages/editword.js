@@ -70,14 +70,14 @@ export default function EditWord() {
         const inputs = {
             'French': document.getElementById('French'),
             'English': document.getElementById('English'),
-            'MascOrFemme': document.getElementById('MascOrFemme'),
-            'GrammarType': document.getElementById('GrammarType')
+            'Gender': document.getElementById('Gender'),
+            'Term': document.getElementById('Term')
         }
 
         inputs.French.value = ''
         inputs.English.value = ''
-        inputs.MascOrFemme.value = ''
-        inputs.GrammarType.value = ''
+        inputs.Gender.value = ''
+        inputs.Term.value = ''
     }
 
     function toggleModal() {
@@ -190,7 +190,7 @@ export default function EditWord() {
                                     <div className="row justify-content-center mt-2">
                                         <div className="col">
                                             Sexe
-                                            <select className="form-select form-select-sm" defaultValue={word.MascOrFemme} onChange={handleChange} name="MascOrFemme">
+                                            <select className="form-select form-select-sm" defaultValue={word.Gender} onChange={handleChange} name="Gender">
                                                 <option value="Masculine">Masculine</option>
                                                 <option value="Feminine">Feminine</option>
                                                 <option value="Plural">Plural</option>
@@ -201,7 +201,7 @@ export default function EditWord() {
                                     <div className="row justify-content-center mt-2">
                                         <div className="col">
                                             Partie du discours
-                                            <select className="form-select form-select-sm" defaultValue={word.GrammarType} onChange={handleChange} name="GrammarType">
+                                            <select className="form-select form-select-sm" defaultValue={word.Term} onChange={handleChange} name="Term">
                                                 <option value="Noun">Noun</option>
                                                 <option value="Adjective">Adjective</option>
                                                 <option value="Pronoun">Pronoun</option>

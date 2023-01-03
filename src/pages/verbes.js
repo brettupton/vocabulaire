@@ -5,7 +5,7 @@ import verbes from '../images/verbes.png'
 import frlogo from '../images/frlogo.png'
 import sacrecoeur from '../images/sacrecoeur.png'
 import house from '../images/house.png'
-import question from '../images/icons/question-lg.svg'
+import baroque from '../images/baroque.png'
 
 function VerbesHome() {
 
@@ -38,7 +38,7 @@ function VerbesHome() {
                     <Card imageSrc={house} header={"Temps"} link={"temps"} />
                 </div>
                 <div className={`col${isMobile ? '-12' : ''}`}>
-                    <Card imageSrc={question} header={"Liste de verbes"} link={"#"} />
+                    <Card imageSrc={baroque} header={"Liste de verbes"} link={"liste"} />
                 </div>
             </div>
         </div>

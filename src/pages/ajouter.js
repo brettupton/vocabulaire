@@ -17,8 +17,8 @@ export default function Ajouter() {
         {
             French: '',
             English: '',
-            MascOrFemme: 'Masculine',
-            GrammarType: 'Noun'
+            Gender: 'Masculine',
+            Term: 'Noun'
         }
     )
 
@@ -68,8 +68,8 @@ export default function Ajouter() {
                 setNewWord({
                     French: '',
                     English: '',
-                    MascOrFemme: '',
-                    GrammarType: ''
+                    Gender: '',
+                    Term: ''
                 })
                 setLoading(false)
             })
@@ -93,7 +93,7 @@ export default function Ajouter() {
                                 <div className="row">
                                     <div className="col">
                                         <label htmlFor="French">Français</label>
-                                        <FrenchInput />
+                                        <FrenchInput handleChange={handleChange} />
                                     </div>
                                     <div className="col">
                                         <label htmlFor="English">Anglais</label>
@@ -106,7 +106,7 @@ export default function Ajouter() {
                                 <div className="row justify-content-center mt-2">
                                     <div className="col">
                                         Sexe
-                                        <select className="form-select form-select-sm" defaultValue="Masculine" onChange={handleChange} name="MascOrFemme">
+                                        <select className="form-select form-select-sm" defaultValue="Masculine" onChange={handleChange} name="Gender">
                                             <option value="Masculine">Masculine</option>
                                             <option value="Feminine">Feminine</option>
                                             <option value="Plural">Plural</option>
@@ -117,7 +117,7 @@ export default function Ajouter() {
                                 <div className="row justify-content-center mt-2">
                                     <div className="col">
                                         Partie du discours
-                                        <select className="form-select form-select-sm" defaultValue="Noun" onChange={handleChange} name="GrammarType">
+                                        <select className="form-select form-select-sm" defaultValue="Noun" onChange={handleChange} name="Term">
                                             <option value="Noun">Noun</option>
                                             <option value="Adjective">Adjective</option>
                                             <option value="Pronoun">Pronoun</option>

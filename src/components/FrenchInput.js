@@ -3,14 +3,16 @@ import Popover from 'react-bootstrap/Popover'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 
 
-export default function FrenchInput() {
+export default function FrenchInput(props) {
 
     // Mobile Check
     const [width, setWidth] = useState(window.innerWidth)
     const isMobile = width <= 768
+
     function handleWindowSizeChange() {
         setWidth(window.innerWidth)
     }
+
     useEffect(() => {
         window.addEventListener('resize', handleWindowSizeChange)
         return () => {
@@ -34,14 +36,18 @@ export default function FrenchInput() {
         u: ['u', 'ù', 'û', 'ü']
     }
 
-    useEffect(() => {
-        const inputElement = document.getElementById('French')
-        inputElement.addEventListener('keydown', handleKeyDown)
-        inputElement.addEventListener('keyup', handleKeyUp)
+    const { handleChange } = props
 
-        return () => {
-            inputElement.removeEventListener('keydown', handleKeyDown)
-            inputElement.removeEventListener('keyup', handleKeyUp)
+    useEffect(() => {
+        if (!isMobile) {
+            const inputElement = document.getElementById('French')
+            inputElement.addEventListener('keydown', handleKeyDown)
+            inputElement.addEventListener('keyup', handleKeyUp)
+
+            return () => {
+                inputElement.removeEventListener('keydown', handleKeyDown)
+                inputElement.removeEventListener('keyup', handleKeyUp)
+            }
         }
     })
 
@@ -60,6 +66,7 @@ export default function FrenchInput() {
         if (['a', 'e', 'c', 'i', 'o', 'u'].includes(e.key)) {
             setCurrentAccentList(accentList[e.key])
             setAccentCharacterPressed(true)
+            return
         }
     }
 
@@ -77,6 +84,7 @@ export default function FrenchInput() {
             (e.keyCode >= 97 && e.keyCode <= 122) ||
             e.keyCode === 32 || e.keyCode === 222 || e.keyCode === 191) {
             setInputValue(prevValue => prevValue + e.key)
+            return
         }
     }
 
@@ -130,8 +138,8 @@ export default function FrenchInput() {
                     className="form-control form-control-sm"
                     name="French" id="French"
                     placeholder="Français"
-                    value={inputValue}
-                    onChange={handleKeyDown}
+                    {...(isMobile ? {} : { value: inputValue })}
+                    onChange={isMobile ? handleChange : handleKeyDown}
                     autoComplete="off" />
             </OverlayTrigger>
             <div className={`container w-75 d-${isMobile ? 'none' : 'block'}`}>

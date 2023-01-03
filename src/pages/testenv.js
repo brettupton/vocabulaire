@@ -1,39 +1,12 @@
-import Navbar from "../components/Navbar"
 
 export default function TestEnv() {
     return (
-        <>
-            <Navbar />
-            <div className="container min-vh-100 text-white text-center pt-5 min-vw-100">
-                <div className="row">
-                    <div className="col">
-                        Testing ENV
-                    </div>
-                </div>
-                <div className="row pt-2">
-                    <div className="col">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. At lectus urna duis convallis convallis tellus. Tempor nec feugiat nisl pretium fusce id. Gravida cum sociis natoque penatibus et magnis dis parturient montes. Senectus et netus et malesuada fames ac. Commodo sed egestas egestas fringilla phasellus faucibus scelerisque. A diam maecenas sed enim. Et sollicitudin ac orci phasellus egestas. Semper auctor neque vitae tempus quam pellentesque. Risus viverra adipiscing at in tellus integer. Praesent semper feugiat nibh sed. Commodo ullamcorper a lacus vestibulum sed arcu non. Cras pulvinar mattis nunc sed blandit libero. Risus sed vulputate odio ut. Amet nisl purus in mollis nunc sed id semper. Lorem dolor sed viverra ipsum nunc aliquet bibendum enim facilisis.
-
-                        Nulla posuere sollicitudin aliquam ultrices. Rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant. Amet nulla facilisi morbi tempus iaculis urna id. Felis imperdiet proin fermentum leo. Et netus et malesuada fames ac turpis egestas. Tempor id eu nisl nunc mi ipsum. Justo donec enim diam vulputate. Quisque id diam vel quam elementum pulvinar. Eget felis eget nunc lobortis mattis aliquam faucibus purus in. Velit dignissim sodales ut eu sem integer vitae justo eget. Fermentum leo vel orci porta non. Non odio euismod lacinia at. Duis at consectetur lorem donec massa sapien faucibus et molestie. Consectetur a erat nam at lectus urna duis convallis. Aliquam purus sit amet luctus venenatis lectus magna fringilla urna. Ac auctor augue mauris augue neque gravida in. Aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant. Sed enim ut sem viverra aliquet eget sit. Sit amet massa vitae tortor condimentum lacinia quis. Velit dignissim sodales ut eu sem integer.
-
-                        Euismod elementum nisi quis eleifend quam adipiscing vitae proin sagittis. Eros in cursus turpis massa. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. Et ultrices neque ornare aenean euismod elementum nisi. Egestas sed sed risus pretium quam. Viverra suspendisse potenti nullam ac. Nunc lobortis mattis aliquam faucibus purus in. Malesuada pellentesque elit eget gravida cum sociis natoque. Lectus quam id leo in. Faucibus in ornare quam viverra orci. Nulla facilisi etiam dignissim diam quis enim lobortis scelerisque fermentum. Nisi lacus sed viverra tellus in hac. Nam aliquam sem et tortor.
-
-                        Diam quis enim lobortis scelerisque fermentum dui. Pretium aenean pharetra magna ac. Massa tempor nec feugiat nisl pretium fusce. Netus et malesuada fames ac. Amet aliquam id diam maecenas ultricies mi eget mauris. Enim neque volutpat ac tincidunt vitae. Nisl pretium fusce id velit ut. Bibendum at varius vel pharetra vel turpis nunc eget lorem. Tellus mauris a diam maecenas sed enim ut. Nec sagittis aliquam malesuada bibendum arcu vitae elementum curabitur vitae. Sit amet nisl purus in mollis nunc sed.
-
-                        Tellus orci ac auctor augue mauris augue neque gravida in. Adipiscing elit duis tristique sollicitudin nibh. Ante in nibh mauris cursus mattis molestie a. Tellus pellentesque eu tincidunt tortor aliquam nulla facilisi. Ornare lectus sit amet est placerat in egestas. Turpis tincidunt id aliquet risus feugiat in ante metus. Phasellus vestibulum lorem sed risus. Quis commodo odio aenean sed adipiscing diam donec adipiscing. At ultrices mi tempus imperdiet nulla malesuada pellentesque elit. Integer quis auctor elit sed vulputate mi sit amet. Dapibus ultrices in iaculis nunc sed augue. Eget nullam non nisi est. Venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin. Massa tincidunt nunc pulvinar sapien. Vulputate mi sit amet mauris commodo quis imperdiet massa. Ut pharetra sit amet aliquam id diam maecenas ultricies. Erat velit scelerisque in dictum non consectetur. Adipiscing elit duis tristique sollicitudin nibh sit. Cursus sit amet dictum sit amet justo.
-
-                        Morbi enim nunc faucibus a pellentesque sit. Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis. Nisi vitae suscipit tellus mauris. Arcu non odio euismod lacinia at quis risus. In nisl nisi scelerisque eu ultrices vitae auctor eu augue. Eu tincidunt tortor aliquam nulla. Enim ut tellus elementum sagittis vitae. Sit amet facilisis magna etiam tempor orci. In arcu cursus euismod quis viverra nibh cras pulvinar. Dolor magna eget est lorem ipsum dolor. Viverra ipsum nunc aliquet bibendum enim facilisis gravida neque convallis. Auctor neque vitae tempus quam pellentesque nec.
-
-                        Morbi quis commodo odio aenean sed. Maecenas volutpat blandit aliquam etiam erat velit scelerisque in. Nulla malesuada pellentesque elit eget gravida cum sociis. Sagittis id consectetur purus ut faucibus pulvinar elementum. Tortor posuere ac ut consequat semper viverra nam libero. Non tellus orci ac auctor augue mauris augue neque. Cras ornare arcu dui vivamus arcu felis bibendum ut tristique. Sit amet nisl purus in mollis nunc sed id semper. Dui vivamus arcu felis bibendum ut tristique et. Metus aliquam eleifend mi in. Diam maecenas ultricies mi eget mauris. Quam adipiscing vitae proin sagittis nisl.
-
-                        Arcu non odio euismod lacinia at. Volutpat sed cras ornare arcu dui. Posuere morbi leo urna molestie at elementum eu facilisis sed. Odio ut sem nulla pharetra. Semper quis lectus nulla at volutpat diam ut venenatis tellus. Montes nascetur ridiculus mus mauris vitae ultricies leo integer malesuada. Imperdiet dui accumsan sit amet nulla. Senectus et netus et malesuada fames ac turpis. Vel risus commodo viverra maecenas accumsan lacus. In metus vulputate eu scelerisque felis imperdiet. Ultrices neque ornare aenean euismod elementum nisi quis eleifend. Elementum integer enim neque volutpat ac tincidunt vitae. Eros donec ac odio tempor orci dapibus ultrices.
-
-                        In cursus turpis massa tincidunt dui ut ornare. Diam sollicitudin tempor id eu nisl. Leo vel fringilla est ullamcorper eget. At tempor commodo ullamcorper a. Mi sit amet mauris commodo quis imperdiet. Risus commodo viverra maecenas accumsan lacus vel facilisis volutpat. Non quam lacus suspendisse faucibus interdum posuere. Quam adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus. Neque ornare aenean euismod elementum nisi quis. Congue quisque egestas diam in arcu cursus. Tellus id interdum velit laoreet id donec. Scelerisque viverra mauris in aliquam sem. In eu mi bibendum neque egestas congue quisque. Integer vitae justo eget magna fermentum iaculis eu non. Sit amet nisl purus in. Erat nam at lectus urna duis. Adipiscing at in tellus integer feugiat scelerisque varius. Turpis egestas pretium aenean pharetra magna ac placerat. Sit amet risus nullam eget felis.
-
-                        Quis viverra nibh cras pulvinar mattis nunc sed blandit libero. Diam maecenas sed enim ut. Tortor consequat id porta nibh venenatis cras sed felis eget. Diam quam nulla porttitor massa id neque. Quis eleifend quam adipiscing vitae. Ultrices sagittis orci a scelerisque purus semper eget duis at. Eu nisl nunc mi ipsum faucibus vitae. Et netus et malesuada fames. Facilisis gravida neque convallis a cras semper auctor neque. Mattis pellentesque id nibh tortor id aliquet lectus proin. Lobortis elementum nibh tellus molestie. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt. Diam ut venenatis tellus in metus vulputate eu scelerisque. Ultricies mi eget mauris pharetra et ultrices neque. Ac turpis egestas maecenas pharetra convallis posuere. Fames ac turpis egestas maecenas. Bibendum neque egestas congue quisque egestas diam in arcu. In tellus integer feugiat scelerisque varius morbi enim. Nulla pellentesque dignissim enim sit amet venenatis urna. Tortor dignissim convallis aenean et tortor at risus viverra adipiscing.
-                    </div>
+        <div className="container min-vh-100 pt-5">
+            <div className="row text-white text-center">
+                <div className="col">
+                    Testing Environment
                 </div>
             </div>
-        </>
+        </div>
     )
 }

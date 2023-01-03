@@ -58,10 +58,10 @@ export default function WordFlashCard() {
             setWordGender('Le ')
             return
         }
-        if (currentWord.GrammarType === 'Noun') {
+        if (currentWord.Term === 'Noun') {
             if (startsWithVowelOrH(currentWord.French)) {
                 setWordGender("L'")
-            } else if (currentWord.MascOrFemme === 'Masculine') {
+            } else if (currentWord.Gender === 'Masculine') {
                 setWordGender('Le ')
             } else {
                 setWordGender('La ')
@@ -156,28 +156,28 @@ export default function WordFlashCard() {
                     </div>
                     <div className={`row pb-5 w-${isMobile ? '100' : '50'}`}>
                         <div className="col">
-                            <button className="btn btn-primary w-100" value="all" onClick={handleTypeClick}>All</button>
+                            <button className="type-button w-100" value="all" onClick={handleTypeClick}>All</button>
                         </div>
                         <div className="col">
-                            <button className="btn btn-primary w-100" value="noun" onClick={handleTypeClick}>Nouns</button>
+                            <button className="type-button w-100" value="noun" onClick={handleTypeClick}>Nouns</button>
                         </div>
                         <div className="col">
-                            <button className="btn btn-primary w-100" value="adjective" onClick={handleTypeClick}>Adjectives</button>
+                            <button className="type-button w-100" value="adjective" onClick={handleTypeClick}>Adjectives</button>
                         </div>
                         <div className="col">
-                            <button className="btn btn-primary w-100" value="pronoun" onClick={handleTypeClick}>Pronouns</button>
+                            <button className="type-button w-100" value="pronoun" onClick={handleTypeClick}>Pronouns</button>
                         </div>
                         <div className="col">
-                            <button className="btn btn-primary w-100" value="phrase" onClick={handleTypeClick}>Phrases</button>
+                            <button className="type-button w-100" value="phrase" onClick={handleTypeClick}>Phrases</button>
                         </div>
                         <div className="col">
-                            <button className="btn btn-primary w-100" value="adverb" onClick={handleTypeClick}>Adverbs</button>
+                            <button className="type-button w-100" value="adverb" onClick={handleTypeClick}>Adverbs</button>
                         </div>
                         <div className="col">
-                            <button className="btn btn-primary w-75" value="preposition" onClick={handleTypeClick}>Prepositions</button>
+                            <button className="type-button w-75" value="preposition" onClick={handleTypeClick}>Prepositions</button>
                         </div>
                         <div className="col">
-                            <button className="btn btn-primary w-75" value="exclamation" onClick={handleTypeClick}>Exclamations</button>
+                            <button className="type-button w-75" value="exclamation" onClick={handleTypeClick}>Exclamations</button>
                         </div>
                     </div>
                 </div>

@@ -7,7 +7,6 @@ export default function WordList() {
     const [wordArray, setWordArray] = useState([])
     const [width, setWidth] = useState(window.innerWidth)
     const [fetchingData, setFetchingData] = useState(true)
-    const [wordQueried, setWordQueried] = useState('')
 
     const isMobile = width <= 768
     const url = 'https://vocabulairehost.onrender.com/'
@@ -36,7 +35,6 @@ export default function WordList() {
                 setFetchingData(false)
             })
     }
-
 
     return (
         (fetchingData)

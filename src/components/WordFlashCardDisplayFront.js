@@ -3,7 +3,7 @@ import franceflag from '../images/france.png'
 import rightarrow from '../images/icons/arrow-right-circle.svg'
 import leftarrow from '../images/icons/arrow-left-circle.svg'
 import flipbutton from '../images/icons/arrow-repeat.svg'
-import pencil from '../images/icons/pencil.svg'
+import view from '../images/icons/eye.svg'
 import SpeechButton from './SpeechButton'
 
 export default function WordFlashCardDisplayFront(props) {
@@ -22,14 +22,14 @@ export default function WordFlashCardDisplayFront(props) {
                                         <img src={franceflag} id="flashcard-icon" alt="Flashcard Icon" />
                                     </div>
                                     <div className="col-2">
-                                        <Link to={`/mots/editword/${wordArray[wordIndex]._id}`}><img src={pencil} alt="Edit Icon" /></Link>
+                                        <Link to={`/mots/vue/${wordArray[wordIndex]._id}`}><img src={view} alt="View Icon" /></Link>
                                     </div>
                                 </div>
                             </div>
                             <div className="container mt-5">
                                 <div className="row">
                                     <div className="col">
-                                        <p className="card-text">{wordArray[wordIndex].GrammarType === "Noun"
+                                        <p className="card-text">{wordArray[wordIndex].Term === "Noun"
                                             ? gender + wordArray[wordIndex].French.toLowerCase()
                                             : gender + wordArray[wordIndex].French}</p>
                                     </div>

@@ -14,7 +14,7 @@ export default function SpeechButton(props) {
 
     return (
         <button className="btn" onClick={playSpeech}>
-            <img id="play-icon" alt="Play Button" />
+            <img id="speech-icon" alt="Speech Button" />
         </button>
     )
 }
