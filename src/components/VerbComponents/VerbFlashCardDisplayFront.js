@@ -1,46 +1,48 @@
-import FEConjugations from "./FEConjugations"
-import SpeechButton from "./SpeechButton"
-import rightarrow from '../images/icons/arrow-right-circle.svg'
-import leftarrow from '../images/icons/arrow-left-circle.svg'
-import flipbutton from '../images/icons/arrow-repeat.svg'
-import verbfill from '../images/icons/verb-fill.png'
+import { Link } from "react-router-dom"
+import FEVerb from "./FEVerb"
+import SpeechButton from "../SpeechButton"
+import rightarrow from '../../images/icons/arrow-right-circle.svg'
+import leftarrow from '../../images/icons/arrow-left-circle.svg'
+import flipbutton from '../../images/icons/arrow-repeat.svg'
+import verbesmpty from '../../images/icons/verb-empty.png'
+import view from '../../images/icons/eye.svg'
 
-export default function VerbFlashCardDisplayBack(props) {
+export default function VerbFlashCardDisplayFront(props) {
 
-    const { currentVerb, shuffle, handleClick, isMobile, currentTense } = props
+    const { currentVerb, shuffle, handleClick, isMobile } = props
 
     return (
-        <div className={`container text-center pt-5 d-flex flex-column align-items-center justify-content-center`}>
-            <div className={`row w-${isMobile ? '100' : '50'}`}>
+        <div className="container text-center pt-5 d-flex flex-column align-items-center justify-content-center">
+            <div className={`row w-${isMobile ? '100' : '50'}`} id="verb-flashcard">
                 <div className="col">
                     <div className="card text-center text-black">
                         <div className="card-body p-0">
                             <div className="container p-0">
-                                <div className="row justify-content-start">
+                                <div className="row justify-content-between">
                                     <div className="col-2">
-                                        <img src={verbfill} id="flashcard-icon" alt="Verb Side Display Icon" />
+                                        <img src={verbesmpty} id="flashcard-icon" alt="Verb Side Display Icon" />
+                                    </div>
+                                    <div className="col-2">
+                                        <Link to={`/verbes/vue/${currentVerb._id}`}><img src={view} alt="View Icon" /></Link>
                                     </div>
                                 </div>
                             </div>
                             <div className="container">
-                                <div className="row">
+                                <div className="row pt-5">
                                     <div className="col">
-                                        <p className="card-text">
-                                            <FEConjugations
-                                                currentVerb={currentVerb}
-                                                currentTense={currentTense}
-                                                isMobile={isMobile} />
-                                        </p>
+                                        <div className="card-text">
+                                            <FEVerb currentVerb={currentVerb} />
+                                        </div>
                                     </div>
                                 </div>
-                                <div className={`row ${isMobile ? 'mt-1' : ''}`}>
+                                <div className={`row ${isMobile ? '0' : 'mt-5 pt-2'}`}>
                                     <div className="col">
-                                        <button className="py-4" value="flip" onClick={handleClick} id="button-styling">
+                                        <button className="my-3" value="flip" onClick={handleClick} id="button-styling">
                                             <img src={flipbutton} alt="Flip Button" />
                                         </button>
                                     </div>
                                 </div>
-                                <div className="row pb-3">
+                                <div className="row pb-4">
                                     <div className="col-3">
                                         <button value="prev" onClick={handleClick} id="button-styling">
                                             <img src={leftarrow} alt="leftarrow" />

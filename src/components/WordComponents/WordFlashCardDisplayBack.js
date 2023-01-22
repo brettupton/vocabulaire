@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom'
-import franceflag from '../images/france.png'
-import rightarrow from '../images/icons/arrow-right-circle.svg'
-import leftarrow from '../images/icons/arrow-left-circle.svg'
-import flipbutton from '../images/icons/arrow-repeat.svg'
-import view from '../images/icons/eye.svg'
-import SpeechButton from './SpeechButton'
+import usflag from '../../images/united-states.png'
+import rightarrow from '../../images/icons/arrow-right-circle.svg'
+import leftarrow from '../../images/icons/arrow-left-circle.svg'
+import flipbutton from '../../images/icons/arrow-repeat.svg'
+import view from '../../images/icons/eye.svg'
+import SpeechButton from '../SpeechButton'
 
-export default function WordFlashCardDisplayFront(props) {
+export default function WordFlashCardDisplayBack(props) {
 
     const { wordArray, wordIndex, shuffle, gender, handleClick, isMobile } = props
 
@@ -19,7 +19,7 @@ export default function WordFlashCardDisplayFront(props) {
                             <div className="container p-0">
                                 <div className="row justify-content-between m-1">
                                     <div className="col-2">
-                                        <img src={franceflag} id="flashcard-icon" alt="Flashcard Icon" />
+                                        <img src={usflag} id="flashcard-icon" alt="Flashcard Icon" />
                                     </div>
                                     <div className="col-2">
                                         <Link to={`/mots/vue/${wordArray[wordIndex]._id}`}><img src={view} alt="View Icon" /></Link>
@@ -29,9 +29,7 @@ export default function WordFlashCardDisplayFront(props) {
                             <div className="container mt-5">
                                 <div className="row">
                                     <div className="col">
-                                        <p className="card-text">{wordArray[wordIndex].Term === "Noun"
-                                            ? gender + wordArray[wordIndex].French.toLowerCase()
-                                            : gender + wordArray[wordIndex].French}</p>
+                                        <p className="card-text">{wordArray[wordIndex].English}</p>
                                     </div>
                                 </div>
                                 <div className="row">

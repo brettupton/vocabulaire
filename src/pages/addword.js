@@ -5,7 +5,7 @@ import Alert from '../components/Alert'
 import Spinner from '../components/Spinner'
 import FrenchInput from '../components/FrenchInput'
 
-export default function Ajouter() {
+export default function AddWordPage() {
 
     const [width, setWidth] = useState(window.innerWidth)
     const [loading, setLoading] = useState(false)
@@ -54,7 +54,6 @@ export default function Ajouter() {
     }
 
     const handleSubmit = (event) => {
-
         event.preventDefault()
         setLoading(true)
 

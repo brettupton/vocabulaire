@@ -1,4 +1,4 @@
-import WordRow from './rows/WordRow'
+import WordRow from '../rows/WordRow'
 
 export default function WordListDisplay(props) {
 

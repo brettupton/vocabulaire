@@ -1,8 +1,20 @@
+import { useNavigate } from "react-router-dom"
+
 export default function VerbRow(props) {
     const { verb, currentTense, index } = props
 
+    const navigate = useNavigate()
+
+    function handleRowClick() {
+        navigate(`/verbes/vue/${verb._id}`)
+    }
+
+    function handleMouseEnter(e) {
+        e.target.style.cursor = 'pointer'
+    }
+
     return (
-        <tr className="table-secondary">
+        <tr className="table-secondary" onClick={handleRowClick} onMouseEnter={handleMouseEnter}>
             <th scope="row" className="d-none d-lg-table-cell">{index + 1}</th>
             <td>{verb.Verb}</td>
             <td>{verb.Translation}</td>

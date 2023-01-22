@@ -1,4 +1,4 @@
-import WordDisplay from "../components/WordDisplay"
+import WordDisplay from "../components/WordComponents/WordDisplay"
 
 export default function ViewWord() {
     return (

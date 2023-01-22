@@ -13,6 +13,10 @@
   font-size: 10px;
 }
 
+.card {
+  background-color: #F2F3F4;
+}
+
 #card-container img {
   height: 100%;
   width: 50%;
@@ -40,7 +44,6 @@
 
 #button-styling {
   border: 0px;
-  background-color: white;
   padding: 0;
 }
 
@@ -97,7 +100,7 @@
   content: url('../images/icons/check-circle-fill.svg');
 }
 
-/* Type Button */
+/* Word Type Button */
 .type-button {
   background: #668cff;
   color: white;
@@ -120,7 +123,7 @@
   box-shadow: 0.05em 0.05em black;
 }
 
-/* Input Box */
+/* Edit Input Box Animation */
 .input-div {
   --width-of-input: 200px;
   --border-height: 1px;

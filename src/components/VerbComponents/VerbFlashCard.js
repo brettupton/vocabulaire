@@ -2,32 +2,37 @@ import { useState, useEffect } from 'react'
 import ReactCardFlip from 'react-card-flip'
 import VerbFlashCardDisplayFront from './VerbFlashCardDisplayFront'
 import VerbFlashCardDisplayBack from './VerbFlashCardDisplayBack'
-import Spinner from './Spinner'
-import verbList from '../lists/verblist'
+import VerbTenseButtons from './VerbTenseButtons'
+import Spinner from '../Spinner'
 
-export default function VerbFlashCard() {
+export default function VerbFlashCardDisplay() {
+    const [verbArray, setVerbArray] = useState([])
     const [verbIndex, setVerbIndex] = useState(0)
-    const [verbArray, setVerbArray] = useState(verbList)
     const [flip, setFlip] = useState(false)
     const [shuffle, setShuffle] = useState(false)
     const [width, setWidth] = useState(window.innerWidth)
     const [currentTense, setCurrentTense] = useState('Présent')
+    const [fetchingData, setFetchingData] = useState(true)
 
+    const url = new URL('https://vocabulairehost.onrender.com/')
     const isMobile = (width <= 768)
 
-    // const fetchData = () => {
-    //     fetch(`https://vocabulairehost.onrender.com//getverbs`)
-    //         .then((response) => response.json())
-    //         .then((data) => setVerbArray(data))
-    // }
-
     useEffect(() => {
-        // fetchData()
+        fetchData()
         window.addEventListener('resize', handleWindowSizeChange)
         return () => {
             window.removeEventListener('resize', handleWindowSizeChange)
         }
     }, [])
+
+    function fetchData() {
+        fetch(`${url}verbs`)
+            .then(response => response.json())
+            .then(data => {
+                setVerbArray(data)
+                setFetchingData(false)
+            })
+    }
 
     function handleWindowSizeChange() {
         setWidth(window.innerWidth)
@@ -77,11 +82,11 @@ export default function VerbFlashCard() {
     }
 
     return (
-        verbArray.length === 0 ?
+        fetchingData ?
             <Spinner color="light" topOfPage={true} size={''} />
             :
             <div className="min-vh-100 text-center" style={{ paddingTop: "2%" }}>
-                <ReactCardFlip isFlipped={flip} flipDirection="horizontal">
+                <ReactCardFlip isFlipped={flip} flipDirection="horizontal" >
                     <VerbFlashCardDisplayFront
                         currentVerb={verbArray[verbIndex]}
                         shuffle={shuffle}
@@ -94,37 +99,11 @@ export default function VerbFlashCard() {
                         isMobile={isMobile}
                         currentTense={currentTense} />
                 </ReactCardFlip>
-                <div className="container text-center d-flex flex-column align-items-center justify-content-center">
-                    <div className="row text-white">
-                        <div className="col">
-                            {verbIndex + 1} / {verbArray.length}
-                        </div>
-                    </div>
-                    <div className={`row text-white w-${isMobile ? '100' : '75'} py-1`}>
-                        <div className="col">
-                            <button className={`btn btn-primary w-100`} value='Présent' onClick={handleTenseChangeClick}>Présent</button>
-                        </div>
-                        <div className="col">
-                            <button className={`btn btn-primary w-100`} value='Imparfait' onClick={handleTenseChangeClick}>Imparfait</button>
-                        </div>
-                    </div>
-                    <div className={`row text-white w-${isMobile ? '100' : '75'} py-1`}>
-                        <div className="col">
-                            <button className="btn btn-primary w-100" value='PasséComposé' onClick={handleTenseChangeClick}>Passé composé</button>
-                        </div>
-                        <div className="col">
-                            <button className="btn btn-primary w-100" value='FuturSimple' onClick={handleTenseChangeClick}>Futur simple</button>
-                        </div>
-                    </div>
-                    <div className={`row text-white w-${isMobile ? '100' : '75'} py-1`}>
-                        <div className="col">
-                            <button className="btn btn-primary w-100" value='ConditionnelPrésent' onClick={handleTenseChangeClick}>Conditionnel présent</button>
-                        </div>
-                        <div className="col">
-                            <button className="btn btn-primary w-100" value='PrésentDuSubjonctif' onClick={handleTenseChangeClick}>Présent du subjonctif</button>
-                        </div>
-                    </div>
-                </div>
+                <VerbTenseButtons
+                    verbArray={verbArray}
+                    verbIndex={verbIndex}
+                    isMobile={isMobile}
+                    handleTenseChangeClick={handleTenseChangeClick} />
             </div>
     )
 }

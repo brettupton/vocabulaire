@@ -2,7 +2,7 @@ import ReactCardFlip from 'react-card-flip'
 import { useState, useEffect } from 'react'
 import WordFlashCardDisplayFront from './WordFlashCardDisplayFront'
 import WordFlashCardDisplayBack from './WordFlashCardDisplayBack'
-import Spinner from './Spinner'
+import Spinner from '../Spinner'
 
 
 export default function WordFlashCard() {

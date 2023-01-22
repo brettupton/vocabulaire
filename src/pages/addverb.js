@@ -1,11 +1,11 @@
+import AddVerb from "../components/VerbComponents/AddVerb"
 
-
-export default function TestEnv() {
+export default function AddVerbPage() {
     return (
         <div className="container text-white text-center">
             <div className="row py-4">
                 <div className="col">
-                    TestEnv
+                    <AddVerb />
                 </div>
             </div>
         </div>

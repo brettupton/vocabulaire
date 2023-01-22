@@ -1,5 +1,5 @@
 export default function FEConjugations(props) {
-    const { currentVerb, currentTense, isMobile } = props
+    const { currentVerb, currentTense, isMobile, isFlashcard = false } = props
 
     const isSubjunctive = (currentTense === 'PrésentDuSubjonctif')
 
@@ -30,36 +30,37 @@ export default function FEConjugations(props) {
         }
     }
 
-    const rowMarginTop = `row mt-${isMobile ? '2' : '1'}`
+    const rowMarginTopClassName = `row mt-${isMobile ? '2' : '1'}`
+    const colSizeClassName = `col-${isMobile ? '7' : '6'} p-0`
 
     return (
-        <div className={`container fs-${isMobile ? '6' : '3'}`}>
+        <div className={`container fs-${isMobile ? '6' : '4'}`}>
             <div className="row">
-                <div className="col">
+                <div className={`col ${isFlashcard ? 'pb-4' : ''} fst-italic fs-4`}>
                     {currentTenseSplit()}
                 </div>
             </div>
-            <div className={rowMarginTop}>
-                <div className="col">
+            <div className={rowMarginTopClassName}>
+                <div className="col p-0">
                     {returnJeConjugation(currentVerb[currentTense]) + currentVerb[currentTense].Je}
                 </div>
-                <div className={`col-${isMobile ? '7' : '6'}`}>
+                <div className={colSizeClassName}>
                     {isSubjunctive ? 'Que nous' : 'Nous'} {currentVerb[currentTense].Nous}
                 </div>
             </div>
-            <div className={rowMarginTop}>
-                <div className="col">
+            <div className={rowMarginTopClassName}>
+                <div className="col p-0">
                     {isSubjunctive ? 'Que tu' : 'Tu'} {currentVerb[currentTense].Tu}
                 </div>
-                <div className={`col-${isMobile ? '7' : '6'}`}>
+                <div className={colSizeClassName}>
                     {isSubjunctive ? 'Que vous' : 'Vous'} {currentVerb[currentTense].Vous}
                 </div>
             </div>
-            <div className={rowMarginTop}>
-                <div className="col">
+            <div className={rowMarginTopClassName}>
+                <div className="col p-0">
                     {isSubjunctive ? 'Qu\'il' : 'Il'} {currentVerb[currentTense].Il}
                 </div>
-                <div className={`col-${isMobile ? '7' : '6'}`}>
+                <div className={colSizeClassName}>
                     {isSubjunctive ? 'Qu\'ils' : 'Ils'} {currentVerb[currentTense].Ils}
                 </div>
             </div>

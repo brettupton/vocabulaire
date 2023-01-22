@@ -57,7 +57,7 @@ export default function SearchBar() {
 
     //Finds the search query in the result word object, French or English, and returns the word
     //with the query bolded, to make it easier for user to see what was found 
-    //I need to refactor this
+    //Need to refactor this eventually
     function includesSimiliar(query, result) {
         query = query.toLowerCase()
 

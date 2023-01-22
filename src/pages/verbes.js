@@ -6,6 +6,7 @@ import frlogo from '../images/frlogo.png'
 import sacrecoeur from '../images/sacrecoeur.png'
 import house from '../images/house.png'
 import baroque from '../images/baroque.png'
+import nimes from '../images/nimes.png'
 
 function VerbesHome() {
 
@@ -39,6 +40,9 @@ function VerbesHome() {
                 </div>
                 <div className={`col${isMobile ? '-12' : ''}`}>
                     <Card imageSrc={baroque} header={"Liste de verbes"} link={"liste"} />
+                </div>
+                <div className={`col${isMobile ? '-12' : ''}`}>
+                    <Card imageSrc={nimes} header={"Ajouter"} link={"ajouter"} />
                 </div>
             </div>
         </div>

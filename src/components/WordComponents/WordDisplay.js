@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
-import SpeechButton from './SpeechButton'
-import Spinner from "./Spinner"
+import SpeechButton from '../SpeechButton'
+import Spinner from "../Spinner"
 
 export default function WordDisplay() {
 

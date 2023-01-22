@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import WordListDisplay from './WordListDisplay'
-import Spinner from './Spinner'
-import SearchBar from './SearchBar'
+import Spinner from '../Spinner'
+import SearchBar from '../SearchBar'
 
 export default function WordList() {
     const [wordArray, setWordArray] = useState([])
