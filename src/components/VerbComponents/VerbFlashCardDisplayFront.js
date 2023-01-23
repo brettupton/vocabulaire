@@ -42,7 +42,7 @@ export default function VerbFlashCardDisplayFront(props) {
                                         </button>
                                     </div>
                                 </div>
-                                <div className="row pb-4">
+                                <div className={`row ${isMobile ? 'pb-2 pt-5' : 'pb-4'}`}>
                                     <div className="col-3">
                                         <button value="prev" onClick={handleClick} id="button-styling">
                                             <img src={leftarrow} alt="leftarrow" />
