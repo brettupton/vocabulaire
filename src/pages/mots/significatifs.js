@@ -1,8 +1,8 @@
-import NumberRow from '../components/rows/NumberRow'
-import SimpleTable from '../components/SimpleTable'
-import uparrow from '../images/icons/arrow-up-circle.svg'
+import NumberRow from '../../components/rows/NumberRow'
+import SimpleTable from '../../components/SimpleTable'
+import uparrow from '../../images/icons/arrow-up-circle.svg'
 import { useState, useEffect } from 'react'
-import significantList from '../lists/significantlist'
+import significantList from '../../lists/significantlist'
 
 export default function Significatifs() {
 

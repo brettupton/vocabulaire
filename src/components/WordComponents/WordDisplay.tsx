@@ -1,35 +1,30 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
 import { useParams } from "react-router-dom"
+import { MobileContext } from "pages/layout"
+import { Word } from "pages/mots"
 import SpeechButton from '../SpeechButton'
 import Spinner from "../Spinner"
 
-export default function WordDisplay() {
-
-    // Mobile Check
-    const [width, setWidth] = useState(window.innerWidth)
-    const isMobile = width <= 768
-
-    function handleWindowSizeChange() {
-        setWidth(window.innerWidth)
-    }
-
-    useEffect(() => {
-        window.addEventListener('resize', handleWindowSizeChange)
-        return () => {
-            window.removeEventListener('resize', handleWindowSizeChange)
-        }
-    }, [])
+export const WordDisplay = () => {
 
     // View/Edit Component
     const [inEditMode, setInEditMode] = useState(false)
     const [viewModeDisplay, setViewModeDisplay] = useState('block')
     const [editModeDisplay, setEditModeDisplay] = useState('none')
-    const [word, setWord] = useState({})
+    const [word, setWord] = useState<Word>(
+        {
+            French: '',
+            English: '',
+            Gender: '',
+            Term: ''
+        }
+    )
     const [fetchingInitialData, setFetchingInitialData] = useState(true)
     const [wordHasBeenEdited, setWordHasBeenEdited] = useState(false)
 
-    const url = "https://vocabulairehost.onrender.com/"
+    const url = new URL("https://vocabulairehost.onrender.com/")
     const { wordId } = useParams()
+    const isMobile = useContext(MobileContext)
 
     function getWordData() {
         setFetchingInitialData(true)
@@ -58,12 +53,8 @@ export default function WordDisplay() {
         }
     }, [inEditMode])
 
-    function checkLoginStatus() {
-        //Before edit, check if logged in
-    }
-
-    function switchCurrentMode(e) {
-        const modeClicked = e.target.id
+    function switchCurrentMode(event: React.MouseEvent<HTMLButtonElement>) {
+        const modeClicked = event.currentTarget.id
         switch (modeClicked) {
             case 'edit':
                 setInEditMode(true)
@@ -76,10 +67,10 @@ export default function WordDisplay() {
         }
     }
 
-    function handleInputChange(e) {
+    function handleInputChange(event: React.FormEvent<HTMLInputElement | HTMLSelectElement>) {
         setWordHasBeenEdited(true)
-        const name = e.target.name
-        const value = e.target.value
+        const name = event.currentTarget.name
+        const value = event.currentTarget.value
 
         setWord(
             (values => ({ ...values, [name]: value }))

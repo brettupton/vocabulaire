@@ -1,26 +1,17 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
+import { MobileContext } from 'pages/layout'
+import { Word } from 'pages/mots'
 import WordListDisplay from './WordListDisplay'
 import Spinner from '../Spinner'
 import SearchBar from '../SearchBar'
 
-export default function WordList() {
-    const [wordArray, setWordArray] = useState([])
-    const [width, setWidth] = useState(window.innerWidth)
+
+export const WordList = () => {
+    const [wordArray, setWordArray] = useState<Word[]>([])
     const [fetchingData, setFetchingData] = useState(true)
 
-    const isMobile = width <= 768
-    const url = 'https://vocabulairehost.onrender.com/'
-
-    function handleWindowSizeChange() {
-        setWidth(window.innerWidth)
-    }
-
-    useEffect(() => {
-        window.addEventListener('resize', handleWindowSizeChange)
-        return () => {
-            window.removeEventListener('resize', handleWindowSizeChange)
-        }
-    }, [])
+    const url = new URL('https://vocabulairehost.onrender.com/')
+    const isMobile = useContext(MobileContext)
 
     useEffect(() => {
         fetchAllData()
@@ -40,7 +31,7 @@ export default function WordList() {
         (fetchingData)
             ? <Spinner color="light" topOfPage={true} size={''} />
             :
-            <div className="container min-vh-100">
+            <div className="container min-vh-100 pt-5">
                 <SearchBar />
                 <WordListDisplay wordArray={wordArray} isMobile={isMobile} />
             </div>

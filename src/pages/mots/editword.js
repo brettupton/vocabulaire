@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { Modal } from 'bootstrap'
-import Login from '../components/Login'
-import useToken from '../components/useToken'
-import Alert from '../components/Alert'
-import Spinner from '../components/Spinner'
+import Login from '../../components/Login'
+import useToken from '../../components/useToken'
+import Alert from '../../components/Alert'
+import Spinner from '../../components/Spinner'
 
 export default function EditWord() {
 

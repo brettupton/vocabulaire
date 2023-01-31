@@ -1,9 +1,16 @@
-export default function Spinner(props) {
-    const { color, topOfPage, size } = props
+
+type SpinnerProps = {
+    color: string,
+    topOfPage: boolean,
+    size?: string
+}
+
+export default function Spinner(props: SpinnerProps) {
+    const { color, topOfPage, size = '-sm' } = props
 
     return (
         topOfPage ?
-            <div className="container min-vh-100 text-center pt-5 mt-3">
+            <div className="container text-center pt-5">
                 <div className={`spinner-border text-${color}`} role="status">
                     <span className="sr-only"></span>
                 </div>

@@ -1,46 +1,50 @@
 import ReactCardFlip from 'react-card-flip'
-import { useState, useEffect } from 'react'
-import WordFlashCardDisplayFront from './WordFlashCardDisplayFront'
-import WordFlashCardDisplayBack from './WordFlashCardDisplayBack'
+import { useState, useEffect, useContext } from 'react'
+import { Word } from 'pages/mots'
+import { WordFlashCardDisplayFront } from './WordFlashCardDisplayFront'
+import { WordFlashCardDisplayBack } from './WordFlashCardDisplayBack'
 import Spinner from '../Spinner'
+import { MobileContext } from 'pages/layout'
 
+export const WordFlashCard = () => {
 
-export default function WordFlashCard() {
-
-    const [wordIndex, setWordIndex] = useState(0)
-    const [prevWordIndex, setPrevWordIndex] = useState(0)
+    const [nextIndex, setNextIndex] = useState(1)
+    const [indexArray, setIndexArray] = useState<number[]>([0])
     const [flip, setFlip] = useState(true)
     const [wordGender, setWordGender] = useState('')
     const [shuffle, setShuffle] = useState(false)
-    const [wordArray, setWordArray] = useState([])
-    const [width, setWidth] = useState(window.innerWidth)
+    const [wordArray, setWordArray] = useState<Word[]>([])
 
-    const isMobile = (width <= 768)
-    const url = 'https://vocabulairehost.onrender.com/'
+    const isMobile = useContext(MobileContext)
+    const url = new URL('https://vocabulairehost.onrender.com/')
+    const indexArrayLength = indexArray.length
+    const wordArrayLength = wordArray.length
+    const latestIndex = indexArray[indexArrayLength - 1]
 
     useEffect(() => {
         fetchAllData()
-        window.addEventListener('resize', handleWindowSizeChange)
-        return () => {
-            window.removeEventListener('resize', handleWindowSizeChange)
-        }
     }, [])
+
+    useEffect(() => {
+        if (indexArrayLength === 0) {
+            setNextIndex(1)
+        }
+    }, [indexArrayLength])
+
+    useEffect(() => {
+        checkGender(wordArray[latestIndex])
+    }, [wordArray])
 
     const fetchAllData = () => {
         fetch(url + `words/getwords/all`)
             .then((response) => response.json())
             .then((data) => { setWordArray(data) })
-            .then(checkGender(wordArray[wordIndex]))
     }
 
-    const fetchTypeData = (type) => {
+    const fetchTypeData = (type: string) => {
         fetch(`${url}words/types/${type}`)
             .then((response) => response.json())
             .then((data) => setWordArray(data))
-    }
-
-    function handleWindowSizeChange() {
-        setWidth(window.innerWidth)
     }
 
     const getRandomIndex = () => {
@@ -48,14 +52,14 @@ export default function WordFlashCard() {
         return randomIndex
     }
 
-    function startsWithVowelOrH(word) {
-        const vowels = ("AÀÂÄÆEÈÉÊËHIÎÏOÔŒUÙÛÜ");
-        return vowels.indexOf(word[0]) !== -1;
+    function startsWithVowelOrH(word: string) {
+        const vowels: string = ("AÀÂÄÆEÈÉÊËHIÎÏOÔŒUÙÛÜ")
+        return vowels.indexOf(word[0]) !== -1
     }
 
-    const checkGender = (currentWord) => {
+    const checkGender = (currentWord: Word) => {
         if (currentWord === undefined) {
-            setWordGender('Le ')
+            setWordGender('La ')
             return
         }
         if (currentWord.Term === 'Noun') {
@@ -71,37 +75,50 @@ export default function WordFlashCard() {
         }
     }
 
-    const handleClick = (type) => {
+    // Initially checks for if shuffle is on
+    // If it is, it checks if the Index Array is getting too long, which resets the array if so
+    // If not, get a randomIndex and set the nextIndex and push to the Index Array
+    // If shuffle is not on, we check if the nextIndex is going to be larger than the length of the Word Array
+    // If it is, we set nextIndex to 0 and reset the Index Array
+    // If not, we increment nextIndex by 1 and push to the Index Array
+    const handleClick = (type: React.MouseEvent<HTMLButtonElement>) => {
         switch (type.currentTarget.value) {
             case 'next':
-                if (!shuffle) {
-                    if (wordIndex + 1 < wordArray.length) {
-                        checkGender(wordArray[wordIndex + 1])
-                        setWordIndex((prevIndex) => prevIndex + 1)
+                if (shuffle) {
+                    if (indexArrayLength >= wordArrayLength) {
+                        setNextIndex(getRandomIndex())
+                        checkGender(wordArray[nextIndex])
+                        setIndexArray([])
                     } else {
-                        checkGender(wordArray[0])
-                        setWordIndex(0)
+                        setNextIndex(getRandomIndex())
+                        checkGender(wordArray[nextIndex])
+                        setIndexArray(prevArray => [...prevArray, nextIndex])
                     }
                 } else {
-                    const randomIndex = getRandomIndex()
-                    checkGender(wordArray[randomIndex])
-                    setPrevWordIndex(wordIndex)
-                    setWordIndex(randomIndex)
+                    if (nextIndex <= wordArrayLength - 1) {
+                        setNextIndex(prevIndex => prevIndex += 1)
+                        checkGender(wordArray[nextIndex])
+                        setIndexArray(prevArray => [...prevArray, nextIndex])
+                    } else {
+                        setNextIndex(1)
+                        setIndexArray([0])
+                    }
+
                 }
                 break
             case 'prev':
-                if (!shuffle) {
-                    if (wordIndex - 1 < 0) {
-                        checkGender(wordArray[wordArray.length - 1])
-                        setWordIndex(wordArray.length - 1)
-                    } else {
-                        checkGender(wordArray[wordIndex - 1])
-                        setWordIndex((prevIndex) => prevIndex - 1)
+                if (shuffle) {
+                    if (indexArrayLength > 1) {
+                        setNextIndex(latestIndex)
+                        checkGender(wordArray[indexArray[indexArrayLength - 2]])
+                        removeFromIndexArray()
                     }
                 } else {
-                    checkGender(wordArray[prevWordIndex])
-                    setWordIndex(prevWordIndex)
-                    setShuffle(false)
+                    if (indexArrayLength > 1) {
+                        setNextIndex(prevIndex => prevIndex - 1)
+                        checkGender(wordArray[indexArray[indexArrayLength - 2]])
+                        removeFromIndexArray()
+                    }
                 }
                 break
             case 'flip':
@@ -115,34 +132,38 @@ export default function WordFlashCard() {
         }
     }
 
-    const handleTypeClick = (e) => {
-        if (e.currentTarget.value === 'all') {
-            setWordIndex(0)
+    const handleTypeClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+        if (event.currentTarget.value === 'all') {
+            setNextIndex(0)
+            setIndexArray([0])
             fetchAllData()
         } else {
-            setWordIndex(0)
+            setNextIndex(0)
+            setIndexArray([0])
             setWordGender('')
-            fetchTypeData(e.currentTarget.value)
+            fetchTypeData(event.currentTarget.value)
         }
     }
 
+    const removeFromIndexArray = () => {
+        const copyArr = [...indexArray]
+        copyArr.pop()
+        setIndexArray(copyArr)
+    }
+
     return (
-        wordArray.length === 0 ?
+        (!wordArray.length) ?
             <Spinner color="light" topOfPage={true} size={''} />
             : <div className="min-vh-100 text-center" style={{ paddingTop: "2%" }}>
                 <ReactCardFlip isFlipped={flip} flipDirection="horizontal">
                     <WordFlashCardDisplayFront
-                        wordArray={wordArray}
-                        wordIndex={wordIndex}
-                        prevWordIndex={prevWordIndex}
+                        currentWord={wordArray[latestIndex]}
                         gender={wordGender}
                         shuffle={shuffle}
                         handleClick={handleClick}
                         isMobile={isMobile} />
                     <WordFlashCardDisplayBack
-                        wordArray={wordArray}
-                        wordIndex={wordIndex}
-                        prevWordIndex={prevWordIndex}
+                        currentWord={wordArray[latestIndex]}
                         gender={wordGender}
                         shuffle={shuffle}
                         handleClick={handleClick}
@@ -151,7 +172,7 @@ export default function WordFlashCard() {
                 <div className="container text-center d-flex flex-column align-items-center justify-content-center">
                     <div className="row text-white">
                         <div className="col">
-                            {wordIndex + 1} / {wordArray.length}
+                            {latestIndex + 1} / {wordArray.length}
                         </div>
                     </div>
                     <div className={`row pb-5 w-${isMobile ? '100' : '50'}`}>

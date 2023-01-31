@@ -1,6 +1,12 @@
 import { Link } from 'react-router-dom'
 
-export default function Card(props) {
+interface CardProps {
+    imageSrc: string,
+    header: string,
+    link: string
+}
+
+export default function Card(props: CardProps) {
 
     const { imageSrc, header, link } = props
 

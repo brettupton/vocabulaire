@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
-import Login from '../components/Login'
-import useToken from '../components/useToken'
-import Alert from '../components/Alert'
-import Spinner from '../components/Spinner'
-import FrenchInput from '../components/FrenchInput'
+import Login from '../../components/Login'
+import useToken from '../../components/useToken'
+import Alert from '../../components/Alert'
+import Spinner from '../../components/Spinner'
+import FrenchInput from '../../components/FrenchInput'
 
 export default function AddWordPage() {
 

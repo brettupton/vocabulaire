@@ -1,4 +1,4 @@
-import WordFlashCard from '../components/WordComponents/WordFlashCard'
+import { WordFlashCard } from '../../components/WordComponents/WordFlashCard'
 
 export default function WordFlashCards() {
     return (

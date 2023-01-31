@@ -1,4 +1,4 @@
-import AddVerb from "../components/VerbComponents/AddVerb"
+import AddVerb from "../../components/VerbComponents/AddVerb"
 
 export default function AddVerbPage() {
     return (

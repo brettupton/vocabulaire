@@ -1,6 +1,12 @@
 import WordRow from '../rows/WordRow'
+import { Word } from 'pages/mots'
 
-export default function WordListDisplay(props) {
+type WordListProps = {
+    wordArray: Word[],
+    isMobile: boolean
+}
+
+export default function WordListDisplay(props: WordListProps) {
 
     const { wordArray, isMobile } = props
 

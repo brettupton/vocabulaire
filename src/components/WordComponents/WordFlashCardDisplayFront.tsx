@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { Word } from 'pages/mots'
 import franceflag from '../../images/france.png'
 import rightarrow from '../../images/icons/arrow-right-circle.svg'
 import leftarrow from '../../images/icons/arrow-left-circle.svg'
@@ -6,13 +7,23 @@ import flipbutton from '../../images/icons/arrow-repeat.svg'
 import view from '../../images/icons/eye.svg'
 import SpeechButton from '../SpeechButton'
 
-export default function WordFlashCardDisplayFront(props) {
+type FlashCardProps = {
+    currentWord: Word,
+    shuffle: boolean,
+    gender: string,
+    handleClick: (type: React.MouseEvent<HTMLButtonElement>) => void,
+    isMobile: boolean
+}
 
-    const { wordArray, wordIndex, shuffle, gender, handleClick, isMobile } = props
+export const WordFlashCardDisplayFront = (props: FlashCardProps) => {
+
+    const { currentWord, shuffle, gender, handleClick, isMobile } = props
+
+    const wordLink = `/mots/vue/${currentWord._id}`
 
     return (
         <div className="container text-center pt-5 d-flex flex-column align-items-center justify-content-center">
-            <div className={`row w-${isMobile ? '100' : '50'}`}>
+            <div className={`row w-${isMobile ? '100' : '50'} pt-5`}>
                 <div className="col">
                     <div className="card text-center text-black">
                         <div className="card-body p-0">
@@ -22,16 +33,16 @@ export default function WordFlashCardDisplayFront(props) {
                                         <img src={franceflag} id="flashcard-icon" alt="Flashcard Icon" />
                                     </div>
                                     <div className="col-2">
-                                        <Link to={`/mots/vue/${wordArray[wordIndex]._id}`}><img src={view} alt="View Icon" /></Link>
+                                        <Link to={wordLink}><img src={view} alt="View Icon" /></Link>
                                     </div>
                                 </div>
                             </div>
                             <div className="container mt-5">
                                 <div className="row">
                                     <div className="col">
-                                        <p className="card-text">{wordArray[wordIndex].Term === "Noun"
-                                            ? gender + wordArray[wordIndex].French.toLowerCase()
-                                            : gender + wordArray[wordIndex].French}</p>
+                                        <p className="card-text">{currentWord.Term === "Noun"
+                                            ? gender + currentWord.French.toLowerCase()
+                                            : gender + currentWord.French}</p>
                                     </div>
                                 </div>
                                 <div className="row">
@@ -61,7 +72,7 @@ export default function WordFlashCardDisplayFront(props) {
                                         </button>
                                     </div>
                                     <div className="col-3">
-                                        <SpeechButton word={gender + wordArray[wordIndex].French} />
+                                        <SpeechButton word={gender + currentWord.French} />
                                     </div>
                                     <div className="col-3">
                                         <button onClick={handleClick} value="next" id="button-styling">

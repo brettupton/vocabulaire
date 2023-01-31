@@ -1,43 +1,34 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { MobileContext } from 'pages/layout'
 import heart from '../images/fheart.ico'
 
-export default function Navbar() {
+export const Navbar = () => {
 
-    const [width, setWidth] = useState(window.innerWidth)
     const [isNavCollapsed, setIsNavCollapsed] = useState(true)
 
-    const isMobile = (width <= 768)
     const location = useLocation()
-
-    useEffect(() => {
-        window.addEventListener('resize', handleWindowSizeChange)
-        return () => {
-            window.removeEventListener('resize', handleWindowSizeChange)
-        }
-    }, [])
+    const isMobile = useContext(MobileContext)
 
     useEffect(() => {
         setIsNavCollapsed(true)
     }, [location])
-
-    function handleWindowSizeChange() {
-        setWidth(window.innerWidth)
-    }
 
     function handleNavCollapse() {
         setIsNavCollapsed(!isNavCollapsed)
     }
 
     return (
-        <nav className="navbar navbar-dark navbar-expand-lg bg-dark sticky-top fs-6">
+        <nav className="navbar navbar-dark navbar-expand-lg bg-dark fs-6 position-absolute w-100 top-0 z-1">
             <div className="container-fluid">
                 <Link className="navbar-brand" to="/">
                     <img src={heart} height="28" width="28" />
                 </Link>
-                <button className="navbar-toggler" type="button" data-toggle="collapse"
+                <button className="navbar-toggler" type="button"
+                    data-toggle="collapse"
                     data-target="#vocabNavbar"
-                    aria-controls="vocabNavbar" aria-expanded={!isNavCollapsed ? true : false}
+                    aria-controls="vocabNavbar"
+                    aria-expanded={isNavCollapsed}
                     aria-label="Toggle navigation"
                     onClick={handleNavCollapse}>
                     <span className="navbar-toggler-icon"></span>

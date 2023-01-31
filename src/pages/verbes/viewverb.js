@@ -1,4 +1,4 @@
-import VerbView from "../components/VerbComponents/VerbView"
+import VerbView from "../../components/VerbComponents/VerbView"
 
 export default function ViewVerb() {
     return (
