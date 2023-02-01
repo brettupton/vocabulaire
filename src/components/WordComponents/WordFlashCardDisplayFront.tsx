@@ -10,14 +10,13 @@ import SpeechButton from '../SpeechButton'
 type FlashCardProps = {
     currentWord: Word,
     shuffle: boolean,
-    gender: string,
     handleClick: (type: React.MouseEvent<HTMLButtonElement>) => void,
     isMobile: boolean
 }
 
 export const WordFlashCardDisplayFront = (props: FlashCardProps) => {
 
-    const { currentWord, shuffle, gender, handleClick, isMobile } = props
+    const { currentWord, shuffle, handleClick, isMobile } = props
 
     const wordLink = `/mots/vue/${currentWord._id}`
 
@@ -40,9 +39,7 @@ export const WordFlashCardDisplayFront = (props: FlashCardProps) => {
                             <div className="container mt-5">
                                 <div className="row">
                                     <div className="col">
-                                        <p className="card-text">{currentWord.Term === "Noun"
-                                            ? gender + currentWord.French.toLowerCase()
-                                            : gender + currentWord.French}</p>
+                                        <p className="card-text">{currentWord.French}</p>
                                     </div>
                                 </div>
                                 <div className="row">
@@ -72,7 +69,7 @@ export const WordFlashCardDisplayFront = (props: FlashCardProps) => {
                                         </button>
                                     </div>
                                     <div className="col-3">
-                                        <SpeechButton word={gender + currentWord.French} />
+                                        <SpeechButton word={currentWord.French} />
                                     </div>
                                     <div className="col-3">
                                         <button onClick={handleClick} value="next" id="button-styling">

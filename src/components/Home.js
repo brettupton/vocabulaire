@@ -28,7 +28,7 @@ export const Home = () => {
                         <Card imageSrc={pontdugard} header={"Verbes"} link={"verbes"} />
                     </div>
                     <div className="col-sm">
-                        <Card imageSrc={louvre} header={"Recherche Rapide"} link={"rapide"} />
+                        <Card imageSrc={louvre} header={"Recherche Rapide"} link={"recherche"} />
                     </div>
                 </div>
             </div>

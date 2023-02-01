@@ -18,7 +18,7 @@ import FullVerbList from './pages/verbes/fullverblist'
 import AddVerbPage from './pages/verbes/addverb'
 import ViewVerb from './pages/verbes/viewverb'
 import HomePage from './pages/home'
-import Rapide from './pages/rapide'
+import { Recherche } from './pages/recherche'
 import NoPage from './pages/nopage'
 import { TestEnv } from './pages/testenv'
 
@@ -47,7 +47,7 @@ export default function App() {
             <Route path="vue/:verbId" element={<ViewVerb />} />
             <Route path="*" element={<NoPage />} />
           </Route>
-          <Route path="rapide" element={<Rapide />} />
+          <Route path="recherche" element={<Recherche />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>

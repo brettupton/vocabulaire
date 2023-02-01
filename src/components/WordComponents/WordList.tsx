@@ -29,7 +29,7 @@ export const WordList = () => {
 
     return (
         (fetchingData)
-            ? <Spinner color="light" topOfPage={true} size={''} />
+            ? <Spinner color="light" topOfPage={true} />
             :
             <div className="container min-vh-100 pt-5">
                 <SearchBar />

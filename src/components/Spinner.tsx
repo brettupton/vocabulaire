@@ -6,7 +6,7 @@ type SpinnerProps = {
 }
 
 export default function Spinner(props: SpinnerProps) {
-    const { color, topOfPage, size = '-sm' } = props
+    const { color, topOfPage, size } = props
 
     return (
         topOfPage ?

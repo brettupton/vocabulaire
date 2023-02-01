@@ -1,8 +1,8 @@
 import SearchBar from '../components/SearchBar'
 
-export default function Rapide() {
+export const Recherche = () => {
     return (
-        <div className="container min-vh-100 text-center text-white">
+        <div className="container min-vh-100 text-center text-white pt-5">
             <SearchBar />
         </div>
     )

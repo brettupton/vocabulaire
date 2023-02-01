@@ -103,25 +103,36 @@
 
 /* Word Type Button */
 .type-button {
-  background: #668cff;
-  color: white;
-  font-family: inherit;
-  padding: 0.6em 1.3em;
-  font-weight: 550;
-  font-size: .82rem;
-  border: 2px solid black;
-  border-radius: 0.4em;
-  box-shadow: 0.1em 0.1em black;
+  background-color: #FAFBFC;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  color: #24292E;
+  font-size: 16px;
+  line-height: 20px;
+  padding: 6px 16px;
 }
 
 .type-button:hover {
-  transform: translate(-0.05em, -0.05em);
-  box-shadow: 0.15em 0.15em black;
+  background-color: #F3F4F6;
+  transition-duration: 0.1s;
+}
+
+.type-button:disabled {
+  background-color: #FAFBFC;
+  border-color: rgba(27, 31, 35, 0.15);
+  color: #959DA5;
+  cursor: default;
 }
 
 .type-button:active {
-  transform: translate(0.05em, 0.05em);
-  box-shadow: 0.05em 0.05em black;
+  background-color: #EDEFF2;
+  box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
+  transition: none 0s;
+}
+
+.type-button:focus {
+  outline: 1px transparent;
 }
 
 /* Edit Input Box Animation */
