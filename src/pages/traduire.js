@@ -1,6 +1,6 @@
 //Rework eventually
 import { useEffect, useState } from "react"
-import SpeechButton from '../components/SpeechButton'
+import { SpeechButton } from '../components/SpeechButton'
 
 export default function Traduire() {
 

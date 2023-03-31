@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react"
 import { Modal } from "bootstrap"
-import Login from "../Login"
-import useToken from "../useToken"
 import AddVerbDisplay from "./AddVerbDisplay"
 
 export default function AddVerb() {
@@ -50,7 +48,6 @@ export default function AddVerb() {
     const [newVerbSubmitted, setNewVerbSubmitted] = useState(false)
 
     const url = new URL('https://vocabulairehost.onrender.com/')
-    const { token, setToken } = useToken()
 
     // Resets all values & sends success alert if valid postResponse
     useEffect(() => {
@@ -168,10 +165,6 @@ export default function AddVerb() {
             }
         }
         setNewVerb({ ...newVerb, ...newObj })
-    }
-
-    if (!token || token === 'undefined') {
-        return <Login setToken={setToken} />
     }
 
     return (

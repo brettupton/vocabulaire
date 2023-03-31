@@ -3,7 +3,7 @@ import ReactCardFlip from 'react-card-flip'
 import VerbFlashCardDisplayFront from './VerbFlashCardDisplayFront'
 import VerbFlashCardDisplayBack from './VerbFlashCardDisplayBack'
 import VerbTenseButtons from './VerbTenseButtons'
-import Spinner from '../Spinner'
+import { Spinner } from '../Spinner'
 
 export default function VerbFlashCardDisplay() {
     const [verbArray, setVerbArray] = useState([])
@@ -83,7 +83,7 @@ export default function VerbFlashCardDisplay() {
 
     return (
         fetchingData ?
-            <Spinner color="light" topOfPage={true} size={''} />
+            <Spinner color="light" buttonSpinner={false} size={''} />
             :
             <div className="min-vh-100 text-center" style={{ paddingTop: "2%" }}>
                 <ReactCardFlip isFlipped={flip} flipDirection="horizontal" >

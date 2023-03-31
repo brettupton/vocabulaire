@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import VerbRow from "../rows/VerbRow"
-import Spinner from '../Spinner'
+import { Spinner } from '../Spinner'
 
 export default function VerbList() {
     const [currentTense, setCurrentTense] = useState('Présent')
@@ -25,7 +25,7 @@ export default function VerbList() {
 
     return (
         fetchingData ?
-            <Spinner color="light" topOfPage={true} size={''} />
+            <Spinner color="light" buttonSpinner={false} size={''} />
             :
             <div className="container min-vh-100 text-center">
                 <div className="row justify-content-end pt-5">

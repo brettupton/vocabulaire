@@ -62,13 +62,22 @@
   width: 100%;
 }
 
+/* Navbar */
+#user-link {
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+}
+
+#user-link:hover {
+  color: rgba(255, 255, 255, 0.75);
+}
+
 /* Search Bar */
 #query-result-row:hover {
   background-color: lightblue;
 }
 
 /* Icon Hover */
-
 #speech-icon {
   content: url('../images/icons/volume-up.svg')
 }
@@ -99,6 +108,14 @@
 
 #checkmark-icon:hover {
   content: url('../images/icons/check-circle-fill.svg');
+}
+
+#user-nav-icon {
+  content: url('../images/icons/person-circle.svg')
+}
+
+#user-nav-icon:hover {
+  content: url('../images/icons/person-circle-fill.svg')
 }
 
 /* Word Type Button */
@@ -135,42 +152,60 @@
   outline: 1px transparent;
 }
 
-/* Edit Input Box Animation */
-.input-div {
-  --width-of-input: 200px;
-  --border-height: 1px;
-  --border-before-color: rgba(221, 221, 221, 0.39);
-  --border-after-color: #c9515f;
-  position: relative;
-  width: var(--width-of-input);
-}
-
+/* Edit Word Input */
 .edit-input {
-  color: black;
-  font-size: 1.2rem;
-  background-color: transparent;
   width: 100%;
-  box-sizing: border-box;
-  padding-inline: 0.2em;
-  padding-block: 0.3em;
-  border: none;
-  border-bottom: var(--border-height) solid var(--border-before-color);
-}
-
-.edit-input-border {
-  position: absolute;
-  background: var(--border-after-color);
-  width: 0%;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  transition: 0.3s;
-}
-
-input:focus {
+  max-width: 220px;
+  height: 45px;
+  padding: 6px;
+  border-radius: 12px;
+  border: 1.5px solid lightgrey;
   outline: none;
+  font-size: 16px;
+  transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  box-shadow: 0px 0px 20px -18px;
 }
 
-input:focus~.edit-input-border {
+.edit-input:hover {
+  border: 2px solid lightgrey;
+  box-shadow: 0px 0px 20px -17px;
+}
+
+.edit-input:active {
+  transform: scale(0.95);
+}
+
+.edit-input:focus {
+  border: 2px solid grey;
+}
+
+/* Edit */
+.edit-radio {
+  accent-color: black;
+}
+
+#edit-nav {
+  color: black;
+}
+
+/* Term Buttons */
+
+#term-button {
+  color: white;
   width: 100%;
+}
+
+#term-button:hover {
+  color: black;
+  background-color: white;
+}
+
+#alpha:hover,
+#date:hover {
+  cursor: pointer;
+}
+
+/* Word List */
+#word-table-row:hover {
+  cursor: pointer;
 }

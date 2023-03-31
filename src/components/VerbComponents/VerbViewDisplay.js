@@ -1,5 +1,5 @@
-import Spinner from "../Spinner"
-import SpeechButton from "../SpeechButton"
+import { Spinner } from "../Spinner"
+import { SpeechButton } from "../SpeechButton"
 import Alert from "../Alert"
 
 
@@ -11,7 +11,7 @@ export default function VerbViewDisplay(props) {
     return (
         <div className="row justify-content-center">
             {fetchingInitialData
-                ? <Spinner color="light" topOfPage={true} />
+                ? <Spinner color="light" buttonSpinner={false} />
                 :
                 <div className={`col-${isMobile ? '12' : '5'}`}>
                     {verbUpdateSubmitted ? <Alert message={`${verb.Verb} a été mis à jour`} size={'12'} /> : ''}

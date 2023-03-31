@@ -9,6 +9,7 @@ export const Navbar = () => {
 
     const location = useLocation()
     const isMobile = useContext(MobileContext)
+    const user = localStorage.getItem('user')
 
     useEffect(() => {
         setIsNavCollapsed(true)
@@ -21,9 +22,16 @@ export const Navbar = () => {
     return (
         <nav className="navbar navbar-dark navbar-expand-lg bg-dark fs-6 position-absolute w-100 top-0 z-1">
             <div className="container-fluid">
-                <Link className="navbar-brand" to="/">
-                    <img src={heart} height="28" width="28" />
-                </Link>
+                {isMobile
+                    ?
+                    <Link to={{ pathname: `/utilisateur/${user ? 'déconnexion' : 'connexion'}` }}>
+                        <img id="user-nav-icon" />
+                    </Link>
+                    :
+                    <Link className="navbar-brand" to="/">
+                        <img src={heart} height="28" width="28" />
+                    </Link>
+                }
                 <button className="navbar-toggler" type="button"
                     data-toggle="collapse"
                     data-target="#vocabNavbar"
@@ -44,16 +52,42 @@ export const Navbar = () => {
                             </Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/verbes" className="nav-link">
+                            <Link to="" className="nav-link">
                                 Verbes
                             </Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/recherche" className="nav-link">
+                            <Link to="" className="nav-link">
                                 Recherche
                             </Link>
                         </li>
                     </ul>
+                    <span className={`navbar-text ${isMobile ? 'd-none' : ''}`}>
+                        <div className="row">
+                            <div className="col">
+                                <img id="user-nav-icon" />
+                            </div>
+                            <div className="col">
+                                <Link to="/utilisateur/connexion" state={{ prevURL: location.pathname }} id='user-link'>
+                                    {user ? user : 'Connexion'}
+                                </Link>
+                            </div>
+                            {!user &&
+                                <div className="col">
+                                    <Link to="/utilisateur/enregistrer" id="user-link">
+                                        Enregistrer
+                                    </Link>
+                                </div>
+                            }
+                            {user &&
+                                <div className="col">
+                                    <Link to="/utilisateur/déconnexion" state={{ prevURL: location.pathname }} id='user-link'>
+                                        Déconnexion
+                                    </Link>
+                                </div>
+                            }
+                        </div>
+                    </span>
                 </div>
             </div>
         </nav>

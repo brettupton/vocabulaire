@@ -1,15 +1,13 @@
-
 type SpinnerProps = {
     color: string,
-    topOfPage: boolean,
-    size?: string
+    buttonSpinner: boolean
 }
 
-export default function Spinner(props: SpinnerProps) {
-    const { color, topOfPage, size } = props
+export const Spinner = (props: SpinnerProps) => {
+    const { color, buttonSpinner } = props
 
     return (
-        topOfPage ?
+        (!buttonSpinner) ?
             <div className="container text-center pt-5">
                 <div className={`spinner-border text-${color}`} role="status">
                     <span className="sr-only"></span>
@@ -17,10 +15,9 @@ export default function Spinner(props: SpinnerProps) {
             </div>
             :
             <div>
-                <div className={`spinner-border text-${color} spinner-border${size}`} role="status">
+                <div className={`spinner-border text-${color} spinner-border-sm`} role="status">
                     <span className="sr-only"></span>
                 </div>
             </div>
     )
-
 }

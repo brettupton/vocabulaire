@@ -1,4 +1,4 @@
-import SpeechButton from "./SpeechButton"
+import { SpeechButton } from "./SpeechButton"
 
 export default function SimpleTable(props) {
 

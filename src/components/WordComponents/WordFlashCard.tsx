@@ -1,190 +1,261 @@
-import ReactCardFlip from 'react-card-flip'
-import { useState, useEffect, useContext } from 'react'
-import { Word } from 'pages/mots'
-import { WordFlashCardDisplayFront } from './WordFlashCardDisplayFront'
-import { WordFlashCardDisplayBack } from './WordFlashCardDisplayBack'
-import Spinner from '../Spinner'
-import { MobileContext } from 'pages/layout'
+import Cookies from "js-cookie"
+import { MobileContext } from "pages/layout"
+import { Word, DefinitionObject } from "pages/mots"
+import { useState, useContext, useEffect } from "react"
+import { Spinner } from "../Spinner"
+import { FlashcardArray } from "react-quizlet-flashcard"
+import france from '../../images/france.png'
+import unitedstates from '../../images/united-states.png'
+import { ObjectId } from "mongodb"
+import { toast, ToastContainer } from 'react-toastify'
+
+type FlashCard = {
+    id: number,
+    frontHTML: string | JSX.Element,
+    backHTML: string | JSX.Element
+}
+
+type GroupsObject = {
+    [key: string]: ObjectId[]
+}
 
 export const WordFlashCard = () => {
-
-    const [currentIndex, setCurrentIndex] = useState(0)
-    const [indexArray, setIndexArray] = useState<number[]>([0])
-    const [flip, setFlip] = useState(true)
-    const [shuffle, setShuffle] = useState(false)
-    const [wordArray, setWordArray] = useState<Word[]>([])
-    const [genderedWordArray, setGenderedWordArray] = useState<Word[]>([])
+    const [wordGroups, setWordGroups] = useState<GroupsObject>()
+    const [userWordArrayWithGender, setUserWordArrayWithGender] = useState<Word[]>([])
+    const [currentWord, setCurrentWord] = useState<Word>()
+    const [fetchingData, setFetchingData] = useState(true)
+    const [flashCardArray, setFlashCardArray] = useState<FlashCard[]>([])
 
     const isMobile = useContext(MobileContext)
-    const url = new URL('https://vocabulairehost.onrender.com/')
 
+    const user = localStorage.getItem('user') as string
+    const userToken = Cookies.get('token') as string
 
+    //Words are fetched from MongoDB on render
+    //Gender articles for each word are added to beginning of word
+    //New gendered word array is set and loaded into flashcard array
+    //Page renders and flashcard is shown
+    // if no user logged in, return all word groups logged under 'master'
     useEffect(() => {
-        fetchAllData()
+        if (!user) {
+            toast.info('Inscrivez-vous pour créer vos propres groupes!', {
+                theme: 'dark',
+                position: 'top-center',
+                toastId: 'GenericGroups'
+            })
+            fetchUserWordGroups('master')
+            return
+        }
+        fetchUserWordGroups(user)
     }, [])
 
     useEffect(() => {
-        let newGenderArray: Word[] = []
+        handleFetchWordArray("All")
+    }, [wordGroups])
 
-        wordArray.forEach((word) => {
-            newGenderArray.push({
-                _id: word._id,
-                French: word.Term === 'Noun'
-                    ? checkGender(word) + word.French.toLowerCase()
-                    : word.French,
-                English: word.English,
-                Gender: word.Gender,
-                Term: word.Term
-            })
-        })
+    useEffect(() => {
+        if (userWordArrayWithGender.length === 0) {
+            return
+        }
+        fillFlashCardArray(userWordArrayWithGender)
+        setCurrentWord(userWordArrayWithGender[0])
+    }, [userWordArrayWithGender])
 
-        setGenderedWordArray(newGenderArray)
-    }, [wordArray])
+    const setGenderArticles = (wordArray: Word[]) => {
+        const upperOrLowerCaseWord = (word: Word) => {
+            if (word.GrammarTerm === 'Noun') {
+                return word.Word.toLowerCase()
+            }
+            return word.Word
+        }
 
-    const fetchAllData = () => {
-        fetch(url + `words/getwords/all`)
-            .then((response) => response.json())
-            .then((data) => setWordArray(data))
+        const returnUpdatedWord = (word: Word) => {
+            if (word.hasTwoForms) {
+                return `${word.Forms.Masculine}/${word.Forms.Feminine}`
+            }
+            return getArticleForNoun(word) + upperOrLowerCaseWord(word)
+        }
+
+        const newWordGenderArray = wordArray.map(word => ({
+            ...word,
+            Word: returnUpdatedWord(word),
+            Plural: `${word.GrammarTerm === 'Noun' ? `Les ${word.Plural.toLowerCase()}` : word.Plural}`,
+            GrammarTerm: word.GrammarTerm.split(/(?=[A-Z])/).join(" ")
+        }))
+
+        return newWordGenderArray
     }
 
-    const fetchTypeData = (type: string) => {
-        fetch(`${url}words/types/${type}`)
-            .then((response) => response.json())
-            .then((data) => setWordArray(data))
-    }
-
-    const getRandomIndex = () => {
-        const randomIndex = Math.floor(Math.random() * wordArray.length)
-        return randomIndex
-    }
-
-    function startsWithVowelOrH(word: string) {
-        const vowels: string = ("AÀÂÄÆEÈÉÊËHIÎÏOÔŒUÙÛÜ")
-        return vowels.indexOf(word[0]) !== -1
-    }
-
-    const checkGender = (currentWord: Word): string => {
-        if (currentWord.Term !== 'Noun') {
+    const getArticleForNoun = (currentWord: Word): string => {
+        if (currentWord.GrammarTerm !== 'Noun') {
             return ''
         }
-        if (startsWithVowelOrH(currentWord.French)) {
-            return "L'"
-        } else if (currentWord.Gender === 'Masculine') {
-            return 'Le '
-        } else {
-            return 'La '
-        }
+
+        const beginswithVowelOrH = /^[aàâäæeèéêëhiîïoôœuùûü]/i.test(currentWord.Word)
+
+        return beginswithVowelOrH ? 'L\'' : (currentWord.Definitions[0].Gender === 'Masculine') ? 'Le ' : 'La '
     }
 
-    const handleClick = (type: React.MouseEvent<HTMLButtonElement>) => {
-        switch (type.currentTarget.value) {
-            case 'next':
-                if (shuffle) {
-                    if (!indexArray.length || indexArray.length >= 1) {
-                        setIndexArray(prevArray => [...prevArray, currentIndex])
-                        setCurrentIndex(getRandomIndex)
-                    }
-                } else {
-                    setIndexArray([])
-                    setCurrentIndex(currentIndex < genderedWordArray.length - 1 ? currentIndex + 1 : 0)
+    const fillFlashCardArray = (wordArray: Word[]) => {
+        const newFlashCardArray: FlashCard[] = []
+
+        wordArray.forEach((word, index) => {
+            const { front, back } = createFrontandBackHTML(word)
+            const newFlashCard: FlashCard = {
+                id: index,
+                frontHTML: front,
+                backHTML: back
+            }
+            newFlashCardArray.push(newFlashCard)
+        })
+        setFlashCardArray(newFlashCardArray)
+        setFetchingData(false)
+    }
+
+    const createFrontandBackHTML = (currentWord: Word) => {
+        const front = (
+            <div className="container h-100 justify-content-center pt-2">
+                <div className="row justify-content-end">
+                    <div className="col-2">
+                        <img src={france} id="flashcard-icon" alt="French Flag" />
+                    </div>
+                </div>
+                <div className="row pt-5">
+                    <div className="col">
+                        {currentWord.Word}
+                    </div>
+                </div>
+                {currentWord.Plural.length > 4 &&
+                    <div className="row pt-2">
+                        <div className="col">
+                            {currentWord.Plural}
+                        </div>
+                    </div>
                 }
-                break
-            case 'prev':
-                if (shuffle) {
-                    if (!indexArray.length || indexArray[indexArray.length - 1] === 0) {
-                        setShuffle(!shuffle)
-                    } else {
-                        setCurrentIndex(indexArray[indexArray.length - 1])
-                        removeFromIndexArray()
-                    }
-                } else {
-                    setIndexArray([])
-                    setCurrentIndex(currentIndex > 0 ? currentIndex - 1 : genderedWordArray.length - 1)
+                <div className="row pt-5">
+                    <div className="col fst-italic fs-4">
+                        {currentWord.GrammarTerm}
+                    </div>
+                </div>
+
+            </div>)
+
+        const back = (
+            <div className="container h-100 justify-content-center pt-2">
+                <div className="row justify-content-end">
+                    <div className="col-2">
+                        <img src={unitedstates} id="flashcard-icon" alt="United States Flag" />
+                    </div>
+                </div>
+                {currentWord.Definitions.map((def, index) => {
+                    return (
+                        <div className="row pt-4" key={index}>
+                            <div className="col">
+                                {def.Definition} <span className="fst-italic fs-4">{getDefinitionGender(def)}</span>
+                            </div>
+                        </div>
+                    )
+                })}
+            </div>)
+
+        return { front: front, back: back }
+    }
+
+    const getDefinitionGender = (def: DefinitionObject) => {
+        if (def.Gender === '') {
+            return def.Gender
+        }
+        return def.Gender === 'Masculine' ? ' (m)' : ' (f)'
+    }
+
+    const handleCardChange = (id: number) => {
+        setCurrentWord(userWordArrayWithGender[id])
+        console.log(currentWord)
+    }
+
+
+    const fetchUserWordGroups = (username: string) => {
+        setFetchingData(true)
+        fetch('http://localhost:5000/users/groups/' + username, {
+            method: "GET",
+            headers: { 'content-type': 'application/json' }
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    console.error(response)
+                    return
                 }
-                break
-            case 'flip':
-                setFlip(!flip)
-                break
-            case 'shuffle':
-                setShuffle(!shuffle)
-                break
-            default:
-                break
+                return response.json()
+            })
+            .then((data) => {
+                setWordGroups(data.groups)
+                setFetchingData(false)
+            })
+    }
+
+    const returnSpecificWordGroupOrAll = (e: React.MouseEvent<HTMLButtonElement> | string) => {
+        if (typeof e === 'string') {
+            return e
+        }
+        return e.currentTarget.name
+    }
+
+    const handleFetchWordArray = (e: React.MouseEvent<HTMLButtonElement> | string) => {
+        if (wordGroups) {
+            const chosenGroup = returnSpecificWordGroupOrAll(e)
+            setFetchingData(true)
+
+            fetch('http://localhost:5000/users/database', {
+                method: "POST",
+                headers: {
+                    'content-type': 'application/json',
+                    'authorization': 'Bearer ' + userToken
+                },
+                body: JSON.stringify(wordGroups[chosenGroup])
+            })
+                .then((response) => {
+                    if (!response.ok) {
+                        console.error(response)
+                        return
+                    }
+                    return response.json()
+                })
+                .then((data) => {
+                    setUserWordArrayWithGender(setGenderArticles(data.wordArray))
+                })
         }
     }
 
-    const handleTypeClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-        if (event.currentTarget.value === 'all') {
-            setCurrentIndex(0)
-            setIndexArray([])
-            fetchAllData()
-        } else {
-            setCurrentIndex(0)
-            setIndexArray([])
-            fetchTypeData(event.currentTarget.value)
-        }
-    }
-
-    const removeFromIndexArray = () => {
-        const copyArr = [...indexArray]
-        copyArr.pop()
-        setIndexArray(copyArr)
-    }
 
     return (
-        (!genderedWordArray.length) ?
+        (fetchingData) ?
             <div className="container pt-5">
-                <Spinner color="light" topOfPage={true} size={''} />
+                <Spinner color="light" buttonSpinner={false} />
             </div>
-            : <div className="min-vh-100 text-center" style={{ paddingTop: "2%" }}>
-                <ReactCardFlip isFlipped={flip} flipDirection="horizontal">
-                    <WordFlashCardDisplayFront
-                        currentWord={genderedWordArray[currentIndex]}
-                        shuffle={shuffle}
-                        handleClick={handleClick}
-                        isMobile={isMobile} />
-                    <WordFlashCardDisplayBack
-                        currentWord={genderedWordArray[currentIndex]}
-                        shuffle={shuffle}
-                        handleClick={handleClick}
-                        isMobile={isMobile} />
-                </ReactCardFlip>
-                <div className="container text-center d-flex flex-column align-items-center justify-content-center">
-                    <div className="row text-white">
-                        <div className="col">
-                            {currentIndex + 1} / {wordArray.length}
-                        </div>
+            :
+            <div className="container text-white text-center pt-5">
+                <ToastContainer style={{ fontSize: '17px' }} />
+                <div className="row pt-5">
+                    <div className={`col d-flex justify-content-center ${isMobile ? 'p-0' : 'pt-5'}`}>
+                        <FlashcardArray cards={flashCardArray} onCardChange={handleCardChange} cycle={true} />
                     </div>
-                    <div className={`row row-cols-3 w-${isMobile ? '100' : '50'}`}>
-                        <div className="col">
-                            <button className="type-button w-100" value="all" onClick={handleTypeClick}>All</button>
-                        </div>
-                        <div className="col">
-                            <button className="type-button w-100" value="noun" onClick={handleTypeClick}>Nouns</button>
-                        </div>
-                        <div className="col">
-                            <button className="type-button w-100" value="adjective" onClick={handleTypeClick}>Adjectives</button>
-                        </div>
-                        <div className="col">
-                            <button className="type-button w-100" value="pronoun" onClick={handleTypeClick}>Pronouns</button>
-                        </div>
-                        <div className="col">
-                            <button className="type-button w-100" value="phrase" onClick={handleTypeClick}>Phrases</button>
-                        </div>
-                        <div className="col">
-                            <button className="type-button w-100" value="adverb" onClick={handleTypeClick}>Adverbs</button>
-                        </div>
-                    </div>
-                    <div className={`row row-cols-2 pb-5 w-${isMobile ? '100' : '50'}`}>
-                        <div className="col">
-                            <button className="type-button w-75" value="preposition" onClick={handleTypeClick}>Prepositions</button>
-                        </div>
-                        <div className="col">
-                            <button className="type-button w-75" value="exclamation" onClick={handleTypeClick}>Exclamations</button>
-                        </div>
+                </div>
+                <div className="container justify-content-center">
+                    <div className={`row ${isMobile ? 'w-100' : 'w-50'} pt-3 mx-auto`}>
+                        {wordGroups && Object.keys(wordGroups).map((group, index) => {
+                            return (
+                                <div className="col" key={index}>
+                                    <button
+                                        className="btn border border-2 border-dark rounded"
+                                        id="term-button" name={group}
+                                        onClick={handleFetchWordArray}>
+                                        {group.split(/(?=[A-Z])/).join(" ")}
+                                    </button>
+                                </div>
+                            )
+                        })}
                     </div>
                 </div>
             </div>
     )
-
 }

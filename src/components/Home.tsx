@@ -1,5 +1,5 @@
 import './layout.css'
-import { useState, useEffect, useContext } from 'react'
+import { useContext } from 'react'
 import { MobileContext } from '../pages/layout'
 import Card from './Card'
 import eiffeltower from '../images/eiffel.png'
@@ -25,10 +25,10 @@ export const Home = () => {
                         <Card imageSrc={eiffeltower} header={"Mots"} link={"mots"} />
                     </div>
                     <div className="col-sm">
-                        <Card imageSrc={pontdugard} header={"Verbes"} link={"verbes"} />
+                        <Card imageSrc={pontdugard} header={"Verbes"} link={""} />
                     </div>
                     <div className="col-sm">
-                        <Card imageSrc={louvre} header={"Recherche Rapide"} link={"recherche"} />
+                        <Card imageSrc={louvre} header={"Recherche Rapide"} link={""} />
                     </div>
                 </div>
             </div>

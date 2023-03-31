@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import FEConjugations from "./FEConjugations"
-import SpeechButton from "../SpeechButton"
+import { SpeechButton } from "../SpeechButton"
 import rightarrow from '../../images/icons/arrow-right-circle.svg'
 import leftarrow from '../../images/icons/arrow-left-circle.svg'
 import flipbutton from '../../images/icons/arrow-repeat.svg'

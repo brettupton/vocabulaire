@@ -1,12 +1,12 @@
 import { useNavigate } from "react-router-dom"
 
 
-export default function NoPage() {
+export const NoPage = () => {
 
     const navigate = useNavigate()
 
     return (
-        <div className="container text-center fs-3 text-white">
+        <div className="container text-center fs-3 text-white pt-5">
             <div className="row pt-5">
                 <div className="col">
                     Page not found

@@ -1,5 +1,5 @@
 import Alert from "../Alert"
-import Spinner from "../Spinner"
+import { Spinner } from "../Spinner"
 import FEConjugations from "./FEConjugations"
 
 export default function AddVerbDisplay(props) {
@@ -108,7 +108,7 @@ export default function AddVerbDisplay(props) {
                                     })}
                                     <button className="btn btn-primary mt-2" onClick={handleVerbSubmit} disabled={isSubmitting}>
                                         {isSubmitting ?
-                                            <Spinner color={'light'} topOfPage={false} size={'sm'} />
+                                            <Spinner color={'light'} buttonSpinner={true} size={'sm'} />
                                             : 'Soumettre'}
                                     </button>
                                 </div>

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import parse from 'html-react-parser'
-import Spinner from '../components/Spinner'
+import { Spinner } from '../components/Spinner'
 
 export default function SearchBar() {
 
@@ -155,7 +155,7 @@ export default function SearchBar() {
                         <div className="container bg-white rounded">
                             <div className="row">
                                 <div className="col">
-                                    <Spinner color="dark" topOfPage={false} size={'-sm'} />
+                                    <Spinner color="dark" buttonSpinner={false} size={'-sm'} />
                                 </div>
                             </div>
                         </div>
