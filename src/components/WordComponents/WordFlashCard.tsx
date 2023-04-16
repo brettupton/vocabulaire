@@ -38,7 +38,7 @@ export const WordFlashCard = () => {
     // if no user logged in, return all word groups logged under 'master'
     useEffect(() => {
         if (!user) {
-            toast.info('Inscrivez-vous pour créer vos propres groupes!', {
+            toast.info('Log in or sign up to view your own cards!', {
                 theme: 'dark',
                 position: 'top-center',
                 toastId: 'GenericGroups'

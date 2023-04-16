@@ -1,6 +1,6 @@
 import { UserRegister } from "components/UserComponents/UserRegister"
 
-export const Enregistrer = () => {
+export const Register = () => {
     return (
         <UserRegister />
     )

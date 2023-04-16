@@ -91,7 +91,7 @@ export const UserRegister = () => {
         const matchAttempt = e.currentTarget.value
 
         if (matchAttempt !== passwordInput) {
-            setPasswordMatchErrorText('Les mots de passe doivent correspondre')
+            setPasswordMatchErrorText('Passwords don\'t match')
             setPasswordMatched(false)
             return
         }
@@ -108,35 +108,35 @@ export const UserRegister = () => {
             </div>
             <div className="row pt-1">
                 <div className="col">
-                    Créer un nom d'utilisateur et un mot de passe
+                    Create a username and password below
                 </div>
             </div>
             <div className="row pt-5 justify-content-center">
                 <div className={`col-${isMobile ? '9' : '3'}`}>
                     <form onSubmit={handleRegisterUserSubmit} autoComplete="off">
                         <div className="form-group">
-                            <label htmlFor="username">Nom d'utilisateur</label>
+                            <label htmlFor="username">Username</label>
                             <input type="text"
                                 className="form-control"
                                 id="username"
                                 onChange={handleInputChange}
-                                placeholder="Nom d'utilisateur" />
+                                placeholder="Username" />
                         </div>
                         <div className="form-group pt-3">
-                            <label htmlFor="password">Mot de passe</label>
+                            <label htmlFor="password">Password</label>
                             <input type="text"
                                 className="form-control"
                                 id="password"
                                 onChange={handleInputChange}
                                 // Checks that a password has a minimum of 6 characters, at least 1 uppercase letter, 1 lowercase letter, and 1 number with no spaces 
                                 pattern="^((?=\S*?[A-Z])(?=\S*?[a-z])(?=\S*?[0-9]).{6,})\S$"
-                                title="Au moins six caractères, une majuscule, une minuscule et un chiffre"
-                                placeholder="Mot de passe"
+                                title="Password needs at least 6 characters, one uppercasse, one lowercase, and one number"
+                                placeholder="Password"
                                 required />
                         </div>
                         <div className="form-group pt-3">
-                            <label htmlFor="verify-pass">Vérifier le mot de passe</label>
-                            <input type="text" className="form-control" id="verify-pass" onBlur={handlePasswordMatch} placeholder="Vérifier" />
+                            <label htmlFor="verify-pass">Reenter Password</label>
+                            <input type="text" className="form-control" id="verify-pass" onBlur={handlePasswordMatch} placeholder="Password" />
                             <div className="row pt-1 fs-6 text-danger">
                                 <div className="col">
                                     <small>{passwordMatchErrorText}</small>
@@ -146,7 +146,7 @@ export const UserRegister = () => {
                         <button type="submit" className="btn border border-2 border-dark rounded mt-4" id="term-button" disabled={loadingSubmit}>
                             {loadingSubmit ?
                                 <Spinner color="light" buttonSpinner={true} />
-                                : 'Enregistrer'}
+                                : 'Register'}
                         </button>
                     </form>
                 </div>

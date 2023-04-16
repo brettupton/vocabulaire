@@ -1,6 +1,6 @@
 import { UserLogin } from "components/UserComponents/UserLogin";
 
-export const Connexion = () => {
+export const Login = () => {
     return (
         <UserLogin />
     )

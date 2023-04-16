@@ -26,12 +26,12 @@ export const UserLogout = () => {
         <div className="container min-vh-100 text-center text-white fs-5 pt-5">
             <div className="row pt-5 justify-content-center">
                 <div className="col">
-                    Voulez-vous vraiment vous déconnecter ?
+                    Do you really want to logout?
                 </div>
             </div>
             <div className="row justify-content-center pt-5">
                 <div className="col-2">
-                    <button className="btn btn-primary" onClick={handleLogout}>Oui</button>
+                    <button className="btn btn-primary" onClick={handleLogout}>Yes</button>
                 </div>
             </div>
         </div>

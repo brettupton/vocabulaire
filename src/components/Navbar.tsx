@@ -68,21 +68,21 @@ export const Navbar = () => {
                                 <img id="user-nav-icon" />
                             </div>
                             <div className="col">
-                                <Link to="/utilisateur/connexion" state={{ prevURL: location.pathname }} id='user-link'>
-                                    {user ? user : 'Connexion'}
+                                <Link to="/user/login" state={{ prevURL: location.pathname }} id='user-link'>
+                                    {user ? user : 'Login'}
                                 </Link>
                             </div>
                             {!user &&
                                 <div className="col">
-                                    <Link to="/utilisateur/enregistrer" id="user-link">
-                                        Enregistrer
+                                    <Link to="/user/register" id="user-link">
+                                        Register
                                     </Link>
                                 </div>
                             }
                             {user &&
                                 <div className="col">
-                                    <Link to="/utilisateur/déconnexion" state={{ prevURL: location.pathname }} id='user-link'>
-                                        Déconnexion
+                                    <Link to="/user/logout" state={{ prevURL: location.pathname }} id='user-link'>
+                                        Logout
                                     </Link>
                                 </div>
                             }

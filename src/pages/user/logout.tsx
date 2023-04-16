@@ -1,6 +1,6 @@
 import { UserLogout } from "components/UserComponents/UserLogout"
 
-export const Déconnexion = () => {
+export const Logout = () => {
     return (
         <UserLogout />
     )

@@ -27,7 +27,7 @@ export const Layout = () => {
   const userToken = Cookies.get('token')
 
   useEffect(() => {
-    fetch('http://localhost:5000/token/validate', {
+    fetch('https://vocabulairehost.onrender.com/token/validate', {
       method: "GET",
       headers: {
         'content-type': 'application/json',

@@ -86,7 +86,7 @@ export const UserLogin = () => {
             <ToastContainer style={{ fontSize: '17px' }} />
             <div className="row pt-5">
                 <div className="col">
-                    Content de te revoir
+                    Welcome back
                 </div>
             </div>
             <div className="row pt-4 justify-content-center">
@@ -121,7 +121,7 @@ export const UserLogin = () => {
             <div className="row pt-1 justify-content-center">
                 <div className="col-auto">
                     <Link to={"/utilisateur/enregistrer"}>
-                        <button className="btn border border-2 border-dark rounded mt-3" id="term-button">Enregistrer</button>
+                        <button className="btn border border-2 border-dark rounded mt-3" id="term-button">Register</button>
                     </Link>
                 </div>
             </div>

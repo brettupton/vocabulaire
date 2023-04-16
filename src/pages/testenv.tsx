@@ -76,6 +76,7 @@ export const TestEnv = () => {
                     console.error(response)
                     return
                 }
+                console.log('good')
             })
     }
 
