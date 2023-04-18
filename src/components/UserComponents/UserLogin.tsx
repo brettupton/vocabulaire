@@ -60,6 +60,7 @@ export const UserLogin = () => {
                         theme: 'dark',
                         position: 'top-center'
                     })
+                    setUserProfile(values => ({ ...values, password: "" }))
                     setLoadingSubmit(false)
                     setButtonDisabled(false)
                 }
@@ -120,7 +121,7 @@ export const UserLogin = () => {
             </div>
             <div className="row pt-1 justify-content-center">
                 <div className="col-auto">
-                    <Link to={"/utilisateur/enregistrer"}>
+                    <Link to={"/user/register"}>
                         <button className="btn border border-2 border-dark rounded mt-3" id="term-button">Register</button>
                     </Link>
                 </div>

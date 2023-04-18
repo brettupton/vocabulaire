@@ -24,7 +24,7 @@ export const Navbar = () => {
             <div className="container-fluid">
                 {isMobile
                     ?
-                    <Link to={{ pathname: `/utilisateur/${user ? 'déconnexion' : 'connexion'}` }}>
+                    <Link to={{ pathname: `/user/${user ? 'logout' : 'login'}` }}>
                         <img id="user-nav-icon" />
                     </Link>
                     :
@@ -44,7 +44,7 @@ export const Navbar = () => {
                 <div className={`${isNavCollapsed ? 'collapse' : ''} navbar-collapse text-end`} id="vocabNavbar">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <Link to="/" className="nav-link">Accueil</Link>
+                            <Link to="/" className="nav-link">Home</Link>
                         </li>
                         <li className="nav-item">
                             <Link to="/mots" className="nav-link">

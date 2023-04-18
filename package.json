@@ -17,6 +17,7 @@
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "bootstrap": "^5.2.3",
+    "dragula": "^3.7.3",
     "html-react-parser": "^3.0.8",
     "js-cookie": "^3.0.1",
     "mongodb": "^5.0.1",
